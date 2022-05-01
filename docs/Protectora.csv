@@ -1,0 +1,52 @@
+id,Nombre,Biblioteca de figuras,ID de página,Contenido por,Grupo,Origen de línea,Destino de la línea,Flecha de origen,Flecha de destino,Estado,Área de texto 1
+1,Documento,,,,,,,,,,Protectora
+2,Página,,,,,,,,,,Página 1
+3,Caso de uso,UML,2,,,,,,,,Login
+4,Actor,UML,2,,,,,,,,Admin
+5,Actor,UML,2,,,,,,,,Shelter
+6,Actor,UML,2,,,,,,,,User
+7,Caso de uso,UML,2,,,,,,,,Register
+8,Caso de uso,UML,2,,,,,,,,User Management
+9,Caso de uso,UML,2,,,,,,,,CRUD
+10,Caso de uso,UML,2,,,,,,,,Roler switch
+11,Caso de uso,UML,2,,,,,,,,Shelter Manager
+12,Caso de uso,UML,2,,,,,,,,CRUD
+13,Caso de uso,UML,2,,,,,,,,Animal Manager
+14,Caso de uso,UML,2,,,,,,,,Profile
+15,Caso de uso,UML,2,,,,,,,,Request History
+16,Caso de uso,UML,2,,,,,,,,Collab Management
+17,Caso de uso,UML,2,,,,,,,,Animal Management
+18,Caso de uso,UML,2,,,,,,,,Request History
+19,Caso de uso,UML,2,,,,,,,,Caso de uso
+20,Caso de uso,UML,2,,,,,,,,Profile
+21,Caso de uso,UML,2,,,,,,,,Animal Consultation
+22,Caso de uso,UML,2,,,,,,,,Shellter Consultation
+23,Caso de uso,UML,2,,,,,,,,Shellter Contact
+24,Caso de uso,UML,2,,,,,,,,Adoption
+25,Caso de uso,UML,2,,,,,,,,LogOut
+26,Línea,,2,,,4,25,Arrow,None,,
+27,Línea,,2,,,5,25,Arrow,None,,
+28,Línea,,2,,,4,3,Arrow,None,,INCLUDE
+29,Línea,,2,,,5,3,Arrow,None,,
+30,Línea,,2,,,6,28,Arrow,None,,
+31,Línea,,2,,,6,25,Arrow,None,,INCLUDE
+32,Línea,,2,,,5,25,Arrow,None,,INCLUDE
+33,Línea,,2,,,4,8,None,Arrow,,
+34,Línea,,2,,,4,17,None,Arrow,,
+35,Línea,,2,,,4,18,None,Arrow,,
+36,Línea,,2,,,4,11,None,Arrow,,
+37,Línea,,2,,,8,9,None,Arrow,,
+38,Línea,,2,,,8,10,None,Arrow,,
+39,Línea,,2,,,11,12,None,Arrow,,
+40,Línea,,2,,,5,13,None,Arrow,,
+41,Línea,,2,,,5,14,None,Arrow,,
+42,Línea,,2,,,5,19,None,Arrow,,
+43,Línea,,2,,,5,16,None,Arrow,,
+44,Línea,,2,,,5,15,None,Arrow,,
+45,Línea,,2,,,5,7,None,Arrow,,
+46,Línea,,2,,,6,7,None,Arrow,,
+47,Línea,,2,,,6,20,None,Arrow,,
+48,Línea,,2,,,6,21,None,Arrow,,
+49,Línea,,2,,,6,22,None,Arrow,,
+50,Línea,,2,,,6,23,None,Arrow,,
+51,Línea,,2,,,6,24,None,Arrow,,
