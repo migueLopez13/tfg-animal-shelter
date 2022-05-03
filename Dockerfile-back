@@ -1,0 +1,8 @@
+FROM node:14.17.0-alpine
+
+WORKDIR /backend
+COPY ./animal-shelter-back /backend
+
+RUN npm ci
+
+CMD [ "npm", "run", "start:dev" ]

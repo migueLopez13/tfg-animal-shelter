@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:latest
+    container_name: ${PROJECT_NAME}_POSTGRES
+    restart: unless-stopped
+    volumes: 
+      - db:/var/lib/postgresql/data
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    env_file:
+      - .env
+
+  nestjs:
+    container_name: ${PROJECT_NAME}_NESTJS
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: Dockerfile-back
+    working_dir: /backend
+    ports:
+      - ${NESTJS_PORT}:3000
+    env_file:
+          - .env
+    volumes:
+        - node_modules_back:/backend/node_modules
+        - ./animal-shelter-back:/backend
+    links:
+      - database
+    depends_on:
+      - database
+
+  angular:
+    container_name: ${PROJECT_NAME}_ANGULAR
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: Dockerfile-front
+    working_dir: /frontend
+    ports:
+      - ${ANGULAR_PORT}:3000
+    env_file:
+          - .env
+    volumes:
+        - node_modules_front:/frontend/node_modules
+        - ./animal-shelter-front:/frontend
+
+
+volumes:
+  db:
+  node_modules_back:
+  node_modules_front:
