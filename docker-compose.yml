@@ -30,8 +30,6 @@ services:
     volumes:
         - node_modules_back:/backend/node_modules
         - ./animal-shelter-back:/backend
-    links:
-      - database
     depends_on:
       - database
 
