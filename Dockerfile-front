@@ -1,8 +1,10 @@
-FROM node:14.17.0-alpine
+FROM node:16.15.0-alpine
 
 WORKDIR /frontend
 COPY ./animal-shelter-front /frontend
 
 RUN npm ci
+
+EXPOSE 4200
 
 CMD [ "npm", "run", "start" ]
