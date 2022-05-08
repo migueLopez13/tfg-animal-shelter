@@ -17,26 +17,26 @@ export class AdoptionsController {
 
   @Get()
   private find() {
-    return 'return all adoptions';
+    return this.adoptionsService.find();
   }
 
   @Get('id')
   private findOne(@Param('id') params) {
-    return "return adoption with this id";
+    return this.adoptionsService.findOne(params);
   }
 
   @Post()
   private insert(@Body(ValidationPipe) adoption: AdoptionDTO) {
-    return "add adoption";
+    return this.adoptionsService.insert(adoption);
   }
 
   @Put()
   private update(@Body(ValidationPipe) adoption: AdoptionDTO) {
-    return "update adoption";
+    return this.adoptionsService.update(adoption);
   }
 
   @Delete(':id')
   private delete(@Param('id') params) {
-    return "delete adoption";
+    return this.adoptionsService.delete(params);
   }
 }

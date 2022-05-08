@@ -6,9 +6,11 @@ export interface ShelterDTO {
   address: string;
   email: string;
   phone: string;
-  socialMedia: SocialMedia[]
+  /*   
+  socialMedia: SocialMedia[] 
   colaborators: string[];
-  animals: string[];
+  animals: string[]; 
+  */
 }
 
 export interface SocialMedia {

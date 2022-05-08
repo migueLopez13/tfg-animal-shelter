@@ -17,26 +17,26 @@ export class SheltersController {
 
   @Get()
   private find() {
-    return 'return all shelters';
+    return this.sheltersService.find();
   }
 
   @Get('id')
   private findOne(@Param('id') params) {
-    return "return shelter with this id";
+    return this.sheltersService.findOne(params);
   }
 
   @Post()
   private insert(@Body(ValidationPipe) shelter: ShelterDTO) {
-    return "add shelter";
+    return this.sheltersService.insert(shelter);
   }
 
   @Put()
   private update(@Body(ValidationPipe) shelter: ShelterDTO) {
-    return "update shelter";
+    return this.sheltersService.update(shelter);
   }
 
   @Delete(':id')
   private delete(@Param('id') params) {
-    return "delete shelter";
+    return this.sheltersService.delete(params);
   }
 }

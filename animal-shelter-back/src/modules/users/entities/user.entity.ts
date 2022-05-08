@@ -1,7 +1,43 @@
-import { Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  OneToMany,
+  PrimaryColumn,
+} from 'typeorm';
+import { UserDTO } from 'src/shared/domain/dto/user.dto';
 
-@Entity()
+@Entity('users')
 export class UserEntity {
-  @PrimaryGeneratedColumn()
+  @PrimaryColumn()
   id: string;
+
+  @Column()
+  name: string;
+
+  @Column()
+  surname: string;
+
+  @Column()
+  username: string;
+
+  @Column({ unique: true })
+  email: string;
+
+  @Column()
+  phone: string;
+
+
+  @Column()
+  address: string;
+
+  @Column()
+  postalCode: string;
+
+  @Column()
+  description: string;
+
+
+  constructor() {}
 }

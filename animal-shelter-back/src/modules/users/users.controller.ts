@@ -17,26 +17,26 @@ export class UsersController {
 
   @Get()
   private find() {
-    return 'return all users';
+    return this.usersService.find();
   }
 
   @Get('id')
   private findOne(@Param('id') params) {
-    return "return shelter with this id";
+    return this.usersService.findOne(params);
   }
 
   @Post()
   private insert(@Body(ValidationPipe) user: UserDTO) {
-    return "add user";
+    return this.usersService.insert(user);
   }
 
   @Put()
   private update(@Body(ValidationPipe) user: UserDTO) {
-    return "update user";
+    return this.usersService.update(user);
   }
 
   @Delete(':id')
   private delete(@Param('id') params) {
-    return "delete user";
+    return this.usersService.delete(params);
   }
 }

@@ -9,7 +9,7 @@ import {
   ValidationPipe 
 } from '@nestjs/common';
 import { AnimalDTO } from 'src/shared/domain/dto/animal.dto';
-import { AnimalsService } from './animasl.service';
+import { AnimalsService } from './animals.service';
 
 @Controller('animals')
 export class AnimalsController {
@@ -17,26 +17,26 @@ export class AnimalsController {
 
   @Get()
   private find() {
-    return 'return all animals';
+    return this.animalsService.find();
   }
 
   @Get('id')
   private findOne(@Param('id') params) {
-    return "return animal with this id";
+    return this.animalsService.findOne(params);
   }
 
   @Post()
   private insert(@Body(ValidationPipe) animal: AnimalDTO) {
-    return "add animal";
+    return this.animalsService.insert(animal);
   }
 
   @Put()
   private update(@Body(ValidationPipe) animal: AnimalDTO) {
-    return "update animal";
+    return this.animalsService.update(animal);
   }
 
   @Delete(':id')
   private delete(@Param('id') params) {
-    return "delete animal";
+    return this.animalsService.delete(params);
   }
 }

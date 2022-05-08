@@ -5,13 +5,9 @@ export interface AnimalDTO {
   gender: string;
   species: string;
   breed: string;
-  vaccinated: VaccineDTO[];
   size: string;
   dewormed: boolean;
-  adopted: boolean;
   arrivalDate: string;
-  images: string[];
-  shelterId: string;
 }
 
 export interface VaccineDTO {
