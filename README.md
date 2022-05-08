@@ -1,2 +1,8 @@
 # tfg-animal-shelter
-senior final project
+Animal Shelter Platform
+
+## RUN:
+
+> docker-compose up --build
+
+author: migueLopez13
