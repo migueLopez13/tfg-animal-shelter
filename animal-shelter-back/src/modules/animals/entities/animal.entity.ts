@@ -1,9 +1,4 @@
-import { AnimalDTO } from 'src/shared/domain/dto/animal.dto';
-import {
-  Column,
-  Entity,
-  PrimaryColumn
-} from 'typeorm';
+import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity('animals')
 export class AnimalEntity {

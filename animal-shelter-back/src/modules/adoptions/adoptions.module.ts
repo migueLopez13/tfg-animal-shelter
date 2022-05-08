@@ -8,6 +8,6 @@ import { AdoptionEntity } from './entities/adoption.entity';
 @Module({
   imports: [TypeOrmModule.forFeature([AdoptionEntity])],
   controllers: [AdoptionsController],
-  providers:[AdoptionsService, AdoptionsMapper]
+  providers: [AdoptionsService, AdoptionsMapper],
 })
 export class AdoptionsModule {}

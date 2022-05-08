@@ -12,7 +12,7 @@ import { UserEntity } from '../../users/entities/user.entity';
 import { ShelterEntity } from 'src/modules/shelters/entities/shelter.entity';
 import { AdoptionDTO } from 'src/shared/domain/dto/adoption.dto';
 
-@Entity()
+@Entity('adoptions')
 export class AdoptionEntity {
   @IsUUID()
   @IsNotEmpty()
