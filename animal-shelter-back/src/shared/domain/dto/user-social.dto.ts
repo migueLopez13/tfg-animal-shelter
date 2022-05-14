@@ -5,18 +5,18 @@ export class UserSocialDTO {
   id: string;
 
   @ApiProperty()
-  userEmail: string;
-
-  @ApiProperty()
   name: string;
 
   @ApiProperty()
   url: string;
 
-  constructor(id: string, userEmail: string, name: string, url: string) {
+  @ApiProperty()
+  userEmail: string;
+
+  constructor(id: string, name: string, url: string, userEmail: string) {
     this.id = id;
-    this.userEmail = userEmail;
     this.name = name;
     this.url = url;
+    this.userEmail = userEmail;
   }
 }

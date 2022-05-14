@@ -5,23 +5,23 @@ export class UserPhoneDTO {
   id: string;
 
   @ApiProperty()
-  userEmail: string;
-
-  @ApiProperty()
   countryCode: string;
 
   @ApiProperty()
   phone: string;
 
+  @ApiProperty()
+  userEmail: string;
+
   constructor(
     id: string,
-    userEmail: string,
     countryCode: string,
     phone: string,
+    userEmail: string,
   ) {
     this.id = id;
-    this.userEmail = userEmail;
     this.countryCode = countryCode;
     this.phone = phone;
+    this.userEmail = userEmail;
   }
 }

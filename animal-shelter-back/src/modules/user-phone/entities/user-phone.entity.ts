@@ -7,11 +7,24 @@ export class UserPhoneEntity {
   id: string;
 
   @ManyToOne(() => UserEntity, (user: UserEntity) => user.phone)
-  user: UserEntity;
+  @Column()
+  userEmail: string;
 
   @Column()
-  country_code: string;
+  countryCode: string;
 
   @Column()
   phone: string;
+
+  constructor(
+    id: string,
+    countryCode: string,
+    phone: string,
+    userEmail: string,
+  ) {
+    this.id = id;
+    this.countryCode = countryCode;
+    this.phone = phone;
+    this.userEmail = userEmail;
+  }
 }

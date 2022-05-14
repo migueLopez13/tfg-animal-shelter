@@ -1,21 +1,12 @@
-import { UserAddressEntity } from 'src/modules/user_address/entities/user_address.entity';
-import { UserPhoneEntity } from 'src/modules/user_phone/entities/user_phone.entity';
-import { UserRoleEntity } from 'src/modules/user_role/entities/user_role.entity';
-import { UserSocialEntity } from 'src/modules/user_social/entities/user_social.entity';
-import {
-  Column,
-  Entity,
-  OneToMany,
-  JoinTable,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { RoleEntity } from 'src/modules/role/entities/role.entity';
+import { UserAddressEntity } from 'src/modules/user-address/entities/user-address.entity';
+import { UserPhoneEntity } from 'src/modules/user-phone/entities/user-phone.entity';
+import { UserSocialEntity } from 'src/modules/user-social/entities/user-social.entity';
+import { Column, Entity, PrimaryColumn, OneToMany, JoinTable } from 'typeorm';
 
 @Entity('users')
 export class UserEntity {
-  @PrimaryGeneratedColumn()
-  id: string;
-
-  @Column({ unique: true })
+  @PrimaryColumn()
   email: string;
 
   @Column()
@@ -27,30 +18,31 @@ export class UserEntity {
   @Column()
   avatar: string;
 
-  @OneToMany(() => UserSocialEntity, (social) => social.user)
-  @JoinTable()
+  @OneToMany(() => UserSocialEntity, (social) => social.userEmail, {
+    cascade: ['insert', 'update', 'remove'],
+    eager: true,
+  })
   social: UserSocialEntity[];
 
-  @OneToMany(() => UserAddressEntity, (address) => address.user)
-  @JoinTable()
+  @OneToMany(() => UserAddressEntity, (address) => address.userEmail, {
+    cascade: ['insert', 'update', 'remove'],
+    eager: true,
+  })
   address: UserAddressEntity[];
 
-  @OneToMany(() => UserPhoneEntity, (phone) => phone.user)
-  @JoinTable()
+  @OneToMany(() => UserPhoneEntity, (phone) => phone.userEmail, {
+    cascade: ['insert', 'update', 'remove'],
+    eager: true,
+  })
   phone: UserPhoneEntity[];
 
-  @OneToMany(() => UserRoleEntity, (userRole) => userRole.user)
-  @JoinTable()
-  role: UserRoleEntity[];
+  @OneToMany(() => RoleEntity, (userRole) => userRole.userEmail, {
+    cascade: ['insert', 'update', 'remove'],
+    eager: true,
+  })
+  role: RoleEntity[];
 
-  constructor(
-    id: string,
-    email: string,
-    name: string,
-    surname: string,
-    avatar: string,
-  ) {
-    this.id = id;
+  constructor(email: string, name: string, surname: string, avatar: string) {
     this.email = email;
     this.name = name;
     this.surname = surname;

@@ -17,11 +17,12 @@ export class RoleService {
 
   findOne = (id: string) => this.rolesRepository.findOne(id);
 
-  insert = async (role: RoleDTO) =>
-    this.rolesRepository.insert(await this.mapper.dtoToEntity(role));
+  insert = async (role: RoleDTO) => {
+    return this.rolesRepository.insert(role);
+  };
 
   update = async (role: RoleDTO) =>
-    this.rolesRepository.update(role.id, await this.mapper.dtoToEntity(role));
+    this.rolesRepository.update(role.id, this.mapper.dtoToEntity(role));
 
   delete = async (id: string) => this.rolesRepository.delete(id);
 }

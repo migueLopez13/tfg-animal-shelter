@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserAddressEntity } from './entities/user_address.entity';
-import { UserAddressController } from './user_address.controller';
-import { UserAddressMapper } from './user_address.mapper';
-import { UserAddressService } from './user_address.service';
+import { UserAddressEntity } from './entities/user-address.entity';
+import { UserAddressController } from './user-address.controller';
+import { UserAddressMapper } from './user-address.mapper';
+import { UserAddressService } from './user-address.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([UserAddressEntity])],

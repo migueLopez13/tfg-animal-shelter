@@ -7,16 +7,17 @@ export class UserAddressEntity {
   id: string;
 
   @ManyToOne(() => UserEntity, (user: UserEntity) => user.address)
-  user: UserEntity;
+  @Column()
+  userEmail: string;
 
   @Column()
-  country_code: string;
+  countryCode: string;
 
   @Column()
-  state_code: string;
+  stateCode: string;
 
   @Column()
-  province_code: string;
+  provinceCode: string;
 
   @Column()
   zip: string;
@@ -26,19 +27,19 @@ export class UserAddressEntity {
 
   constructor(
     id: string,
-    user: UserEntity,
     countryCode: string,
     stateCode: string,
     provinceCode: string,
     zip: string,
     address: string,
+    userEmail: string,
   ) {
     this.id = id;
-    this.user = user;
-    this.country_code = countryCode;
-    this.state_code = stateCode;
-    this.province_code = provinceCode;
+    this.countryCode = countryCode;
+    this.stateCode = stateCode;
+    this.provinceCode = provinceCode;
     this.zip = zip;
     this.address = address;
+    this.userEmail = userEmail;
   }
 }

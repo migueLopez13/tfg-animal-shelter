@@ -9,8 +9,8 @@ import {
   ValidationPipe,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
-import { UserAddressDTO } from 'src/shared/domain/dto/user_address.dto';
-import { UserAddressService } from './user_address.service';
+import { UserAddressDTO } from 'src/shared/domain/dto/user-address.dto';
+import { UserAddressService } from './user-address.service';
 
 @ApiTags('user-address')
 @Controller('user-address')

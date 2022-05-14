@@ -5,9 +5,6 @@ export class UserAddressDTO {
   id: string;
 
   @ApiProperty()
-  userEmail: string;
-
-  @ApiProperty()
   countryCode: string;
 
   @ApiProperty()
@@ -22,21 +19,24 @@ export class UserAddressDTO {
   @ApiProperty()
   address: string;
 
+  @ApiProperty()
+  userEmail: string;
+
   constructor(
     id: string,
-    userEmail: string,
     countryCode: string,
     stateCode: string,
     provinceCode: string,
     zip: string,
     address: string,
+    userEmail: string,
   ) {
     this.id = id;
-    this.userEmail = userEmail;
     this.countryCode = countryCode;
     this.stateCode = stateCode;
     this.provinceCode = provinceCode;
     this.zip = zip;
     this.address = address;
+    this.userEmail = userEmail;
   }
 }

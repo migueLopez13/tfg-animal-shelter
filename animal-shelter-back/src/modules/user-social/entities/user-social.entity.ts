@@ -7,11 +7,19 @@ export class UserSocialEntity {
   id: string;
 
   @ManyToOne(() => UserEntity, (user: UserEntity) => user.social)
-  user: UserEntity;
+  @Column()
+  userEmail: string;
 
   @Column()
-  type: string;
+  name: string;
 
   @Column()
   url: string;
+
+  constructor(id: string, name: string, url: string, userEmail: string) {
+    this.id = id;
+    this.name = name;
+    this.url = url;
+    this.userEmail = userEmail;
+  }
 }
