@@ -1,19 +1,19 @@
 import {
   Controller,
-  Get, 
-  Post, 
-  Put, 
-  Delete, 
-  Body, 
-  Param, 
-  ValidationPipe 
+  Get,
+  Post,
+  Put,
+  Delete,
+  Body,
+  Param,
+  ValidationPipe,
 } from '@nestjs/common';
 import { ShelterDTO } from 'src/shared/domain/dto/shelter.dto';
-import { SheltersService } from './shelters.service';
+import { SheltersService } from './shelter.service';
 
 @Controller('shelter')
 export class SheltersController {
-  constructor(private readonly sheltersService: SheltersService) { }
+  constructor(private readonly sheltersService: SheltersService) {}
 
   @Get()
   private find() {

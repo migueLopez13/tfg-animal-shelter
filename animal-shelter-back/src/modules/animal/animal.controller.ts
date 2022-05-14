@@ -1,19 +1,19 @@
 import {
   Controller,
-  Get, 
-  Post, 
-  Put, 
-  Delete, 
-  Body, 
-  Param, 
-  ValidationPipe 
+  Get,
+  Post,
+  Put,
+  Delete,
+  Body,
+  Param,
+  ValidationPipe,
 } from '@nestjs/common';
 import { AnimalDTO } from 'src/shared/domain/dto/animal.dto';
-import { AnimalsService } from './animals.service';
+import { AnimalsService } from './animal.service';
 
 @Controller('animals')
 export class AnimalsController {
-  constructor(private readonly animalsService: AnimalsService) { }
+  constructor(private readonly animalsService: AnimalsService) {}
 
   @Get()
   private find() {

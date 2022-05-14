@@ -1,19 +1,19 @@
 import {
   Controller,
-  Get, 
-  Post, 
-  Put, 
-  Delete, 
-  Body, 
-  Param, 
-  ValidationPipe 
+  Get,
+  Post,
+  Put,
+  Delete,
+  Body,
+  Param,
+  ValidationPipe,
 } from '@nestjs/common';
 import { AdoptionDTO } from 'src/shared/domain/dto/adoption.dto';
-import { AdoptionsService } from './adoptions.service';
+import { AdoptionsService } from './adoption.service';
 
 @Controller('adoptions')
 export class AdoptionsController {
-  constructor(private readonly adoptionsService: AdoptionsService) { }
+  constructor(private readonly adoptionsService: AdoptionsService) {}
 
   @Get()
   private find() {
