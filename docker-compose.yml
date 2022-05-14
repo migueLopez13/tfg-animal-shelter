@@ -22,7 +22,7 @@ services:
       environment:
         - DATABASE_HOST=database
       ports:
-        - '80:8080'
+        - '8080:8080'
         - '443:8443'
       depends_on:
         - database

@@ -16,6 +16,7 @@ export class UsersService {
   find = () => this.usersRepository.find();
 
   findOne = (id: string) => this.usersRepository.findOne(id);
+  findByEmail = (email: string) => this.usersRepository.findOne({ email });
 
   insert = async (user: UserDTO) =>
     this.usersRepository.insert(await this.mapper.dtoToEntity(user));

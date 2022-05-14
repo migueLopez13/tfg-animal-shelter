@@ -10,7 +10,9 @@ import {
 } from '@nestjs/common';
 import { UserDTO } from 'src/shared/domain/dto/user.dto';
 import { UsersService } from './user.service';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('users')
 @Controller('users')
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
@@ -20,7 +22,7 @@ export class UsersController {
     return this.usersService.find();
   }
 
-  @Get('id')
+  @Get(':id')
   private findOne(@Param('id') params) {
     return this.usersService.findOne(params);
   }

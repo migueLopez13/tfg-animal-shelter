@@ -1,17 +1,22 @@
+import { UserAddressEntity } from 'src/modules/user_address/entities/user_address.entity';
+import { UserPhoneEntity } from 'src/modules/user_phone/entities/user_phone.entity';
+import { UserRoleEntity } from 'src/modules/user_role/entities/user_role.entity';
+import { UserSocialEntity } from 'src/modules/user_social/entities/user_social.entity';
 import {
   Column,
   Entity,
-  JoinTable,
-  ManyToMany,
   OneToMany,
-  PrimaryColumn,
+  JoinTable,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
-import { UserDTO } from 'src/shared/domain/dto/user.dto';
 
 @Entity('users')
 export class UserEntity {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: string;
+
+  @Column({ unique: true })
+  email: string;
 
   @Column()
   name: string;
@@ -20,24 +25,35 @@ export class UserEntity {
   surname: string;
 
   @Column()
-  username: string;
+  avatar: string;
 
-  @Column({ unique: true })
-  email: string;
+  @OneToMany(() => UserSocialEntity, (social) => social.user)
+  @JoinTable()
+  social: UserSocialEntity[];
 
-  @Column()
-  phone: string;
+  @OneToMany(() => UserAddressEntity, (address) => address.user)
+  @JoinTable()
+  address: UserAddressEntity[];
 
+  @OneToMany(() => UserPhoneEntity, (phone) => phone.user)
+  @JoinTable()
+  phone: UserPhoneEntity[];
 
-  @Column()
-  address: string;
+  @OneToMany(() => UserRoleEntity, (userRole) => userRole.user)
+  @JoinTable()
+  role: UserRoleEntity[];
 
-  @Column()
-  postalCode: string;
-
-  @Column()
-  description: string;
-
-
-  constructor() {}
+  constructor(
+    id: string,
+    email: string,
+    name: string,
+    surname: string,
+    avatar: string,
+  ) {
+    this.id = id;
+    this.email = email;
+    this.name = name;
+    this.surname = surname;
+    this.avatar = avatar;
+  }
 }
