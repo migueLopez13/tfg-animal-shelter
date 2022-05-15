@@ -1,6 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { ShelterEntity } from 'src/modules/shelter/entities/shelter.entity';
+import { ShelterDTO } from './shelter.dto';
 
-export class UserSocialDTO {
+export class ShelterSocialDTO {
   @ApiProperty()
   id: string;
 

@@ -3,11 +3,11 @@ import { RoleEntity } from './entities/role.entity';
 
 export class RolesMapper {
   constructor() {}
-  dtoToEntity({ id, name, userEmail }: RoleDTO): RoleEntity {
-    return new RoleEntity(id, name, userEmail);
+  dtoToEntity({ id, name }: RoleDTO): RoleEntity {
+    return new RoleEntity(id, name);
   }
 
-  entityToDto({ id, name, userEmail }: RoleEntity): RoleDTO {
-    return new RoleDTO(id, name, userEmail);
+  entityToDto({ id, name }: RoleEntity): RoleDTO {
+    return new RoleDTO(id, name);
   }
 }

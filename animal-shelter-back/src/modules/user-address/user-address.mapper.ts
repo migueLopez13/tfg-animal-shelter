@@ -11,7 +11,6 @@ export class UserAddressMapper {
       address.provinceCode,
       address.zip,
       address.address,
-      address.userEmail,
     );
   }
 
@@ -23,7 +22,6 @@ export class UserAddressMapper {
       address.provinceCode,
       address.zip,
       address.address,
-      address.userEmail,
     );
   }
 }

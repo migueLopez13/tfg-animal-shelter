@@ -10,18 +10,9 @@ export class UserPhoneDTO {
   @ApiProperty()
   phone: string;
 
-  @ApiProperty()
-  userEmail: string;
-
-  constructor(
-    id: string,
-    countryCode: string,
-    phone: string,
-    userEmail: string,
-  ) {
+  constructor(id: string, countryCode: string, phone: string) {
     this.id = id;
     this.countryCode = countryCode;
     this.phone = phone;
-    this.userEmail = userEmail;
   }
 }

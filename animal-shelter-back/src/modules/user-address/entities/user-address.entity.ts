@@ -1,14 +1,13 @@
 import { UserEntity } from 'src/modules/user/entities/user.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('users_address')
+@Entity('users-address')
 export class UserAddressEntity {
   @PrimaryGeneratedColumn()
   id: string;
 
   @ManyToOne(() => UserEntity, (user: UserEntity) => user.address)
-  @Column()
-  userEmail: string;
+  user: UserEntity;
 
   @Column()
   countryCode: string;
@@ -32,7 +31,6 @@ export class UserAddressEntity {
     provinceCode: string,
     zip: string,
     address: string,
-    userEmail: string,
   ) {
     this.id = id;
     this.countryCode = countryCode;
@@ -40,6 +38,5 @@ export class UserAddressEntity {
     this.provinceCode = provinceCode;
     this.zip = zip;
     this.address = address;
-    this.userEmail = userEmail;
   }
 }

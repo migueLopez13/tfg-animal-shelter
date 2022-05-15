@@ -18,34 +18,47 @@ export class UserEntity {
   @Column()
   avatar: string;
 
-  @OneToMany(() => UserSocialEntity, (social) => social.userEmail, {
+  @OneToMany(() => UserSocialEntity, (social) => social.user, {
     cascade: ['insert', 'update', 'remove'],
     eager: true,
   })
   social: UserSocialEntity[];
 
-  @OneToMany(() => UserAddressEntity, (address) => address.userEmail, {
+  @OneToMany(() => UserAddressEntity, (address) => address.user, {
     cascade: ['insert', 'update', 'remove'],
     eager: true,
   })
   address: UserAddressEntity[];
 
-  @OneToMany(() => UserPhoneEntity, (phone) => phone.userEmail, {
+  @OneToMany(() => UserPhoneEntity, (phone) => phone.user, {
     cascade: ['insert', 'update', 'remove'],
     eager: true,
   })
   phone: UserPhoneEntity[];
 
-  @OneToMany(() => RoleEntity, (userRole) => userRole.userEmail, {
+  @OneToMany(() => RoleEntity, (userRole) => userRole.user, {
     cascade: ['insert', 'update', 'remove'],
     eager: true,
   })
   role: RoleEntity[];
 
-  constructor(email: string, name: string, surname: string, avatar: string) {
+  constructor(
+    email: string,
+    name: string,
+    surname: string,
+    avatar: string,
+    social: UserSocialEntity[],
+    address: UserAddressEntity[],
+    phone: UserPhoneEntity[],
+    role: RoleEntity[],
+  ) {
     this.email = email;
     this.name = name;
     this.surname = surname;
     this.avatar = avatar;
+    this.social = social;
+    this.address = address;
+    this.phone = phone;
+    this.role = role;
   }
 }

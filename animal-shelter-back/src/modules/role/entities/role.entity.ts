@@ -7,15 +7,13 @@ export class RoleEntity {
   id: string;
 
   @ManyToOne(() => UserEntity, (user: UserEntity) => user.role)
-  @Column()
-  userEmail: string;
+  user: UserEntity;
 
   @Column()
   name: string;
 
-  constructor(id: string, name: string, userEmail: string) {
+  constructor(id: string, name: string) {
     this.id = id;
     this.name = name;
-    this.userEmail = userEmail;
   }
 }

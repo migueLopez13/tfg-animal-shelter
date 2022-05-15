@@ -1,13 +1,13 @@
-import { UserEntity } from 'src/modules/user/entities/user.entity';
+import { ShelterEntity } from 'src/modules/shelter/entities/shelter.entity';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('users-social')
-export class UserSocialEntity {
+@Entity('shelter-social')
+export class ShelterSocialEntity {
   @PrimaryGeneratedColumn()
   id: string;
 
-  @ManyToOne(() => UserEntity, (user: UserEntity) => user.social)
-  user: UserEntity;
+  @ManyToOne(() => ShelterEntity, (shelter) => shelter.social)
+  shelter: ShelterEntity;
 
   @Column()
   name: string;

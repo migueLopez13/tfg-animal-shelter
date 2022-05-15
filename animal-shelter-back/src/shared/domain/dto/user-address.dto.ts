@@ -19,9 +19,6 @@ export class UserAddressDTO {
   @ApiProperty()
   address: string;
 
-  @ApiProperty()
-  userEmail: string;
-
   constructor(
     id: string,
     countryCode: string,
@@ -29,7 +26,6 @@ export class UserAddressDTO {
     provinceCode: string,
     zip: string,
     address: string,
-    userEmail: string,
   ) {
     this.id = id;
     this.countryCode = countryCode;
@@ -37,6 +33,5 @@ export class UserAddressDTO {
     this.provinceCode = provinceCode;
     this.zip = zip;
     this.address = address;
-    this.userEmail = userEmail;
   }
 }

@@ -4,21 +4,25 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { UserDTO } from 'src/shared/domain/dto/user.dto';
 import { UserEntity } from './entities/user.entity';
 import { UsersMapper } from './user.mapper';
-import { UserAddressService } from '../user-address/user-address.service';
-import { UserSocialService } from '../user-social/user-social.service';
-import { UserPhoneService } from '../user-phone/user-phone.service';
-import { RoleService } from '../role/role.service';
+import { UserSocialEntity } from '../user-social/entities/user-social.entity';
+import { UserAddressEntity } from '../user-address/entities/user-address.entity';
+import { UserPhoneEntity } from '../user-phone/entities/user-phone.entity';
+import { RoleEntity } from '../role/entities/role.entity';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(UserEntity)
     private readonly usersRepository: Repository<UserEntity>,
+    @InjectRepository(UserSocialEntity)
+    private readonly socialRepository: Repository<UserSocialEntity>,
+    @InjectRepository(UserAddressEntity)
+    private readonly addressRepository: Repository<UserAddressEntity>,
+    @InjectRepository(UserPhoneEntity)
+    private readonly phoneRepository: Repository<UserPhoneEntity>,
+    @InjectRepository(RoleEntity)
+    private readonly roleRepository: Repository<RoleEntity>,
     private readonly mapper: UsersMapper,
-    private readonly addressService: UserAddressService,
-    private readonly socialService: UserSocialService,
-    private readonly phoneService: UserPhoneService,
-    private readonly roleService: RoleService,
   ) {}
 
   find = () => this.usersRepository.find();
@@ -26,70 +30,55 @@ export class UsersService {
   findOne = (email: string) => this.usersRepository.findOne(email);
 
   insert = async (user: UserDTO) => {
-    let response = {};
+    const userToAdd = this.mapper.dtoToEntity(user);
 
-    this.usersRepository
-      .insert(this.mapper.dtoToEntity(user))
-      .catch((data) => (response = data));
+    const result = this.usersRepository.insert(userToAdd);
 
-    user.social.map(async (social) => {
-      social.userEmail = user.email;
-      await this.socialService
-        .insert(social)
-        .catch((data) => (response = data));
+    userToAdd.social.map(async (social) => {
+      social.user = userToAdd;
+      return await this.socialRepository.insert(social);
     });
 
-    user.address.map(async (address) => {
-      address.userEmail = user.email;
-      await this.addressService
-        .insert(address)
-        .catch((data) => (response = data));
+    userToAdd.address.map(async (address) => {
+      address.user = userToAdd;
+      return await this.addressRepository.insert(address);
     });
 
-    user.phone.map(async (phone) => {
-      phone.userEmail = user.email;
-      await this.phoneService.insert(phone).catch((data) => (response = data));
+    userToAdd.phone.map(async (phone) => {
+      phone.user = userToAdd;
+      return await this.phoneRepository.insert(phone);
     });
 
-    user.role.map(async (role) => {
-      role.userEmail = user.email;
-      await this.roleService.insert(role).catch((data) => (response = data));
+    userToAdd.role.map(async (role) => {
+      role.user = userToAdd;
+      return await this.roleRepository.insert(role);
     });
 
-    return response;
+    return result;
   };
 
   update = async (user: UserDTO) =>
     this.usersRepository.update(user.email, this.mapper.dtoToEntity(user));
 
   delete = async (email: string) => {
-    let response = {};
-    const user = await this.usersRepository.findOne(email);
+    const userToDelete = await this.usersRepository.findOne(email);
 
-    user.social.map(async (social) => {
-      await this.socialService
-        .delete(social.id)
-        .catch((data) => (response = data));
-    });
+    userToDelete.social.map(
+      async (social) => await this.socialRepository.delete(social.id),
+    );
 
-    user.phone.map(async (phone) => {
-      await this.phoneService
-        .delete(phone.id)
-        .catch((data) => (response = data));
-    });
+    userToDelete.address.map(
+      async (address) => await this.addressRepository.delete(address.id),
+    );
 
-    user.address.map(async (address) => {
-      await this.addressService
-        .delete(address.id)
-        .catch((data) => (response = data));
-    });
+    userToDelete.phone.map(
+      async (phone) => await this.phoneRepository.delete(phone.id),
+    );
 
-    user.role.map(async (role) => {
-      await this.roleService.delete(role.id).catch((data) => (response = data));
-    });
+    userToDelete.role.map(
+      async (role) => await this.roleRepository.delete(role.id),
+    );
 
-    await this.usersRepository.delete(email).catch((data) => (response = data));
-
-    return response;
+    return this.usersRepository.delete(email);
   };
 }
