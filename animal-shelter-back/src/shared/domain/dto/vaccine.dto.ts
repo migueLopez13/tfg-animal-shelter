@@ -1,18 +1,14 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class ShelterSocialDTO {
+export class VaccineDTO {
   @ApiProperty()
   id: string;
 
   @ApiProperty()
   name: string;
 
-  @ApiProperty()
-  url: string;
-
-  constructor(id: string, name: string, url: string) {
+  constructor(id: string, name: string) {
     this.id = id;
     this.name = name;
-    this.url = url;
   }
 }

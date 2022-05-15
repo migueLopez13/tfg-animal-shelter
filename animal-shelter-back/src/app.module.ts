@@ -8,6 +8,9 @@ import { RoleModule } from './modules/role/role.module';
 import { ShelterModule } from './modules/shelter/shelter.module';
 import { ShelterMediaModule } from './modules/shelter-media/shelter-media.module';
 import { ShelterSocialModule } from './modules/shelter-social/shelter-social.module';
+import { AnimalModule } from './modules/animal/animal.module';
+import { AnimalMediaModule } from './modules/animal-media/animal-media.module';
+import { VaccineModule } from './modules/vaccine/vaccine.module';
 
 @Module({
   imports: [
@@ -20,6 +23,9 @@ import { ShelterSocialModule } from './modules/shelter-social/shelter-social.mod
     ShelterModule,
     ShelterMediaModule,
     ShelterSocialModule,
+    AnimalModule,
+    AnimalMediaModule,
+    VaccineModule,
   ],
 })
 export class AppModule {}

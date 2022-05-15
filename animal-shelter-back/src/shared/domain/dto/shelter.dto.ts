@@ -1,10 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { RoleDTO } from './role.dto';
 import { ShelterMediaDTO } from './shelter-media.dto';
 import { ShelterSocialDTO } from './shelter-social.dto';
-import { UserAddressDTO } from './user-address.dto';
-import { UserPhoneDTO } from './user-phone.dto';
-import { UserSocialDTO } from './user-social.dto';
 
 export class ShelterDTO {
   @ApiProperty()

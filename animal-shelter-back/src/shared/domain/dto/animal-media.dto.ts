@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class ShelterMediaDTO {
+export class AnimalMediaDTO {
   @ApiProperty()
   id: string;
 

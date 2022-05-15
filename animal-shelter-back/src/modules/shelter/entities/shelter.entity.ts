@@ -1,3 +1,4 @@
+import { AnimalEntity } from 'src/modules/animal/entities/animal.entity';
 import { ShelterMediaEntity } from 'src/modules/shelter-media/entities/shelter-media.entity';
 import { ShelterSocialEntity } from 'src/modules/shelter-social/entities/shelter-social.entity';
 import { Column, Entity, PrimaryColumn, OneToMany } from 'typeorm';
@@ -36,6 +37,12 @@ export class ShelterEntity {
     eager: true,
   })
   social: ShelterSocialEntity[];
+
+  @OneToMany(() => AnimalEntity, (animal) => animal.shelterEmail, {
+    cascade: ['insert', 'update', 'remove'],
+    eager: true,
+  })
+  animals: AnimalEntity[];
 
   constructor(
     email: string,

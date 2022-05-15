@@ -6,6 +6,9 @@ import { UserPhoneEntity } from 'src/modules/user-phone/entities/user-phone.enti
 import { ShelterEntity } from 'src/modules/shelter/entities/shelter.entity';
 import { ShelterMediaEntity } from 'src/modules/shelter-media/entities/shelter-media.entity';
 import { ShelterSocialEntity } from 'src/modules/shelter-social/entities/shelter-social.entity';
+import { AnimalEntity } from 'src/modules/animal/entities/animal.entity';
+import { AnimalMediaEntity } from 'src/modules/animal-media/entities/animal-media.entity';
+import { VaccineEntity } from 'src/modules/vaccine/entities/vaccine.entity';
 
 export const entities = [
   UserEntity,
@@ -16,6 +19,9 @@ export const entities = [
   ShelterEntity,
   ShelterSocialEntity,
   ShelterMediaEntity,
+  AnimalEntity,
+  AnimalMediaEntity,
+  VaccineEntity,
 ];
 
 export default entities;
