@@ -57,8 +57,43 @@ export class UsersService {
     return result;
   };
 
-  update = async (user: UserDTO) =>
-    this.usersRepository.update(user.email, this.mapper.dtoToEntity(user));
+  update = async (user: UserDTO) => {
+    const updatedUser = this.mapper.dtoToEntity(user);
+
+    updatedUser.social.map(async (social) => {
+      if (this.socialRepository.findOne(social.id)) {
+        this.socialRepository.update(social.id, social);
+      } else {
+        this.socialRepository.insert(social);
+      }
+    });
+
+    updatedUser.address.map(async (address) => {
+      if (this.addressRepository.findOne(address.id)) {
+        this.addressRepository.update(address.id, address);
+      } else {
+        this.addressRepository.insert(address);
+      }
+    });
+
+    updatedUser.phone.map(async (phone) => {
+      if (this.phoneRepository.findOne(phone.id)) {
+        this.phoneRepository.update(phone.id, phone);
+      } else {
+        this.phoneRepository.insert(phone);
+      }
+    });
+
+    updatedUser.role.map(async (role) => {
+      if (this.roleRepository.findOne(role.id)) {
+        this.roleRepository.update(role.id, role);
+      } else {
+        this.roleRepository.insert(role);
+      }
+    });
+
+    return this.usersRepository.update(user.email, updatedUser);
+  };
 
   delete = async (email: string) => {
     const userToDelete = await this.usersRepository.findOne(email);

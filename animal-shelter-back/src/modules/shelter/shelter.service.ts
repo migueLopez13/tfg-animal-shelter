@@ -41,11 +41,27 @@ export class ShelterService {
     return result;
   };
 
-  update = (shelter: ShelterDTO) =>
-    this.shelterRepository.update(
-      shelter.email,
-      this.mapper.dtoToEntity(shelter),
-    );
+  update = async (shelter: ShelterDTO) => {
+    const updatedShelter = this.mapper.dtoToEntity(shelter);
+
+    updatedShelter.social.map(async (social) => {
+      if (this.socialRepository.findOne(social.id)) {
+        this.socialRepository.update(social.id, social);
+      } else {
+        this.socialRepository.insert(social);
+      }
+    });
+
+    updatedShelter.media.map(async (media) => {
+      if (this.mediaRepository.findOne(media.id)) {
+        this.mediaRepository.update(media.id, media);
+      } else {
+        this.mediaRepository.insert(media);
+      }
+    });
+
+    return this.shelterRepository.update(shelter.email, updatedShelter);
+  };
 
   delete = async (email: string) => {
     const shelterToDelete = await this.shelterRepository.findOne(email);
