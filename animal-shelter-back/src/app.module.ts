@@ -11,6 +11,8 @@ import { ShelterSocialModule } from './modules/shelter-social/shelter-social.mod
 import { AnimalModule } from './modules/animal/animal.module';
 import { AnimalMediaModule } from './modules/animal-media/animal-media.module';
 import { VaccineModule } from './modules/vaccine/vaccine.module';
+import { AdoptionController } from './modules/adoption/adoption.controller';
+import { AdoptionModule } from './modules/adoption/adoption.module';
 
 @Module({
   imports: [
@@ -26,6 +28,8 @@ import { VaccineModule } from './modules/vaccine/vaccine.module';
     AnimalModule,
     AnimalMediaModule,
     VaccineModule,
+    AdoptionModule,
   ],
+  controllers: [AdoptionController],
 })
 export class AppModule {}
