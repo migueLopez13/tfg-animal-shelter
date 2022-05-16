@@ -9,7 +9,7 @@ Animal Shelter Platform
 ## Backend endpoints:
 
 ```text
-en localhost:8000/api puedes ver los diferentes endpoints
+swagger location: localhost:8000/api
 ```
 
 
