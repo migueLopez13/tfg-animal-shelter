@@ -4,7 +4,6 @@ import { ShelterMediaEntity } from '../shelter-media/entities/shelter-media.enti
 import { ShelterSocialEntity } from '../shelter-social/entities/shelter-social.entity';
 import { ShelterEntity } from './entities/shelter.entity';
 import { SheltersController } from './shelter.controller';
-import { ShelterMapper } from './shelter.mapper';
 import { ShelterService } from './shelter.service';
 
 @Module({
@@ -16,6 +15,6 @@ import { ShelterService } from './shelter.service';
     ]),
   ],
   controllers: [SheltersController],
-  providers: [ShelterService, ShelterMapper],
+  providers: [ShelterService],
 })
 export class ShelterModule {}
