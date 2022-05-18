@@ -35,12 +35,31 @@ services:
         dockerfile: Dockerfile-back
       working_dir: /backend
       ports:
-        - ${NESTJS_PORT}:8000
+        - 8000:8000
       env_file:
             - .env
       volumes:
           - node_modules_nestjs:/backend/node_modules
-          - ./animal-shelter-back:/backend
+          - ./animal-shelter-back/animal-shelter:/backend
+      depends_on:
+        - database
+      links:
+        - database
+
+    address-microservice:
+      container_name: ${PROJECT_NAME}_NESTJS_ADDRESS
+      restart: unless-stopped
+      build:
+        context: ./
+        dockerfile: Dockerfile-address
+      working_dir: /backend
+      ports:
+        - 8888:8888
+      env_file:
+            - .env
+      volumes:
+          - node_modules_nestjs:/backend/node_modules
+          - ./animal-shelter-back/address:/backend
       depends_on:
         - database
       links:
