@@ -8,9 +8,11 @@ import {
   Entity,
   OneToMany,
   ManyToOne,
+  ManyToMany,
   PrimaryGeneratedColumn,
   OneToOne,
-  BaseEntity
+  BaseEntity,
+  JoinTable
 } from 'typeorm';
 
 
@@ -20,7 +22,7 @@ export enum SizeEnum {
   BIG = 'big',
 }
 
-@Entity('animal')
+@Entity('animals')
 export class Animal extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: string;
@@ -55,25 +57,18 @@ export class Animal extends BaseEntity {
   @Column()
   arrivalDate: string;
 
-  @ManyToOne(() => Shelter, (shelter) => shelter.email)
-  @Column()
-  shelterEmail: string;
+  @ManyToOne(() => Shelter, (shelter) => shelter.animals)
+  shelter: Shelter;
 
-  @OneToMany(() => AnimalMedia, (media) => media.animal, {
-    cascade: ['insert', 'update', 'remove'],
-    eager: true,
-  })
+  @OneToMany(() => AnimalMedia, (media) => media.animal)
   media: AnimalMedia[];
 
-  @OneToMany(() => Vaccine, (vaccine) => vaccine.animal, {
-    cascade: ['insert', 'update', 'remove'],
-    eager: true,
-  })
+  @ManyToMany(() => Vaccine, (vaccine) => vaccine.animal)
+  @JoinTable()
   vaccine: Vaccine[];
 
   @OneToOne(
-    () => Adoption,
-    (adoption: Adoption) => adoption.animalId,
+    () => Adoption, (adoption) => adoption.animal,
   )
   adoption: Adoption;
 

@@ -15,7 +15,7 @@ import { AdoptionService } from './adoption.service';
 @ApiTags('adoptions')
 @Controller('adoptions')
 export class AdoptionsController {
-  constructor(private readonly adoptionsService: AdoptionService) {}
+  constructor(private readonly adoptionsService: AdoptionService) { }
 
   @Get()
   private find() {

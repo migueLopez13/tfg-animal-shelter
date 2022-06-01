@@ -5,29 +5,23 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
   BaseEntity,
+  JoinColumn
 } from 'typeorm';
 import { Animal } from './animal.entity';
 import { User } from './user.entity';
 
 
-@Entity('adoption')
+@Entity('adoptions')
 export class Adoption extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: string;
 
-  @ManyToOne(() => User, (user) => user.email, {
-    cascade: ['insert', 'update', 'remove'],
-    eager: true,
-  })
-  @Column()
-  userEmail: string;
+  @ManyToOne(() => User, (user) => user.adoptions)
+  user: User;
 
-  @OneToOne(() => Animal, (animal) => animal.id, {
-    cascade: ['insert', 'update', 'remove'],
-    eager: true,
-  })
-  @Column()
-  animalId: string;
+  @OneToOne(() => Animal, (animal) => animal.adoption)
+  @JoinColumn()
+  animal: Animal;
 
   @Column({ type: 'timestamp', nullable: false })
   date: Date;

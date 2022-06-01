@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryColumn, OneToMany, BaseEntity } from 'typeorm';
 import { Animal } from './animal.entity';
 import { ShelterSocial } from './shelter-social.entity';
 
-@Entity('shelter')
+@Entity('shelters')
 export class Shelter extends BaseEntity {
   @PrimaryColumn()
   email: string;
@@ -26,22 +26,13 @@ export class Shelter extends BaseEntity {
   @Column()
   address: string;
 
-  @OneToMany(() => ShelterMedia, (media) => media.shelter, {
-    cascade: ['insert', 'update', 'remove'],
-    eager: true,
-  })
+  @OneToMany(() => ShelterMedia, (media) => media.shelter)
   media: ShelterMedia[];
 
-  @OneToMany(() => ShelterSocial, (social) => social.shelter, {
-    cascade: ['insert', 'update', 'remove'],
-    eager: true,
-  })
+  @OneToMany(() => ShelterSocial, (social) => social.shelter)
   social: ShelterSocial[];
 
-  @OneToMany(() => Animal, (animal) => animal.shelterEmail, {
-    cascade: ['insert', 'update', 'remove'],
-    eager: true,
-  })
+  @OneToMany(() => Animal, (animal) => animal.shelter)
   animals: Animal[];
 
 }

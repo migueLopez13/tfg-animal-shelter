@@ -1,5 +1,5 @@
 
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
+import { Column, Entity, ManyToMany, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
 import { Animal } from './animal.entity';
 
 @Entity('vaccine')
@@ -7,7 +7,7 @@ export class Vaccine extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: string;
 
-  @ManyToOne(() => Animal, (animal) => animal.media)
+  @ManyToMany(() => Animal, (animal) => animal.vaccine)
   animal: Animal;
 
   @Column()
