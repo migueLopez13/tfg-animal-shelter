@@ -6,6 +6,14 @@ Animal Shelter Platform
 ```bash
  docker-compose up
 ```
+
+## DATABASE SEEDING:
+
+```bash
+ docker-compose exec nestjs /bin/sh
+ npm run db:seed
+```
+
 ## Backend endpoints:
 
 ```text
