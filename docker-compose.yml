@@ -23,7 +23,6 @@ services:
         - DATABASE_HOST=database
       ports:
         - '8080:8080'
-        - '443:8443'
       depends_on:
         - database
 
@@ -58,7 +57,7 @@ services:
       env_file:
             - .env
       volumes:
-          - node_modules_nestjs:/backend/node_modules
+          - node_modules_address:/backend/node_modules
           - ./animal-shelter-back/address:/backend
       depends_on:
         - database
@@ -83,5 +82,6 @@ services:
 
 volumes:
   node_modules_nestjs:
+  node_modules_address:
   node_modules_angular:
   db:

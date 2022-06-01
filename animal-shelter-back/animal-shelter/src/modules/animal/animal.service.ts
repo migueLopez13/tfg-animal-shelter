@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { AnimalEntity } from './entities/animal.entity';
+import { Animal } from '../../shared/database/entities/animal.entity';
 
 @Injectable()
 export class AnimalService {
   constructor(
-    @InjectRepository(AnimalEntity)
-    private readonly animalRepository: Repository<AnimalEntity>,
-  ) {}
+    @InjectRepository(Animal)
+    private readonly animalRepository: Repository<Animal>,
+  ) { }
 
   find = () => this.animalRepository.find();
 

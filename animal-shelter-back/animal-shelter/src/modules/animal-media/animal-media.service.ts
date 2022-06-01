@@ -1,17 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { AnimalMediaEntity } from './entities/animal-media.entity';
-import { AnimalMediaMapper } from './animal-media.mapper';
+import { AnimalMedia } from '../../shared/database/entities/animal-media.entity';
 import { AnimalMediaDTO } from '../../shared/domain/dto/animal-media.dto';
 
 @Injectable()
 export class AnimalMediaService {
   constructor(
-    @InjectRepository(AnimalMediaEntity)
-    private readonly animalRepository: Repository<AnimalMediaEntity>,
-    private readonly mapper: AnimalMediaMapper,
-  ) {}
+    @InjectRepository(AnimalMedia)
+    private readonly animalRepository: Repository<AnimalMedia>,
+  ) { }
 
   find = () => this.animalRepository.find();
 
@@ -22,7 +20,7 @@ export class AnimalMediaService {
   };
 
   update = (media: AnimalMediaDTO) =>
-    this.animalRepository.update(media.id, this.mapper.dtoToEntity(media));
+    this.animalRepository.update(media.id, media);
 
   delete = (id: string) => this.animalRepository.delete(id);
 }

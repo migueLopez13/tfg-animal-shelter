@@ -1,16 +1,17 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AnimalMediaEntity } from '../animal-media/entities/animal-media.entity';
-import { VaccineEntity } from '../vaccine/entities/vaccine.entity';
+import { Vaccine } from 'src/shared/database/entities/vaccine.entity';
+import { AnimalMedia } from '../../shared/database/entities/animal-media.entity';
+import { Animal } from '../../shared/database/entities/animal.entity';
 import { AnimalsController } from './animal.controller';
 import { AnimalService } from './animal.service';
-import { AnimalEntity } from './entities/animal.entity';
+
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([AnimalEntity, AnimalMediaEntity, VaccineEntity]),
+    TypeOrmModule.forFeature([Animal, AnimalMedia, Vaccine]),
   ],
   controllers: [AnimalsController],
   providers: [AnimalService],
 })
-export class AnimalModule {}
+export class AnimalModule { }

@@ -1,17 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { RoleEntity } from './entities/role.entity';
-import { RoleDTO } from '../../shared/domain/dto/role.dto';
-import { RolesMapper } from './role.mapper';
+import { Role } from 'src/shared/database/entities/role.entity';
+import { RoleDTO } from 'src/shared/domain/dto/role.dto';
 
 @Injectable()
-export class RoleService {
+export class RolesService {
   constructor(
-    @InjectRepository(RoleEntity)
-    private readonly rolesRepository: Repository<RoleEntity>,
-    private readonly mapper: RolesMapper,
-  ) {}
+    @InjectRepository(Role)
+    private readonly rolesRepository: Repository<Role>,
+  ) { }
 
   find = () => this.rolesRepository.find();
 
@@ -22,7 +20,7 @@ export class RoleService {
   };
 
   update = async (role: RoleDTO) =>
-    this.rolesRepository.update(role.id, this.mapper.dtoToEntity(role));
+    this.rolesRepository.update(role.id, role);
 
   delete = async (id: string) => this.rolesRepository.delete(id);
 }

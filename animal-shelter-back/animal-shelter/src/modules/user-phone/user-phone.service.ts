@@ -1,17 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UserPhoneEntity } from './entities/user-phone.entity';
+import { UserPhone } from '../../shared/database/entities/user-phone.entity';
 import { UserPhoneDTO } from '../../shared/domain/dto/user-phone.dto';
-import { UserPhoneMapper } from './user-phone.mapper';
 
 @Injectable()
 export class UserPhoneService {
   constructor(
-    @InjectRepository(UserPhoneEntity)
-    private readonly phoneRepository: Repository<UserPhoneEntity>,
-    private readonly mapper: UserPhoneMapper,
-  ) {}
+    @InjectRepository(UserPhone)
+    private readonly phoneRepository: Repository<UserPhone>,
+  ) { }
 
   find = () => this.phoneRepository.find();
 
@@ -22,7 +20,7 @@ export class UserPhoneService {
   };
 
   update = (phone: UserPhoneDTO) =>
-    this.phoneRepository.update(phone.id, this.mapper.dtoToEntity(phone));
+    this.phoneRepository.update(phone.id, phone);
 
   delete = (id: string) => this.phoneRepository.delete(id);
 }

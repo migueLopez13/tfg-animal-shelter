@@ -1,17 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ShelterMediaEntity } from './entities/shelter-media.entity';
+import { ShelterMedia } from '../../shared/database/entities/shelter-media.entity';
 import { ShelterMediaDTO } from '../../shared/domain/dto/shelter-media.dto';
-import { ShelterMediaMapper } from './shelter-media.mapper';
 
 @Injectable()
 export class ShelterMediaService {
   constructor(
-    @InjectRepository(ShelterMediaEntity)
-    private readonly shelterRepository: Repository<ShelterMediaEntity>,
-    private readonly mapper: ShelterMediaMapper,
-  ) {}
+    @InjectRepository(ShelterMedia)
+    private readonly shelterRepository: Repository<ShelterMedia>,
+  ) { }
 
   find = () => this.shelterRepository.find();
 
@@ -22,7 +20,7 @@ export class ShelterMediaService {
   };
 
   update = (media: ShelterMediaDTO) =>
-    this.shelterRepository.update(media.id, this.mapper.dtoToEntity(media));
+    this.shelterRepository.update(media.id, media);
 
   delete = (id: string) => this.shelterRepository.delete(id);
 }

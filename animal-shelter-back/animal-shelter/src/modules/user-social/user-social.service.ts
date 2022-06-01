@@ -1,17 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UserSocialEntity } from './entities/user-social.entity';
+import { UserSocial } from '../../shared/database/entities/user-social.entity';
 import { UserSocialDTO } from '../../shared/domain/dto/user-social.dto';
-import { UserSocialMapper } from './user-social.mapper';
+
 
 @Injectable()
 export class UserSocialService {
   constructor(
-    @InjectRepository(UserSocialEntity)
-    private readonly socialRepository: Repository<UserSocialEntity>,
-    private readonly mapper: UserSocialMapper,
-  ) {}
+    @InjectRepository(UserSocial)
+    private readonly socialRepository: Repository<UserSocial>,
+  ) { }
 
   find = () => this.socialRepository.find();
 
@@ -22,7 +21,7 @@ export class UserSocialService {
   };
 
   update = (social: UserSocialDTO) =>
-    this.socialRepository.update(social.id, this.mapper.dtoToEntity(social));
+    this.socialRepository.update(social.id, social);
 
   delete = (id: string) => this.socialRepository.delete(id);
 }

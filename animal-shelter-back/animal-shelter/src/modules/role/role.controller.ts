@@ -8,14 +8,15 @@ import {
   Param,
   ValidationPipe,
 } from '@nestjs/common';
-import { RoleDTO } from '../../shared/domain/dto/role.dto';
-import { RoleService } from './role.service';
+
 import { ApiTags } from '@nestjs/swagger';
+import { RoleDTO } from 'src/shared/domain/dto/role.dto';
+import { RolesService } from './role.service';
 
 @ApiTags('roles')
 @Controller('roles')
 export class RolesController {
-  constructor(private readonly roleService: RoleService) {}
+  constructor(private readonly roleService: RolesService) { }
 
   @Get()
   private find() {

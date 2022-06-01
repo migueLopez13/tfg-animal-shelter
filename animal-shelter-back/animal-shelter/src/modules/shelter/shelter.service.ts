@@ -1,15 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { ShelterEntity } from './entities/shelter.entity';
+import { Shelter } from '../../shared/database/entities/shelter.entity';
 import { ShelterDTO } from '../../shared/domain/dto/shelter.dto';
 
 @Injectable()
 export class ShelterService {
   constructor(
-    @InjectRepository(ShelterEntity)
-    private readonly shelterRepository: Repository<ShelterEntity>,
-  ) {}
+    @InjectRepository(Shelter)
+    private readonly shelterRepository: Repository<Shelter>,
+  ) { }
 
   find = () => this.shelterRepository.find();
 

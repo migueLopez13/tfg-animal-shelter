@@ -1,17 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UserAddressEntity } from './entities/user-address.entity';
+import { UserAddress } from '../../shared/database/entities/user-address.entity';
 import { UserAddressDTO } from '../../shared/domain/dto/user-address.dto';
-import { UserAddressMapper } from './user-address.mapper';
 
 @Injectable()
 export class UserAddressService {
   constructor(
-    @InjectRepository(UserAddressEntity)
-    private readonly addressRepository: Repository<UserAddressEntity>,
-    private readonly mapper: UserAddressMapper,
-  ) {}
+    @InjectRepository(UserAddress)
+    private readonly addressRepository: Repository<UserAddress>,
+  ) { }
 
   find = () => this.addressRepository.find();
 
@@ -22,7 +20,7 @@ export class UserAddressService {
   };
 
   update = (address: UserAddressDTO) =>
-    this.addressRepository.update(address.id, this.mapper.dtoToEntity(address));
+    this.addressRepository.update(address.id, address);
 
   delete = (id: string) => this.addressRepository.delete(id);
 }

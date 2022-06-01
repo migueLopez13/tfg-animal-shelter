@@ -1,13 +1,12 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ShelterSocialEntity } from './entities/shelter-social.entity';
+import { ShelterSocial } from '../../shared/database/entities/shelter-social.entity';
 import { ShelterSocialController } from './shelter-social.controller';
-import { ShelterSocialMapper } from './shelter-social.mapper';
 import { ShelterSocialService } from './shelter-social.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([ShelterSocialEntity])],
+  imports: [TypeOrmModule.forFeature([ShelterSocial])],
   controllers: [ShelterSocialController],
-  providers: [ShelterSocialService, ShelterSocialMapper],
+  providers: [ShelterSocialService],
 })
-export class ShelterSocialModule {}
+export class ShelterSocialModule { }

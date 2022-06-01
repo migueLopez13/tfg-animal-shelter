@@ -1,14 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { AdoptionsEntity } from './entities/adoption.entity';
+import { Adoption } from 'src/shared/database/entities/adoption.entity';
+
 
 @Injectable()
 export class AdoptionService {
   constructor(
-    @InjectRepository(AdoptionsEntity)
-    private readonly adoptionRepository: Repository<AdoptionsEntity>,
-  ) {}
+    @InjectRepository(Adoption)
+    private readonly adoptionRepository: Repository<Adoption>,
+  ) { }
 
   find = () => this.adoptionRepository.find();
 
@@ -27,3 +28,4 @@ export class AdoptionService {
     return this.adoptionRepository.remove(entity);
   };
 }
+

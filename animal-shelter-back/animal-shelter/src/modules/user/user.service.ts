@@ -2,14 +2,14 @@ import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserDTO } from '../../shared/domain/dto/user.dto';
-import { UserEntity } from './entities/user.entity';
+import { User } from '../../shared/database/entities/user.entity';
 
 @Injectable()
 export class UsersService {
   constructor(
-    @InjectRepository(UserEntity)
-    private readonly usersRepository: Repository<UserEntity>,
-  ) {}
+    @InjectRepository(User)
+    private readonly usersRepository: Repository<User>,
+  ) { }
 
   find = () => this.usersRepository.find();
 
