@@ -20,5 +20,5 @@ Animal Shelter Platform
 swagger location: localhost:8000/api
 ```
 
-
-author: migueLopez13
+## AUTHOR:
+ migueLopez13
