@@ -14,7 +14,7 @@ Animal Shelter Platform
  npm run db:seed
 ```
 
-## Backend endpoints:
+## SWAGGER:
 
 ```text
 swagger location: localhost:8000/api
