@@ -2,7 +2,7 @@ import { Adoption } from './adoption.entity';
 import { UserAddress } from './user-address.entity';
 import { UserPhone } from './user-phone.entity';
 import { UserSocial } from './user-social.entity';
-import { Column, Entity, PrimaryColumn, OneToMany, BaseEntity } from 'typeorm';
+import { Column, Entity, PrimaryColumn, OneToMany, ManyToMany, JoinTable, BaseEntity } from 'typeorm';
 import { Role } from './role.entity';
 
 @Entity('users')
@@ -28,7 +28,8 @@ export class User extends BaseEntity {
   @OneToMany(() => UserPhone, (phone) => phone.user)
   phone: UserPhone[];
 
-  @OneToMany(() => Role, (userRole) => userRole.user)
+  @ManyToMany(() => Role, (userRole) => userRole.user)
+  @JoinTable()
   role: Role[];
 
   @OneToMany(() => Adoption, (adoption) => adoption.user)

@@ -4,11 +4,11 @@ import { User } from '../../entities/user.entity';
 
 
 
-define(User, (gen: typeof Faker.faker) => {
+define(User, (faker: typeof Faker.faker) => {
   const user = new User();
-  user.name = gen.name.firstName()
-  user.surname = gen.name.lastName()
-  user.email = gen.internet.email(user.name, user.surname)
-  user.avatar = gen.internet.avatar()
+  user.name = faker.name.firstName()
+  user.surname = faker.name.lastName()
+  user.email = faker.internet.email(user.name, user.surname)
+  user.avatar = 'default-user.png'
   return user;
 });
