@@ -29,23 +29,4 @@ export class UserDTO {
   @ApiProperty()
   role: RoleDTO[];
 
-  constructor(
-    email: string,
-    name: string,
-    surname: string,
-    avatar: string,
-    social: UserSocialDTO[],
-    address: UserAddressDTO[],
-    phone: UserPhoneDTO[],
-    role: RoleDTO[],
-  ) {
-    this.email = email;
-    this.name = name;
-    this.surname = surname;
-    this.avatar = avatar;
-    this.social = social;
-    this.address = address;
-    this.phone = phone;
-    this.role = role;
-  }
 }

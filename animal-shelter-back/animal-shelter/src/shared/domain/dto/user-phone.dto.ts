@@ -10,9 +10,4 @@ export class UserPhoneDTO {
   @ApiProperty()
   phone: string;
 
-  constructor(id: string, countryCode: string, phone: string) {
-    this.id = id;
-    this.countryCode = countryCode;
-    this.phone = phone;
-  }
 }

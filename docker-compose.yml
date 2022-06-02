@@ -1,12 +1,12 @@
 version: '3.8'
 
 services:
-    database:
+    postgresql:
       image: postgres:latest
       container_name: ${PROJECT_NAME}_POSTGRES
       restart: unless-stopped
       volumes: 
-        - db:/var/lib/postgresql/data
+        - postgres:/var/lib/postgresql/data
       ports:
         - ${POSTGRES_PORT}:${POSTGRES_PORT}
       environment:
@@ -15,18 +15,35 @@ services:
         POSTGRES_DB: ${POSTGRES_DB}
       env_file:
         - .env
+    
+    mysql:
+      image: mysql
+      restart: unless-stopped
+      container_name: ${PROJECT_NAME}_MYSQL
+      environment:
+        MYSQL_DATABASE: ${MYSQL_DB}
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      ports:
+        - ${MYSQL_PORT}:${MYSQL_PORT}
+      volumes:
+        - mysql:/var/lib/mysql
+        - ./db/init.sql:/data/application/init.sql
+      env_file:
+          - .env  
 
     phppgadmin:
       image: docker.io/bitnami/phppgadmin:7
       container_name: ${PROJECT_NAME}_PHPPGADMIN
       environment:
-        - DATABASE_HOST=database
+        - DATABASE_HOST=postgresql
       ports:
-        - '8080:8080'
+        - ${ADMIN_PORT}:${ADMIN_PORT}
       depends_on:
-        - database
+        - postgresql
 
-    nestjs:
+    back:
       container_name: ${PROJECT_NAME}_NESTJS
       restart: unless-stopped
       build:
@@ -34,18 +51,18 @@ services:
         dockerfile: Dockerfile-back
       working_dir: /backend
       ports:
-        - 8000:8000
+        - ${BACK_PORT}:${BACK_PORT}
       env_file:
             - .env
       volumes:
           - node_modules_nestjs:/backend/node_modules
           - ./animal-shelter-back/animal-shelter:/backend
       depends_on:
-        - database
+        - postgresql
       links:
-        - database
+        - postgresql
 
-    address-microservice:
+    back-address:
       container_name: ${PROJECT_NAME}_NESTJS_ADDRESS
       restart: unless-stopped
       build:
@@ -53,18 +70,18 @@ services:
         dockerfile: Dockerfile-address
       working_dir: /backend
       ports:
-        - 8888:8888
+        - ${ADDRESS_PORT}:${ADDRESS_PORT}
       env_file:
             - .env
       volumes:
           - node_modules_address:/backend/node_modules
           - ./animal-shelter-back/address:/backend
       depends_on:
-        - database
+        - mysql
       links:
-        - database
+        - mysql
 
-    angular:
+    front:
       container_name: ${PROJECT_NAME}_ANGULAR
       restart: unless-stopped
       build:
@@ -79,9 +96,9 @@ services:
           - node_modules_angular:/frontend/node_modules
           - ./animal-shelter-front:/frontend
 
-
 volumes:
   node_modules_nestjs:
   node_modules_address:
   node_modules_angular:
-  db:
+  postgres:
+  mysql:

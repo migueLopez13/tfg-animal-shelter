@@ -107,8 +107,11 @@ export default class InitialDatabaseSeed implements Seeder {
           media.animal = animal
           return media
         }).create();
+      }
+
+      for (let i = 0; i < 5; i++) {
         await factory(Adoption)().map(async (adoption) => {
-          adoption.animal = animal
+          adoption.animal = animals[i]
           adoption.user = users[Math.floor(Math.random() * users.length)];
           return adoption
         }).create();

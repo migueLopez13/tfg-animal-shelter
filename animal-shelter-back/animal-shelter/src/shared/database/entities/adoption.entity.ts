@@ -16,10 +16,15 @@ export class Adoption extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: string;
 
-  @ManyToOne(() => User, (user) => user.adoptions)
+  @ManyToOne(() => User, (user) => user.adoptions, {
+    cascade: ["update"]
+  })
   user: User;
 
-  @OneToOne(() => Animal, (animal) => animal.adoption)
+  @OneToOne(() => Animal, (animal) => animal.adoption, {
+    eager: true,
+    cascade: ["update"]
+  })
   @JoinColumn()
   animal: Animal;
 

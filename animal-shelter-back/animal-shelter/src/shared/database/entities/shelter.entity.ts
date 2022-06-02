@@ -26,13 +26,24 @@ export class Shelter extends BaseEntity {
   @Column()
   address: string;
 
-  @OneToMany(() => ShelterMedia, (media) => media.shelter)
+  @OneToMany(() => ShelterMedia, (media) => media.shelter, {
+    eager: true,
+    cascade: ["insert", "update", "remove"],
+    nullable: true
+  })
   media: ShelterMedia[];
 
-  @OneToMany(() => ShelterSocial, (social) => social.shelter)
+  @OneToMany(() => ShelterSocial, (social) => social.shelter, {
+    eager: true,
+    cascade: ["insert", "update", "remove"],
+    nullable: true
+  })
   social: ShelterSocial[];
 
-  @OneToMany(() => Animal, (animal) => animal.shelter)
+  @OneToMany(() => Animal, (animal) => animal.shelter, {
+    eager: true,
+    cascade: ["insert", "update"]
+  })
   animals: Animal[];
 
 }

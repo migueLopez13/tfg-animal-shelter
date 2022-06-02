@@ -19,19 +19,4 @@ export class UserAddressDTO {
   @ApiProperty()
   address: string;
 
-  constructor(
-    id: string,
-    countryCode: string,
-    stateCode: string,
-    provinceCode: string,
-    zip: string,
-    address: string,
-  ) {
-    this.id = id;
-    this.countryCode = countryCode;
-    this.stateCode = stateCode;
-    this.provinceCode = provinceCode;
-    this.zip = zip;
-    this.address = address;
-  }
 }

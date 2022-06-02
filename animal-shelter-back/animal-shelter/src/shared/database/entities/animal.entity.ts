@@ -39,7 +39,7 @@ export class Animal extends BaseEntity {
   @Column()
   kind: string;
 
-  @Column()
+  @Column({ nullable: true })
   breed: string;
 
   @Column({
@@ -48,7 +48,7 @@ export class Animal extends BaseEntity {
   })
   size: string;
 
-  @Column()
+  @Column({ default: false })
   dewormed: boolean;
 
   @Column()
@@ -60,15 +60,23 @@ export class Animal extends BaseEntity {
   @ManyToOne(() => Shelter, (shelter) => shelter.animals)
   shelter: Shelter;
 
-  @OneToMany(() => AnimalMedia, (media) => media.animal)
+  @OneToMany(() => AnimalMedia, (media) => media.animal, {
+    eager: true,
+    cascade: ["insert", "update", "remove"],
+    nullable: true
+  })
   media: AnimalMedia[];
 
-  @ManyToMany(() => Vaccine, (vaccine) => vaccine.animal)
+  @ManyToMany(() => Vaccine, (vaccine) => vaccine.animal, {
+    eager: true,
+    cascade: ["insert"],
+    nullable: true
+  })
   @JoinTable()
   vaccine: Vaccine[];
 
   @OneToOne(
-    () => Adoption, (adoption) => adoption.animal,
+    () => Adoption, (adoption) => adoption.animal, { nullable: true }
   )
   adoption: Adoption;
 

@@ -19,19 +19,38 @@ export class User extends BaseEntity {
   @Column()
   avatar: string;
 
-  @OneToMany(() => UserSocial, (social) => social.user)
+  @OneToMany(() => UserSocial, (social) => social.user, {
+    eager: true,
+    cascade: ["insert", "update", "remove"],
+    nullable: true
+  })
   social: UserSocial[];
 
-  @OneToMany(() => UserAddress, (address) => address.user)
+  @OneToMany(() => UserAddress, (address) => address.user, {
+    eager: true,
+    cascade: ["insert", "update", "remove"],
+    nullable: true
+  })
   address: UserAddress[];
 
-  @OneToMany(() => UserPhone, (phone) => phone.user)
+  @OneToMany(() => UserPhone, (phone) => phone.user, {
+    eager: true,
+    cascade: ["insert", "update", "remove"],
+    nullable: true
+  })
   phone: UserPhone[];
 
-  @ManyToMany(() => Role, (userRole) => userRole.user)
+  @ManyToMany(() => Role, (userRole) => userRole.user, {
+    eager: true,
+    cascade: ["insert", "update", "remove"]
+  })
   @JoinTable()
   role: Role[];
 
-  @OneToMany(() => Adoption, (adoption) => adoption.user)
+  @OneToMany(() => Adoption, (adoption) => adoption.user, {
+    eager: true,
+    cascade: ["insert", "update", "remove"],
+    nullable: true
+  })
   adoptions: Adoption[];
 }
