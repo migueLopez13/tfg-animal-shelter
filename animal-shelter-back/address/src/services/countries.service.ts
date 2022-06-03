@@ -15,6 +15,7 @@ export class CountriesService {
   getCountries = () => this.countries.find()
 
 
-  getCountry = (id: string) => this.countries.findOne(id as FindOneOptions)
+  getCountry = (id: string) =>
+    this.countries.query(`select * from countries where id=${id};`)
 
 }

@@ -13,11 +13,14 @@ export class CitiesService {
   ) { }
 
   getCitiesByCountry =
-    (country_id: string) => this.cities.find({ country_id } as FindManyOptions)
+    (country_id: string) =>
+      this.cities.query(`select * from cities where country_id=${country_id};`)
 
   getCitiesByState =
-    (state_id: string) => this.cities.find({ state_id } as FindManyOptions)
+    (state_id: string) =>
+      this.cities.query(`select * from cities where state_id=${state_id};`)
 
-  getCity = (id: string) => this.cities.findOne(id as FindOneOptions)
+  getCity = (id: string) =>
+    this.cities.query(`select * from cities where id=${id};`)
 
 }

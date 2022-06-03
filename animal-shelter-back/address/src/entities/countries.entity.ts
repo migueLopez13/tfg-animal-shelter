@@ -21,31 +21,10 @@ export class Countries extends BaseEntity {
   phonecode: string;
 
   @Column()
-  currency: string;
-
-  @Column()
-  currency_name: string;
-
-  @Column()
-  currency_simbol: string;
-
-  @Column()
-  tld: string;
-
-  @Column()
-  native: string;
-
-  @Column()
   region: string;
 
   @Column()
   subregion: string;
-
-  @Column()
-  timezones: string;
-
-  @Column()
-  translation: string;
 
   @Column()
   latitude: string;

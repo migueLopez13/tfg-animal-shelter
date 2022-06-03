@@ -10,7 +10,7 @@ export class AddressController {
 
   @Get('countries')
   private findAllCountries() {
-    return this.address.getCountries;
+    return this.address.getCountries();
   }
 
   @Get('countries/:id')

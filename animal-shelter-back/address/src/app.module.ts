@@ -20,6 +20,7 @@ config()
       username: process.env.MYSQL_USER,
       password: process.env.MYSQL_PASSWORD,
       database: process.env.MYSQL_DB,
+      entities: [Cities, Countries, States],
       synchronize: false,
     }),
     TypeOrmModule.forFeature([Cities, Countries, States])

@@ -8,11 +8,11 @@ export class AddressService {
     @Inject('ADDRESS_SERVICE') private client: ClientProxy
   ) { }
 
-  getCountries = () => this.client.send({ cmd: 'countries' }, null)
+  getCountries = () => this.client.send({ cmd: 'countries' }, '')
 
   getCountry = (id: string) => this.client.send({ cmd: 'country' }, id)
 
-  getStates = () => this.client.send({ cmd: 'states' }, null)
+  getStates = () => this.client.send({ cmd: 'states' }, '')
 
   getStatesByCountry = (id: string) => this.client.send({ cmd: 'statesOfCountry' }, id)
 
