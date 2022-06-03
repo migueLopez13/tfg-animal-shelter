@@ -13,19 +13,10 @@ import { AnimalMediaModule } from './modules/animal-media/animal-media.module';
 import { VaccineModule } from './modules/vaccine/vaccine.module';
 import { AdoptionModule } from './modules/adoption/adoption.module';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import { AddressModule } from './modules/address/address.module';
 
 @Module({
   imports: [
-    ClientsModule.register([
-      {
-        name: 'ADDRESS_SERVICE',
-        transport: Transport.TCP,
-        options: {
-          host: '127.0.0.1',
-          port: 8888,
-        },
-      },
-    ]),
     DatabaseModule,
     UsersModule,
     UserSocialModule,
@@ -39,6 +30,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
     AnimalMediaModule,
     VaccineModule,
     AdoptionModule,
+    AddressModule,
   ],
   controllers: [],
 })
