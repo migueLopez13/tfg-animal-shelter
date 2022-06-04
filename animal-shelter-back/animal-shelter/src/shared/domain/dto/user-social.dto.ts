@@ -5,6 +5,9 @@ export class UserSocialDTO {
   id: string;
 
   @ApiProperty()
+  userEmail: string;
+
+  @ApiProperty()
   name: string;
 
   @ApiProperty()

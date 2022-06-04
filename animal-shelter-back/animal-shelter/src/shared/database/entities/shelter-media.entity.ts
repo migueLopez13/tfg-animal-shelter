@@ -11,6 +11,9 @@ export class ShelterMedia extends BaseEntity {
   shelter: Shelter;
 
   @Column()
+  shelterEmail: string;
+
+  @Column()
   type: string;
 
   @Column()

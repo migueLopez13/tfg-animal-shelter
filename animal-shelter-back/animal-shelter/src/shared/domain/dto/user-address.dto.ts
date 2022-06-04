@@ -5,6 +5,9 @@ export class UserAddressDTO {
   id: string;
 
   @ApiProperty()
+  userEmail: string;
+
+  @ApiProperty()
   countryCode: string;
 
   @ApiProperty()

@@ -11,6 +11,9 @@ export class ShelterSocial extends BaseEntity {
   shelter: Shelter;
 
   @Column()
+  shelterEmail: string;
+
+  @Column()
   name: string;
 
   @Column()

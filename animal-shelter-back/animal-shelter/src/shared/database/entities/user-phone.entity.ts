@@ -10,6 +10,9 @@ export class UserPhone extends BaseEntity {
   user: User;
 
   @Column()
+  userEmail: string;
+
+  @Column()
   countryCode: string;
 
   @Column()

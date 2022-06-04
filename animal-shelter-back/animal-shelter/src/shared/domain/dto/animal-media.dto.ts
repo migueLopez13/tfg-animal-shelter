@@ -5,6 +5,9 @@ export class AnimalMediaDTO {
   id: string;
 
   @ApiProperty()
+  animalId: string;
+
+  @ApiProperty()
   type: string;
 
   @ApiProperty()

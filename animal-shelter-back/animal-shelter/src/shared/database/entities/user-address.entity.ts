@@ -11,6 +11,9 @@ export class UserAddress extends BaseEntity {
   user: User;
 
   @Column()
+  userEmail: string;
+
+  @Column()
   countryCode: string;
 
   @Column()

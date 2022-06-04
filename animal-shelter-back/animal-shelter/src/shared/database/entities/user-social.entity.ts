@@ -10,6 +10,9 @@ export class UserSocial extends BaseEntity {
   user: User;
 
   @Column()
+  userEmail: string;
+
+  @Column()
   name: string;
 
   @Column()

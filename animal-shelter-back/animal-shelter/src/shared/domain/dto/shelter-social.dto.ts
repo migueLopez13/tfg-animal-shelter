@@ -5,6 +5,9 @@ export class ShelterSocialDTO {
   id: string;
 
   @ApiProperty()
+  shelterEmail: string;
+
+  @ApiProperty()
   name: string;
 
   @ApiProperty()

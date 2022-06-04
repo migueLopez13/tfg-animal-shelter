@@ -5,6 +5,9 @@ export class UserPhoneDTO {
   id: string;
 
   @ApiProperty()
+  userEmail: string;
+
+  @ApiProperty()
   countryCode: string;
 
   @ApiProperty()

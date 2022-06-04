@@ -5,6 +5,9 @@ export class ShelterMediaDTO {
   id: string;
 
   @ApiProperty()
+  shelterEmail: string;
+
+  @ApiProperty()
   type: string;
 
   @ApiProperty()
