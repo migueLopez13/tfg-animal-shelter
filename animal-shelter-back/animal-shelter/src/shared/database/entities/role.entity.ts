@@ -8,9 +8,9 @@ export class Role extends BaseEntity {
   id: string;
 
   @ManyToMany(() => User, (user: User) => user.role)
-  user: User;
+  users: User[];
 
-  @Column()
+  @Column({ unique: true })
   name: string;
 
 }

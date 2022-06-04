@@ -60,6 +60,9 @@ export class Animal extends BaseEntity {
   @ManyToOne(() => Shelter, (shelter) => shelter.animals)
   shelter: Shelter;
 
+  @Column()
+  shelterEmail: String
+
   @OneToMany(() => AnimalMedia, (media) => media.animal, {
     eager: true,
     cascade: ["insert", "update", "remove"],
@@ -69,7 +72,7 @@ export class Animal extends BaseEntity {
 
   @ManyToMany(() => Vaccine, (vaccine) => vaccine.animal, {
     eager: true,
-    cascade: ["insert"],
+    cascade: true,
     nullable: true
   })
   @JoinTable()
@@ -80,4 +83,6 @@ export class Animal extends BaseEntity {
   )
   adoption: Adoption;
 
+  @Column({ nullable: true })
+  adoptionId: string
 }

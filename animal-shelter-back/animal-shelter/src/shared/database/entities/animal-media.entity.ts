@@ -11,6 +11,9 @@ export class AnimalMedia extends BaseEntity {
   animal: Animal;
 
   @Column()
+  animalId: String
+
+  @Column()
   type: string;
 
   @Column()

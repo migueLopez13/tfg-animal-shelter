@@ -40,9 +40,9 @@ export class User extends BaseEntity {
   })
   phone: UserPhone[];
 
-  @ManyToMany(() => Role, (userRole) => userRole.user, {
+  @ManyToMany(() => Role, (userRole) => userRole.users, {
     eager: true,
-    cascade: ["insert", "update", "remove"]
+    cascade: true
   })
   @JoinTable()
   role: Role[];

@@ -8,8 +8,8 @@ export class Vaccine extends BaseEntity {
   id: string;
 
   @ManyToMany(() => Animal, (animal) => animal.vaccine)
-  animal: Animal;
+  animal: Animal[];
 
-  @Column()
+  @Column({ unique: true })
   name: string;
 }

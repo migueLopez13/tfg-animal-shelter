@@ -17,27 +17,19 @@ export default class InitialDatabaseSeed implements Seeder {
   public async run(factory: Factory, connection: Connection): Promise<void> {
 
     const shelters = await factory(Shelter)().createMany(10);
-    const vaccines = await factory(Vaccine)().createMany(10);
+    const users = await factory(User)().createMany(20);
 
-    await factory(Role)().map(async (role) => {
-      role.id = '1'
-      role.name = 'admin'
-      return role
+    await factory(Vaccine)().map(async (vaccine) => {
+      vaccine.name = 'polivalente'
+      vaccine.animal = []
+      return vaccine;
     }).create();
 
-    await factory(Role)().map(async (role) => {
-      role.id = '2'
-      role.name = 'user'
-      return role
+    await factory(Vaccine)().map(async (vaccine) => {
+      vaccine.name = 'rabia'
+      vaccine.animal = []
+      return vaccine;
     }).create();
-
-    const users = await factory(User)().map(async (user) => {
-      user.role = [
-        { id: '2', name: 'user' } as Role
-      ]
-      return user
-    }).createMany(20);
-
 
     for (const user of users) {
       await factory(UserAddress)().map(async (address) => {
@@ -60,10 +52,6 @@ export default class InitialDatabaseSeed implements Seeder {
       user.email = 'mlopari216@g.educaand.com'
       user.name = 'miguel'
       user.surname = 'lopez'
-      user.role = [
-        { id: '1', name: 'admin' } as Role,
-        { id: '2', name: 'user' } as Role
-      ]
       return user
     }).create();
 
@@ -82,6 +70,19 @@ export default class InitialDatabaseSeed implements Seeder {
       return social
     }).create();
 
+    await factory(Role)().map(async (role) => {
+      role.id = '1'
+      role.name = 'admin'
+      role.users = [admin]
+      return role
+    }).create();
+
+    await factory(Role)().map(async (role) => {
+      role.id = '2'
+      role.name = 'user'
+      role.users = [...users, admin]
+      return role
+    }).create();
 
     for (const shelter of shelters) {
       await factory(ShelterMedia)().map(async (media) => {
@@ -96,8 +97,6 @@ export default class InitialDatabaseSeed implements Seeder {
       const animals = await factory(Animal)()
         .map(async (animal) => {
           animal.shelter = shelter;
-          animal.vaccine = vaccines;
-
           return animal;
         })
         .createMany(30);
