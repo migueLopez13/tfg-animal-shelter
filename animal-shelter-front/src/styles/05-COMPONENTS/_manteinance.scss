@@ -12,10 +12,9 @@
       width: 300px;
     }
 
-    &--message {
-      font-size: 30px;
+    .message {
+      font-size: var(--text-2xl);
       font-family: Caveat;
-      font-weight: bolder;
     }
   } 
 }

@@ -6,12 +6,14 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { NavbarOptionsComponent } from './shared/components/navbar/components/navbar-options/navbar-options.component';
 import { StateModule } from './state/state.module';
 import { HttpClientModule } from '@angular/common/http';
+import { UserAvatarComponent } from './shared/components/user-avatar/user-avatar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    NavbarOptionsComponent
+    NavbarOptionsComponent,
+    UserAvatarComponent
   ],
   imports: [
     BrowserModule,
