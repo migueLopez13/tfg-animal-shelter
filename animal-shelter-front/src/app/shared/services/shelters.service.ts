@@ -22,27 +22,27 @@ export class SheltersService extends BaseService<Shelter> {
   }
 
   addMedia(media: ShelterMedia) {
-    this.shelterMediaRepository.save(media)
+    return this.shelterMediaRepository.save(media)
   }
 
   updateMedia(id: number, media: ShelterMedia) {
-    this.shelterMediaRepository.update(id, media)
+    return this.shelterMediaRepository.update(id, media)
   }
 
   removeMedia(id: number) {
-    this.shelterMediaRepository.delete(id)
+    return this.shelterMediaRepository.delete(id)
   }
 
   addSocial(social: ShelterSocial) {
-    this.shelterSocialRepository.save(social)
+    return this.shelterSocialRepository.save(social)
   }
 
   updateSocial(id: number, social: ShelterSocial) {
-    this.shelterSocialRepository.update(id, social)
+    return this.shelterSocialRepository.update(id, social)
   }
 
   removeSocial(id: number) {
-    this.shelterSocialRepository.delete(id)
+    return this.shelterSocialRepository.delete(id)
   }
 
 }

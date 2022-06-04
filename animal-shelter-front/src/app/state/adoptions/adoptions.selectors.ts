@@ -5,7 +5,7 @@ import { AppState } from '../interfaces/app.state.interface';
 
 const adoptionsFeature = ({ adoptions }: AppState) => adoptions;
 
-export const adoptionsSelectors = {
+export const AdoptionsSelectors = {
   selectAdoptions: createSelector(
     adoptionsFeature,
     ({ adoptions }: AdoptionState) => adoptions

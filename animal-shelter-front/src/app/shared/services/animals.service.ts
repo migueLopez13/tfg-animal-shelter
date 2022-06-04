@@ -17,13 +17,13 @@ export class AnimalsService extends BaseService<Animal> {
   }
 
   addMedia(media: AnimalMedia) {
-    this.animalMediaRepository.save(media)
+    return this.animalMediaRepository.save(media)
   }
   updateMedia(id: number, media: AnimalMedia) {
-    this.animalMediaRepository.update(id, media)
+    return this.animalMediaRepository.update(id, media)
   }
 
   removeAMedia(id: number) {
-    this.animalMediaRepository.delete(id)
+    return this.animalMediaRepository.delete(id)
   }
 }

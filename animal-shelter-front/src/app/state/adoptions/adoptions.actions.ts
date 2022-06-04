@@ -4,39 +4,39 @@ import { Adoption } from 'src/app/common/interfaces/adoption.interface';
 export const AdoptionsActions = {
 
   loadAdoptionsRequest: createAction(
-    '[Adoptions load] request',
+    '[Adoptions load] Request',
   ),
 
   loadAdoptionsSuccess: createAction(
-    '[Adoptions load] success',
+    '[Adoptions load] Success',
     props<{
       adoptions: Adoption[];
     }>()
   ),
 
   loadAdoptionsFailure: createAction(
-    '[Adoptions load] failure',
+    '[Adoptions load] Failure',
     props<{
       error: string;
     }>()
   ),
 
   loadAdoptionRequest: createAction(
-    '[Adoption load] request',
+    '[Adoption load] Request',
     props<{
       adoptionId: string;
     }>()
   ),
 
   loadAdoptionSuccess: createAction(
-    '[Adoption load] success',
+    '[Adoption load] Success',
     props<{
       adoption: Adoption;
     }>()
   ),
 
   loadAdoptionFailure: createAction(
-    '[Adoption load] failure',
+    '[Adoption load] Failure',
     props<{
       error: string;
     }>()

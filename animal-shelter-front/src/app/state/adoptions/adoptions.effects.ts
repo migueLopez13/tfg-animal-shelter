@@ -13,16 +13,16 @@ export class AdoptionsEffects {
 
   loadAdoptions$ = createEffect(() =>
     this.actions$.pipe(
-      ofType('[Adoptions load] request'),
+      ofType('[Adoptions load] Request'),
       switchMap(() =>
         this.adoptionsService.findAll().pipe(
           map((adoptions) => ({
-            type: '[Adoptions load] success',
+            type: '[Adoptions load] Success',
             adoptions,
           })),
           catchError((error) =>
             of({
-              type: '[Adoptions load] failure',
+              type: '[Adoptions load] Failure',
               error,
             })
           )
@@ -33,16 +33,16 @@ export class AdoptionsEffects {
 
   loadAdoption$ = createEffect(() =>
     this.actions$.pipe(
-      ofType('[Adoption load] request'),
+      ofType('[Adoption load] Request'),
       switchMap(({ adoptionId }) =>
         this.adoptionsService.find(adoptionId).pipe(
           map((adoption) => ({
-            type: '[Adoption load] success',
+            type: '[Adoption load] Success',
             adoption,
           })),
           catchError((error) =>
             of({
-              type: '[Adoption load] failure',
+              type: '[Adoption load] Failure',
               error,
             })
           )
@@ -53,16 +53,16 @@ export class AdoptionsEffects {
 
   addAdoption$ = createEffect(() =>
     this.actions$.pipe(
-      ofType('[Adoption add] request'),
+      ofType('[Adoption add] Request'),
       switchMap(({ adoption }) =>
         this.adoptionsService.add(adoption).pipe(
           map((adoption) => ({
-            type: '[Adoption add] success',
+            type: '[Adoption add] Success',
             adoption,
           })),
           catchError((error) =>
             of({
-              type: '[Adoption add] failure',
+              type: '[Adoption add] Failure',
               error,
             })
           )
@@ -73,16 +73,16 @@ export class AdoptionsEffects {
 
   removeAdoption$ = createEffect(() =>
     this.actions$.pipe(
-      ofType('[Adoption remove] request'),
+      ofType('[Adoption remove] Request'),
       switchMap(({ adoptionId }) =>
         this.adoptionsService.remove(adoptionId).pipe(
           map((adoption) => ({
-            type: '[Adoption remove] success',
+            type: '[Adoption remove] Success',
             adoption,
           })),
           catchError((error) =>
             of({
-              type: '[Adoption remove] failure',
+              type: '[Adoption remove] Failure',
               error,
             })
           )

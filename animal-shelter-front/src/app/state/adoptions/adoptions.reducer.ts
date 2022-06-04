@@ -1,5 +1,4 @@
 import { createReducer, on } from '@ngrx/store';
-import { Adoption } from 'src/app/common/interfaces/adoption.interface';
 import { AdoptionState } from '../interfaces/adoptions.state.interface';
 import { AdoptionsActions } from './adoptions.actions';
 

@@ -24,38 +24,38 @@ export class UsersService extends BaseService<User> {
   }
 
   addAddress(address: UserAddress) {
-    this.userAddressRepository.save(address)
+    return this.userAddressRepository.save(address)
   }
 
   updateAddress(id: number, address: UserAddress) {
-    this.userAddressRepository.update(id, address)
+    return this.userAddressRepository.update(id, address)
   }
 
   removeAddress(id: number) {
-    this.userAddressRepository.delete(id)
+    return this.userAddressRepository.delete(id)
   }
 
   addPhone(phone: UserPhone) {
-    this.userPhoneRepository.save(phone)
+    return this.userPhoneRepository.save(phone)
   }
 
   updatePhone(id: number, phone: UserPhone) {
-    this.userPhoneRepository.update(id, phone)
+    return this.userPhoneRepository.update(id, phone)
   }
 
   removePhone(id: number) {
-    this.userPhoneRepository.delete(id)
+    return this.userPhoneRepository.delete(id)
   }
 
   addSocial(social: UserSocial) {
-    this.userSocialRepository.save(social)
+    return this.userSocialRepository.save(social)
   }
 
   updateSocial(id: number, social: UserSocial) {
-    this.userSocialRepository.update(id, social)
+    return this.userSocialRepository.update(id, social)
   }
 
   removeSocial(id: number) {
-    this.userSocialRepository.delete(id)
+    return this.userSocialRepository.delete(id)
   }
 }
