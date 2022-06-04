@@ -1,0 +1,41 @@
+.navbar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 60px;
+  padding: 0px 100px;
+  background-color: var(--blue-dark-color);
+  &--logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--gold-color);
+    font-family: Catamaran;
+    font-weight: 600;
+    img{
+      position: relative;
+      width: 60px;
+      color: white;
+      filter:brightness(100);
+    }
+    .page-name{
+
+    }
+  }
+
+  &--options{
+    position: relative;
+    width: 70%;
+    height: 100%;
+  }
+
+  &--user{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 100px;
+  }
+}

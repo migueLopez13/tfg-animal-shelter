@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ManteinanceComponent } from './shared/components/manteinance/manteinance.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
+    component: ManteinanceComponent
+    /* loadChildren: () =>
       import('./modules/manteinance/manteinance.module').then(
         (m) => m.ManteinanceModule
-      ),
+      ), */
   },
 ];
 
@@ -15,4 +17,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

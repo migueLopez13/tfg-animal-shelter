@@ -21,12 +21,17 @@ export class Adoption extends BaseEntity {
   })
   user: User;
 
+  @Column()
+  userEmail: string;
+
   @OneToOne(() => Animal, (animal) => animal.adoption, {
-    eager: true,
     cascade: ["update"]
   })
   @JoinColumn()
   animal: Animal;
+
+  @Column()
+  animalId: string;
 
   @Column({ type: 'timestamp', nullable: false })
   date: Date;

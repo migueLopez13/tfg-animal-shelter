@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/state/interfaces/app.state.interface';
 
 @Component({
   selector: 'app-manteinance',
   templateUrl: './manteinance.component.html',
-  styleUrls: ['./manteinance.component.scss'],
 })
 export class ManteinanceComponent implements OnInit {
   message =
     'Página en mantenimiento, por favor intentelo de nuevo en unas horas';
 
-  constructor() {}
+  constructor(private readonly store: Store<AppState>) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 }
