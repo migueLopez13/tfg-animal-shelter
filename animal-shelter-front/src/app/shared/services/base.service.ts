@@ -16,6 +16,10 @@ export class BaseService<T> {
     return this.baseRepository.findOne(id)
   }
 
+  update(id: number, t: T) {
+    return this.baseRepository.update(id, t)
+  }
+
   add(t: T) {
     return this.baseRepository.save(t)
   }
