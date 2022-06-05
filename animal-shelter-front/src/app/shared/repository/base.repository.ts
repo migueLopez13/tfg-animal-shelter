@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http"
 import { Observable } from "rxjs";
 
 export class BaseRepository<T> {
-  private baseUrl = 'http://localhost:8000'
+  baseUrl = 'http://localhost:8000'
 
 
   constructor(protected _http: HttpClient, protected endpoint: string) {

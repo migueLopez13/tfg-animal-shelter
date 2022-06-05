@@ -1,10 +1,10 @@
 
 export interface UserAddress {
-  id: string;
+  id: number;
   countryCode: string;
   stateCode: string;
   provinceCode: string;
   zip: string;
   address: string;
-  userId: string;
+  userEmail: string;
 }

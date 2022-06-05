@@ -1,6 +1,6 @@
 export interface UserPhone {
-  id: string;
+  id: number;
   countryCode: string;
   phone: string;
-  userId: string;
+  userEmail: string;
 }

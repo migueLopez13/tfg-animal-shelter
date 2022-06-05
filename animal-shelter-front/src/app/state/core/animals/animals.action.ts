@@ -60,17 +60,17 @@ export const AnimalsActions = {
   ),
 
   updateAnimalRequest: createAction(
-    '[Animal add] Request',
+    '[Animal update] Request',
     props<{ animalId: number, animal: Animal }>()
   ),
 
   updateAnimalSuccess: createAction(
-    '[Animal add] Success',
+    '[Animal update] Success',
     props<{ animal: Animal }>()
   ),
 
   updateAnimalFailure: createAction(
-    '[Animal add] Failure',
+    '[Animal update] Failure',
     props<{ error: string }>()
   ),
 

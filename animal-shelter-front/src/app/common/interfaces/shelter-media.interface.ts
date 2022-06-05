@@ -1,6 +1,6 @@
 export interface ShelterMedia {
-  id: string;
+  id: number;
   type: string;
   url: string;
-  shelterId: string;
+  shelterEmail: string;
 }

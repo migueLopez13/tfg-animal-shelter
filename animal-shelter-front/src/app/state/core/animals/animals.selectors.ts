@@ -1,8 +1,7 @@
 
 import { createSelector } from '@ngrx/store';
-import { AdoptionState } from '../interfaces/adoptions.state.interface';
-import { AnimalsState } from '../interfaces/animals.state.interface';
-import { AppState } from '../interfaces/app.state.interface';
+import { AnimalsState } from '../../interfaces/animals.state.interface';
+import { AppState } from '../../interfaces/app.state.interface';
 
 const animalsFeature = ({ animals }: AppState) => animals;
 
@@ -22,7 +21,7 @@ export const AnimalsSelectors = {
     ({ error }: AnimalsState) => error
   ),
 
-  selectAnimalById: (animalId: string) =>
+  selectAnimalById: (animalId: number) =>
     createSelector(animalsFeature, ({ animals }) =>
       animals.find(({ id }) => id === animalId)
     ),

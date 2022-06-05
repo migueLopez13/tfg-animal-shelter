@@ -4,9 +4,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
 import { ROOT_EFFECTS, ROOT_REDUCERS } from './app.state';
 import { AppState } from './interfaces/app.state.interface';
-import { AdoptionsActions } from './adoptions/adoptions.actions';
+import { AdoptionsActions } from './core/adoptions/adoptions.actions';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { AnimalsActions } from './animals/animals.action';
+import { AnimalsActions } from './core/animals/animals.action';
+import { SheltersActions } from './core/shelters/shelters.action';
+import { UsersActions } from './core/users/users.action';
 
 
 
@@ -23,7 +25,8 @@ import { AnimalsActions } from './animals/animals.action';
       useFactory: (store: Store<AppState>) => {
         return () => {
           store.dispatch(AnimalsActions.loadAnimalsRequest());
-          /* store.dispatch(SheltersActions.loadSheltersRequest()); */
+          store.dispatch(SheltersActions.loadSheltersRequest());
+          store.dispatch(UsersActions.loadUsersRequest());
         };
       },
       multi: true,

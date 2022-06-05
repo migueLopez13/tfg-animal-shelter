@@ -2,7 +2,7 @@ import { AnimalMedia } from "./animal-media.interface";
 import { Vaccine } from "./vaccine.interface";
 
 export interface Animal {
-  id: string;
+  id: number;
   name: string;
   birthdate: string;
   gender: string;

@@ -1,6 +1,6 @@
 export interface AnimalMedia {
-  id: string;
+  id: number;
   type: string;
   url: string;
-  animalId: string
+  animalId: number
 }

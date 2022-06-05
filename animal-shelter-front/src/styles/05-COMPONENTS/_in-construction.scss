@@ -1,5 +1,4 @@
-.manteinance{
-  &--wrapper {
+.in-construction{
   margin: auto;
   width: max-content;
   height: max-content;
@@ -12,9 +11,8 @@
       width: 300px;
     }
 
-    .message {
+    &--message {
       font-size: var(--text-2xl);
       font-family: Caveat;
     }
-  } 
-}
+} 

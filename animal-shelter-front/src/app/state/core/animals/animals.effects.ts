@@ -36,9 +36,9 @@ export class AnimalsEffects {
       ofType('[Animal load] Request'),
       switchMap(({ animalId }) =>
         this.animalsService.find(animalId).pipe(
-          map((adoption) => ({
+          map((animal) => ({
             type: '[Animal load] Success',
-            adoption,
+            animal,
           })),
           catchError((error) =>
             of({

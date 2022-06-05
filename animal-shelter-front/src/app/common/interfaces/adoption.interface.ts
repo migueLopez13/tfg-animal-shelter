@@ -1,6 +1,6 @@
 export interface Adoption {
-  id: string;
+  id: number;
   userEmail: string;
-  animalId: string;
+  animalId: number;
   date: string;
 }

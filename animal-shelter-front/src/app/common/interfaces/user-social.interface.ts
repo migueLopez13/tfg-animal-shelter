@@ -1,6 +1,6 @@
 export interface UserSocial {
-  id: string;
+  id: number;
   name: string;
   url: string;
-  userId: string;
+  userEmail: string;
 }

@@ -1,7 +1,7 @@
 
 import { createSelector } from '@ngrx/store';
-import { AdoptionState } from '../interfaces/adoptions.state.interface';
-import { AppState } from '../interfaces/app.state.interface';
+import { AdoptionState } from '../../interfaces/adoptions.state.interface';
+import { AppState } from '../../interfaces/app.state.interface';
 
 const adoptionsFeature = ({ adoptions }: AppState) => adoptions;
 
@@ -21,7 +21,7 @@ export const AdoptionsSelectors = {
     ({ error }: AdoptionState) => error
   ),
 
-  selectAdoptionById: (adoptionId: string) =>
+  selectAdoptionById: (adoptionId: number) =>
     createSelector(adoptionsFeature, ({ adoptions }) =>
       adoptions.find(({ id }) => id === adoptionId)
     ),

@@ -1,6 +1,6 @@
 export interface ShelterSocial {
-  id: string;
+  id: number;
   name: string;
   url: string;
-  shelterId: string;
+  shelterEmail: string;
 }

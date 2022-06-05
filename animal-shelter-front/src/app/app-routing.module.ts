@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ManteinanceComponent } from './shared/components/manteinance/manteinance.component';
+import { InConstructionComponent } from './shared/components/in-construction/in-construction.component';
+
 
 const routes: Routes = [
   {
     path: '',
-    component: ManteinanceComponent
+    component: InConstructionComponent
     /* loadChildren: () =>
       import('./modules/manteinance/manteinance.module').then(
         (m) => m.ManteinanceModule

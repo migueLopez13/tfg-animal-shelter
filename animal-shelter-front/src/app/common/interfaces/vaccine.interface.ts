@@ -1,4 +1,4 @@
 export interface Vaccine {
-  id: string;
+  id: number;
   name: string;
 }

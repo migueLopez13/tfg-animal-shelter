@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { AdoptionState } from '../interfaces/adoptions.state.interface';
+import { AdoptionState } from '../../interfaces/adoptions.state.interface';
 import { AdoptionsActions } from './adoptions.actions';
 
 
