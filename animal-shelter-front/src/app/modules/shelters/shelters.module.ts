@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SheltersComponent } from './shelters.component';
+import { SheltersRouting } from './shelters-routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { SheltersComponent } from './shelters.component';
     SheltersComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    SheltersRouting
   ]
 })
 export class SheltersModule { }

@@ -1,31 +1,31 @@
-.navbar{
+.navbar {
   width: 100vw;
-  height: 7vh;
+  height: 70px;
   display: grid;
-  grid-template-columns: max-content 10fr 1fr ;
+  grid-template-columns: max-content 10fr 1fr;
   gap: 50px;
-
+  user-select: none;
   align-items: center;
   padding: 0px 50px;
   background-color: var(--blue-dark-color);
 
-  &--logo{
+  &--logo {
     display: flex;
     flex-direction: row;
     align-items: center;
-    img{
+    img {
       position: relative;
       width: 60px;
       max-height: inherit;
       color: white;
-      filter:brightness(100);
+      filter: brightness(100);
     }
-    .page-name{
-      @include secondaryTitle
+    .page-name {
+      @include secondaryTitle;
     }
   }
 
-  &--options{
+  &--options {
     @include secondaryTitle;
     position: relative;
     display: flex;
@@ -35,26 +35,26 @@
     align-items: center;
     color: white;
 
-    .option:hover{
+    .option:hover {
       cursor: pointer;
-      border-bottom: 2px solid var(--gold-color);
+      border-bottom: 3px solid var(--gold-color);
       text-shadow: 1px 1px 2px var(--gold-color);
-      .option-dropdown{
+      .option-dropdown {
         display: block;
       }
     }
 
-    .currentRoute{
-      border-bottom: 2px solid var(--gold-color);
+    .currentRoute {
+      border-bottom: 3px solid var(--gold-color);
       text-shadow: 1px 1px 2px var(--gold-color);
     }
 
-    .option-dropdown{
+    .option-dropdown {
       display: none;
     }
   }
 
-  &--user{
+  &--user {
     position: relative;
     width: 50px;
     height: 50px;

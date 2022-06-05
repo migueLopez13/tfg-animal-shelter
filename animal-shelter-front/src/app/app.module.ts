@@ -10,6 +10,12 @@ import { UserAvatarComponent } from './shared/components/user-avatar/user-avatar
 import { DropdownComponent } from './shared/components/dropdown/dropdown.component';
 import { CommonModule } from '@angular/common';
 import { DropdownItemComponent } from './shared/components/dropdown/dropdown-item/dropdown-item.component';
+import { CardComponent } from './shared/components/card/card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { BreadcrumbsComponent } from './shared/components/breadcrumbs/breadcrumbs.component';
+import { InConstructionComponent } from './shared/components/in-construction/in-construction.component';
+
 
 @NgModule({
   declarations: [
@@ -19,6 +25,9 @@ import { DropdownItemComponent } from './shared/components/dropdown/dropdown-ite
     UserAvatarComponent,
     DropdownComponent,
     DropdownItemComponent,
+    CardComponent,
+    InConstructionComponent,
+    BreadcrumbsComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +35,8 @@ import { DropdownItemComponent } from './shared/components/dropdown/dropdown-ite
     AppRoutingModule,
     HttpClientModule,
     StateModule,
+    BrowserAnimationsModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

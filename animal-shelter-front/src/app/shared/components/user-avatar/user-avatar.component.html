@@ -4,11 +4,13 @@
     class="avatar"
     src="userProfile.avatar"
     (click)="toRoute('profile')"
+    matTooltip="tooltipMessage"
   />
   <ng-template #defaultImage>
     <img
       class="avatar"
       src="../../../../assets/default-user.png"
+      matTooltip="{{ tooltipMessage }}"
       (click)="toRoute('login')"
     />
   </ng-template>

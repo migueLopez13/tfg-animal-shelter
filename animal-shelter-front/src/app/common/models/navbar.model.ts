@@ -24,7 +24,7 @@ export const navbarOptions: navbarOption[] = [
     route: 'shelters',
   },
   {
-    name: 'To collaborate',
+    name: 'Collaborate',
     route: 'collaborate',
   }
 ];

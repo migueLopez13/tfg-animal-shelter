@@ -1,16 +1,16 @@
-.dropdown{
+.dropdown {
   position: absolute;
-  bottom:-105px;
+  bottom: -104px;
   color: black;
   text-shadow: none;
   width: 100px;
   font-size: 400;
-  
+
   background-color: var(--secondary-color);
 
-  &--item{
+  &--item {
     padding: 10px;
-    &:hover{
+    &:hover {
       background-color: var(--gold-color);
       color: white;
     }

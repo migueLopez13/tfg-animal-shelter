@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AnimalsComponent } from './animals.component';
+import { AnimalsRouting } from './animals-routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { AnimalsComponent } from './animals.component';
     AnimalsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AnimalsRouting
   ]
 })
 export class AnimalsModule { }

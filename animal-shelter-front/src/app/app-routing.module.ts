@@ -5,44 +5,78 @@ import { InConstructionComponent } from './shared/components/in-construction/in-
 
 const routes: Routes = [
   {
-    path: '',
+    path: '*',
     component: InConstructionComponent
-    /* loadChildren: () =>
-      import('./modules/manteinance/manteinance.module').then(
-        (m) => m.ManteinanceModule
-      ), */
   },
   {
     path: 'home',
-    component: InConstructionComponent
+    data: {
+      breadcrumb: 'Home',
+    },
+    loadChildren: () =>
+      import('./modules/home/home.module').then(
+        (m) => m.HomeModule
+      ),
   },
   {
     path: 'animals',
-    component: InConstructionComponent
+    data: {
+      breadcrumb: 'Animals',
+    },
+    loadChildren: () =>
+      import('./modules/animals/animals.module').then(
+        (m) => m.AnimalsModule
+      ),
   },
   {
     path: 'shelters',
-    component: InConstructionComponent
+    data: {
+      breadcrumb: 'Shelters',
+    },
+    loadChildren: () =>
+      import('./modules/shelters/shelters.module').then(
+        (m) => m.SheltersModule
+      ),
   },
   {
     path: 'collaborate',
-    component: InConstructionComponent
+    data: {
+      breadcrumb: 'Collaborate',
+    },
+    loadChildren: () =>
+      import('./modules/collaborate/collaborate.module').then(
+        (m) => m.CollaborateModule
+      ),
   },
   {
     path: 'login',
-    component: InConstructionComponent
-  },
-  {
-    path: 'register',
-    component: InConstructionComponent
+    data: {
+      breadcrumb: 'Login',
+    },
+    loadChildren: () =>
+      import('./modules/login/login.module').then(
+        (m) => m.LoginModule
+      ),
   },
   {
     path: 'admin',
-    component: InConstructionComponent
+    data: {
+      breadcrumb: 'Admin',
+    },
+    loadChildren: () =>
+      import('./modules/admin/admin.module').then(
+        (m) => m.AdminModule
+      ),
   },
   {
     path: 'profile',
-    component: InConstructionComponent
+    data: {
+      breadcrumb: 'Profile',
+    },
+    loadChildren: () =>
+      import('./modules/profile/profile.module').then(
+        (m) => m.ProfileModule
+      ),
   }
 ];
 

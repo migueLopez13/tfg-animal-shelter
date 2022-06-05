@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-user-avatar',
   templateUrl: './user-avatar.component.html'
@@ -8,6 +7,7 @@ import { Router } from '@angular/router';
 export class UserAvatarComponent {
   hasImage = false
   userProfile = null
+  tooltipMessage = this.hasImage ? 'Profile' : 'Login'
 
   constructor(private readonly router: Router) { }
 
