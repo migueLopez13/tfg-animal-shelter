@@ -1,3 +1,15 @@
 <div class="navbar--options">
-  <div class="option" *ngFor="let  of ; index as i;"></div>
+  <div
+    class="option"
+    *ngFor="let option of options; index as i"
+    (click)="moveToRoute(option)"
+  >
+    {{ option.name }}
+    <dropdown
+      *ngIf="option.dropdownOptions"
+      class="option-dropdown"
+      [list]="option.dropdownOptions"
+    >
+    </dropdown>
+  </div>
 </div>

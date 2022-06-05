@@ -1,1 +1,15 @@
-<p>user-avatar works!</p>
+<div class="user-avatar">
+  <img
+    *ngIf="hasImage; else defaultImage"
+    class="avatar"
+    src="userProfile.avatar"
+    (click)="toRoute('profile')"
+  />
+  <ng-template #defaultImage>
+    <img
+      class="avatar"
+      src="../../../../assets/default-user.png"
+      (click)="toRoute('login')"
+    />
+  </ng-template>
+</div>

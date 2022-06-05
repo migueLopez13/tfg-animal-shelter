@@ -3,6 +3,7 @@
 @import './styles/00-SETTINGS/normalize';
 
 //01-TOOLS 
+@import './styles/01-TOOLS/mixins';
 
 //02-GENERIC 
 
@@ -13,5 +14,7 @@
 //05-COMPONENTS 
 @import './styles/05-COMPONENTS/navbar';
 @import './styles/05-COMPONENTS/in-construction';
+@import './styles/05-COMPONENTS/user-avatar';
+@import './styles/05-COMPONENTS/dropdown';
 
 //06-TRUMPS 

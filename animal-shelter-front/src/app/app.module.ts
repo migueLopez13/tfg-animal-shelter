@@ -7,16 +7,22 @@ import { NavbarOptionsComponent } from './shared/components/navbar/components/na
 import { StateModule } from './state/state.module';
 import { HttpClientModule } from '@angular/common/http';
 import { UserAvatarComponent } from './shared/components/user-avatar/user-avatar.component';
+import { DropdownComponent } from './shared/components/dropdown/dropdown.component';
+import { CommonModule } from '@angular/common';
+import { DropdownItemComponent } from './shared/components/dropdown/dropdown-item/dropdown-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     NavbarOptionsComponent,
-    UserAvatarComponent
+    UserAvatarComponent,
+    DropdownComponent,
+    DropdownItemComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
     StateModule,

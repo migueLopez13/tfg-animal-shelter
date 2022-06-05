@@ -1,8 +1,9 @@
 .navbar{
   width: 100vw;
-  height: 6vh;
+  height: 7vh;
   display: grid;
-  grid-template-columns: 3fr 10fr 1fr ;
+  grid-template-columns: max-content 10fr 1fr ;
+  gap: 50px;
 
   align-items: center;
   padding: 0px 50px;
@@ -15,18 +16,42 @@
     img{
       position: relative;
       width: 60px;
+      max-height: inherit;
       color: white;
       filter:brightness(100);
     }
     .page-name{
-      color: var(--gold-color);
-      font-family: CaviarDreams;
-      font-weight: 600;
+      @include secondaryTitle
     }
   }
 
   &--options{
+    @include secondaryTitle;
     position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+
+    .option:hover{
+      cursor: pointer;
+      border-bottom: 2px solid var(--gold-color);
+      text-shadow: 1px 1px 2px var(--gold-color);
+      .option-dropdown{
+        display: block;
+      }
+    }
+
+    .currentRoute{
+      border-bottom: 2px solid var(--gold-color);
+      text-shadow: 1px 1px 2px var(--gold-color);
+    }
+
+    .option-dropdown{
+      display: none;
+    }
   }
 
   &--user{

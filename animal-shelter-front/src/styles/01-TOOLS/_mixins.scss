@@ -1,0 +1,7 @@
+@mixin secondaryTitle {
+  color: var(--gold-color);
+  font-family: Catamaran;
+  font-weight: 600;
+  font-size: var(--text-xl);
+  inline-size: max-content;
+}

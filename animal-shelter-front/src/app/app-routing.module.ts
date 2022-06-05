@@ -12,6 +12,38 @@ const routes: Routes = [
         (m) => m.ManteinanceModule
       ), */
   },
+  {
+    path: 'home',
+    component: InConstructionComponent
+  },
+  {
+    path: 'animals',
+    component: InConstructionComponent
+  },
+  {
+    path: 'shelters',
+    component: InConstructionComponent
+  },
+  {
+    path: 'collaborate',
+    component: InConstructionComponent
+  },
+  {
+    path: 'login',
+    component: InConstructionComponent
+  },
+  {
+    path: 'register',
+    component: InConstructionComponent
+  },
+  {
+    path: 'admin',
+    component: InConstructionComponent
+  },
+  {
+    path: 'profile',
+    component: InConstructionComponent
+  }
 ];
 
 @NgModule({
