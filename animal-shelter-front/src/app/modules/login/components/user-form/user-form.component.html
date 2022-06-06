@@ -21,7 +21,7 @@
     >
       Please enter a valid name
     </mat-error>
-    <mat-error *ngIf="formGroup?.hasError('required')">
+    <mat-error *ngIf="formGroup.get('name')?.hasError('required')">
       Name is <strong>required</strong>
     </mat-error>
   </mat-form-field>
@@ -48,7 +48,7 @@
     >
       Please enter a valid surname
     </mat-error>
-    <mat-error *ngIf="formGroup?.hasError('required')">
+    <mat-error *ngIf="formGroup.get('surname')?.hasError('required')">
       Surname is <strong>required</strong>
     </mat-error>
   </mat-form-field>
