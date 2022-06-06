@@ -31,6 +31,26 @@ export class AnimalsEffects {
     )
   );
 
+  loadAnimalsByKind$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType('[AnimalsByKind load] Request'),
+      switchMap(({ kind }) =>
+        this.animalsService.getAnimalsByKind(kind).pipe(
+          map((animals) => ({
+            type: '[AnimalsByKind load] Success',
+            animals,
+          })),
+          catchError((error) =>
+            of({
+              type: '[AnimalsByKind load] Failure',
+              error,
+            })
+          )
+        )
+      )
+    )
+  );
+
   loadAnimal$ = createEffect(() =>
     this.actions$.pipe(
       ofType('[Animal load] Request'),

@@ -28,6 +28,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   login(data: any) {
+    console.log('login', data)
     //TODO
   }
 

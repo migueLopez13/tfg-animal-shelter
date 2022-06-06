@@ -1,7 +1,15 @@
-@mixin secondaryTitle {
-  color: var(--gold-color);
+@mixin baseTitle($fontColor) {
+  color: $fontColor;
   font-family: Catamaran;
   font-weight: 600;
   font-size: var(--text-xl);
   inline-size: max-content;
+}
+
+@mixin secondaryTitle {
+  @include baseTitle(var(--gold-color));
+}
+
+@mixin title {
+  @include baseTitle(var(--blue-dark-color));
 }

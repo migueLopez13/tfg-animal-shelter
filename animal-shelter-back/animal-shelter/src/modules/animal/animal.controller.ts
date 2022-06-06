@@ -15,7 +15,7 @@ import { AnimalService } from './animal.service';
 @ApiTags('animals')
 @Controller('animals')
 export class AnimalsController {
-  constructor(private readonly animalService: AnimalService) {}
+  constructor(private readonly animalService: AnimalService) { }
 
   @Get()
   private find() {
@@ -25,6 +25,11 @@ export class AnimalsController {
   @Get(':id')
   private findOne(@Param('id') params) {
     return this.animalService.findOne(params);
+  }
+
+  @Get('/kind/:kind')
+  private findByKind(@Param('kind') params) {
+    return this.animalService.findByKind(params);
   }
 
   @Post()

@@ -104,6 +104,32 @@
     </mat-error>
   </mat-form-field>
 
+  <mat-form-field
+    *ngIf="formGroup.get('repassword')"
+    class="user-form--re-password"
+    appearance="fill"
+    [formGroup]="formGroup"
+  >
+    <mat-label>Confirm password</mat-label>
+    <input
+      matInput
+      type="password"
+      formControlName="repassword"
+      autocomplete="off"
+    />
+    <mat-error
+      *ngIf="
+        formGroup.get('repassword')?.invalid &&
+        !formGroup.get('repassword')?.hasError('required')
+      "
+    >
+      Please password must have at least 8 characters
+    </mat-error>
+    <mat-error *ngIf="formGroup.get('repassword')?.hasError('required')">
+      Password confirmation is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
   <div class="user-form--buttons">
     <button mat-button (click)="goBack()">Back</button>
     <button mat-raised-button (click)="(save)">{{ saveLabel }}</button>

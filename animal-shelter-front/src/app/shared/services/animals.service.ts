@@ -15,6 +15,9 @@ export class AnimalsService extends BaseService<Animal> {
   ) {
     super(animalsRepository)
   }
+  getAnimalsByKind(kind: string) {
+    return this.animalsRepository.getAnimalsByBKind(kind)
+  }
 
   addMedia(media: AnimalMedia) {
     return this.animalMediaRepository.save(media)

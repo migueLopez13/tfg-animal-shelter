@@ -12,6 +12,8 @@ export class AnimalService {
 
   find = () => this.animalRepository.find();
 
+  findByKind = (kind) => this.animalRepository.find({ kind });
+
   findOne = (id: string) => this.animalRepository.findOne(id);
 
   insert = (animal: any) => {

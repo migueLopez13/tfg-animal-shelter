@@ -51,6 +51,7 @@ export class RegisterFormComponent implements OnInit {
   }
 
   register(data: any) {
+    console.log('register', data)
     //TODO
   }
   goBack() {

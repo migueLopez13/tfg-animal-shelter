@@ -10,4 +10,8 @@ export class AnimalsRepository extends BaseRepository<Animal>{
   constructor(private readonly http: HttpClient) {
     super(http, 'animals')
   }
+
+  getAnimalsByBKind(kind: string) {
+    return this.http.get(`${this.baseUrl}/kind/${kind}`)
+  }
 }

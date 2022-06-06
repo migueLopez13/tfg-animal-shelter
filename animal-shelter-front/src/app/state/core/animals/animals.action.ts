@@ -22,6 +22,27 @@ export const AnimalsActions = {
     }>()
   ),
 
+  loadAnimalsByKindRequest: createAction(
+    '[AnimalsByKind load] Request',
+    props<{
+      kind: string;
+    }>()
+  ),
+
+  loadAnimalsByKindSuccess: createAction(
+    '[AnimalsByKind] Success',
+    props<{
+      animals: Animal[];
+    }>()
+  ),
+
+  loadAnimalsByKindFailure: createAction(
+    '[AnimalsByKind] Failure',
+    props<{
+      error: string;
+    }>()
+  ),
+
   loadAnimalRequest: createAction(
     '[Animal load] Request',
     props<{

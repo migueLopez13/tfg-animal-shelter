@@ -94,23 +94,57 @@ export default class InitialDatabaseSeed implements Seeder {
         return social
       }).create();
 
-      const animals = await factory(Animal)()
+      const dogs = await factory(Animal)()
         .map(async (animal) => {
+          animal.kind = 'dog'
           animal.shelter = shelter;
           return animal;
         })
-        .createMany(30);
+        .createMany(10);
 
-      for (const animal of animals) {
+      const cats = await factory(Animal)()
+        .map(async (animal) => {
+          animal.kind = 'cat'
+          animal.shelter = shelter;
+          return animal;
+        })
+        .createMany(10);
+
+      const birds = await factory(Animal)()
+        .map(async (animal) => {
+          animal.kind = 'bird'
+          animal.shelter = shelter;
+          return animal;
+        })
+        .createMany(10);
+
+      for (const animal of dogs) {
         await factory(AnimalMedia)().map(async (media) => {
+          media.url = 'dog-default.webp'
           media.animal = animal
           return media
         }).create();
       }
 
-      for (let i = 0; i < 5; i++) {
+      for (const animal of cats) {
+        await factory(AnimalMedia)().map(async (media) => {
+          media.url = 'cat-default.png'
+          media.animal = animal
+          return media
+        }).create();
+      }
+
+      for (const animal of birds) {
+        await factory(AnimalMedia)().map(async (media) => {
+          media.url = 'bird-default.png'
+          media.animal = animal
+          return media
+        }).create();
+      }
+
+      for (let i = 0; i < 3; i++) {
         await factory(Adoption)().map(async (adoption) => {
-          adoption.animal = animals[i]
+          adoption.animal = dogs[i]
           adoption.user = users[Math.floor(Math.random() * users.length)];
           return adoption
         }).create();
