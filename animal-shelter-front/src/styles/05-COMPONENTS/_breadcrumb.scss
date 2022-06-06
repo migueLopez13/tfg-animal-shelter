@@ -8,11 +8,11 @@
   padding: 20px 60px;
   a,
   span {
-    color: darkgrey;
+    color: var(--blue-dark-color);
   }
   a:hover,
   span:hover {
-    color: dimgrey;
+    color: darkgrey;
     text-decoration: none;
     cursor: pointer;
   }
@@ -26,7 +26,7 @@
   }
   li::after {
     content: "/";
-    color: darkgrey;
+    color: var(--blue-dark-color);
   }
   li:last-child::after {
     content: "";

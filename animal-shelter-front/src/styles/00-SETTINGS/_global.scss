@@ -53,3 +53,8 @@
   --text-xl: 20px;
   --text-2xl: 30px;
 }
+
+body {
+  overflow-x: hidden;
+  background-color: var(--blue-medium-color);
+}

@@ -15,6 +15,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { BreadcrumbsComponent } from './shared/components/breadcrumbs/breadcrumbs.component';
 import { InConstructionComponent } from './shared/components/in-construction/in-construction.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     DropdownItemComponent,
     InConstructionComponent,
     BreadcrumbsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
