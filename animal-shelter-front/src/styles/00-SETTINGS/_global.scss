@@ -1,49 +1,50 @@
 @font-face {
-  font-family: 'Catamaran';
-  src: url('../../assets/fonts/Catamaran/Catamaran-VariableFont_wght.ttf') format('truetype');
+  font-family: "Catamaran";
+  src: url("../../assets/fonts/Catamaran/Catamaran-VariableFont_wght.ttf")
+    format("truetype");
 }
 
 @font-face {
-  font-family: 'Caveat';
-  src: url('../../assets/fonts/Caveat/Caveat-VariableFont_wght.ttf') 
-  format('truetype');
+  font-family: "Caveat";
+  src: url("../../assets/fonts/Caveat/Caveat-VariableFont_wght.ttf")
+    format("truetype");
 }
 
 @font-face {
-  font-family: 'Caviar';
-  src: url('../../assets/fonts/caviar_dreams/CaviarDreams.ttf') 
-  format('truetype');
+  font-family: "Caviar";
+  src: url("../../assets/fonts/caviar_dreams/CaviarDreams.ttf")
+    format("truetype");
 }
 
 @font-face {
-  font-family: 'Quicksand';
-  src: url('../../assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf') 
-  format('truetype');
+  font-family: "Quicksand";
+  src: url("../../assets/fonts/Quicksand/Quicksand-VariableFont_wght.ttf")
+    format("truetype");
 }
 
-:root{
+:root {
   --blue-dark-color: #173563;
-  --blue-medium-color: #27476E;
-  --blue-light-color: #006992;
+  --blue-medium-color: #0097d3;
+  --blue-light-color: #96dbf6;
 
-  --gold-color:      #ECA400;
-  --secondary-color:    #ffe5a9;
+  --gold-color: #eca400;
+  --secondary-color: #ffe5a9;
 
-  --grey-01-color:         #454545;
-  --grey-02-color:         #828282;
-  --grey-03-color:         #a5a5a5;
-  --grey-04-color:         #c1c1c1;
-  --grey-05-color:         #f3f3f3;
-  
-  --success-color:         #46b450;
-  --information-color:     #5aaafa;
-  --error-color:           #d93025;
-  --warning-A-color:       #ffc201;
-  --warning-B-color:       #ff880d;
+  --grey-01-color: #454545;
+  --grey-02-color: #828282;
+  --grey-03-color: #a5a5a5;
+  --grey-04-color: #c1c1c1;
+  --grey-05-color: #f3f3f3;
 
-  --black-color-opacity-15: #1F1F1F26;
-  --black-color-opacity-35: #1F1F1F59;
-  --black-color-opacity-45: #1F1F1F72;
+  --success-color: #46b450;
+  --information-color: #5aaafa;
+  --error-color: #d93025;
+  --warning-A-color: #ffc201;
+  --warning-B-color: #ff880d;
+
+  --black-color-opacity-15: #1f1f1f26;
+  --black-color-opacity-35: #1f1f1f59;
+  --black-color-opacity-45: #1f1f1f72;
 
   --text-xs: 11px;
   --text-sm: 12px;

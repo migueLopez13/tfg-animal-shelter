@@ -1,0 +1,111 @@
+<form class="user-form">
+  <mat-form-field
+    *ngIf="formGroup.get('name')"
+    class="user-form--name"
+    appearance="fill"
+    [formGroup]="formGroup"
+  >
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      type="name"
+      formControlName="name"
+      placeholder="Juan"
+      autocomplete="off"
+    />
+    <mat-error
+      *ngIf="
+        formGroup.get('name')?.invalid &&
+        !formGroup.get('name')?.hasError('required')
+      "
+    >
+      Please enter a valid name
+    </mat-error>
+    <mat-error *ngIf="formGroup?.hasError('required')">
+      Name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field
+    *ngIf="formGroup.get('surname')"
+    class="user-form--surname"
+    appearance="fill"
+    [formGroup]="formGroup"
+  >
+    <mat-label>Surname</mat-label>
+    <input
+      matInput
+      type="surname"
+      formControlName="surname"
+      placeholder="Ruedas"
+      autocomplete="off"
+    />
+    <mat-error
+      *ngIf="
+        formGroup.get('surname')?.invalid &&
+        !formGroup.get('surname')?.hasError('required')
+      "
+    >
+      Please enter a valid surname
+    </mat-error>
+    <mat-error *ngIf="formGroup?.hasError('required')">
+      Surname is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field
+    class="user-form--email"
+    appearance="fill"
+    [formGroup]="formGroup"
+  >
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      type="email"
+      formControlName="email"
+      placeholder="Ex. pat@example.com"
+      autocomplete="off"
+    />
+    <mat-error
+      *ngIf="
+        formGroup.get('email')?.hasError('email') &&
+        !formGroup.get('email')?.hasError('required')
+      "
+    >
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="formGroup.get('email')?.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field
+    class="user-form--password"
+    appearance="fill"
+    [formGroup]="formGroup"
+  >
+    <mat-label>Password</mat-label>
+    <input
+      matInput
+      type="password"
+      formControlName="password"
+      autocomplete="off"
+    />
+    <mat-error
+      *ngIf="
+        formGroup.get('password')?.invalid &&
+        !formGroup.get('password')?.hasError('required')
+      "
+    >
+      Please password must have at least 8 characters
+    </mat-error>
+    <mat-error *ngIf="formGroup.get('password')?.hasError('required')">
+      Password is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <div class="user-form--buttons">
+    <button mat-button (click)="goBack()">Back</button>
+    <button mat-raised-button (click)="(save)">{{ saveLabel }}</button>
+  </div>
+</form>

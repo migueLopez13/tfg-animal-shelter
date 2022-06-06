@@ -27,7 +27,7 @@ export const SheltersReducer = createReducer(
     ({ ...state, loading: true })),
 
   on(SheltersActions.loadShelterSuccess, (state, { shelter }) =>
-    ({ ...state, loading: false, shelter })),
+    ({ ...state, loading: false, shelters: [...state.shelters, shelter] })),
 
   on(SheltersActions.loadShelterFailure, (state, { error }) =>
     ({ ...state, loading: false, error })),

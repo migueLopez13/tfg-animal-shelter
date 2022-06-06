@@ -35,12 +35,16 @@
     align-items: center;
     color: white;
 
-    .option:hover {
-      cursor: pointer;
-      border-bottom: 3px solid var(--gold-color);
-      text-shadow: 1px 1px 2px var(--gold-color);
-      .option-dropdown {
-        display: block;
+    .option {
+      border-bottom: 3px solid transparent;
+      &:hover {
+        cursor: pointer;
+        border-bottom: 3px solid var(--gold-color);
+        text-shadow: 1px 1px 2px var(--gold-color);
+
+        .option-dropdown {
+          display: block;
+        }
       }
     }
 
@@ -51,6 +55,12 @@
 
     .option-dropdown {
       display: none;
+      position: absolute;
+      bottom: 3px;
+    }
+
+    .icon {
+      color: var(--gold-color);
     }
   }
 

@@ -16,6 +16,10 @@ export const navbarOptions: navbarOption[] = [
       {
         name: 'Dogs',
         route: 'animals/dogs'
+      },
+      {
+        name: 'Birds',
+        route: 'animals/birds'
       }
     ]
   },

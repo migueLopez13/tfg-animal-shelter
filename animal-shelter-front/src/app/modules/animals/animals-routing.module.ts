@@ -4,19 +4,13 @@ import { InConstructionComponent } from 'src/app/shared/components/in-constructi
 
 const routes: Routes = [
   {
-    path: 'cats',
+    path: ':breed',
     data: {
-      breadcrumb: 'Cats',
+      breadcrumb: ':breed',
     },
     component: InConstructionComponent
   },
-  {
-    path: 'dogs',
-    data: {
-      breadcrumb: 'Dogs',
-    },
-    component: InConstructionComponent
-  },
+
 ];
 
 @NgModule({

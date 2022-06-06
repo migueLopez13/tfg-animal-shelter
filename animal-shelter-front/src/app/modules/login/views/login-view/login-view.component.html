@@ -1,0 +1,18 @@
+<div class="login-view">
+  <div class="controls">
+    <div (click)="changeForm(login, register)" #login class="label primary">
+      Login
+    </div>
+    <div
+      (click)="changeForm(register, login)"
+      #register
+      class="label secondary"
+    >
+      Register
+    </div>
+  </div>
+  <div class="login-view--forms">
+    <app-login-form *ngIf="form === 'Login'"></app-login-form>
+    <app-register-form *ngIf="form === 'Register'"></app-register-form>
+  </div>
+</div>

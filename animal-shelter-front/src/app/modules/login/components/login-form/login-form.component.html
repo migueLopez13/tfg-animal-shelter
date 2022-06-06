@@ -1,0 +1,6 @@
+<app-user-form
+  [formGroup]="loginForm"
+  [saveLabel]="'Login'"
+  (save)="login($event)"
+  (back)="goBack()"
+></app-user-form>

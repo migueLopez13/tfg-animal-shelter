@@ -25,7 +25,7 @@ export const AdoptionsReducer = createReducer(
     ({ ...state, loading: true })),
 
   on(AdoptionsActions.loadAdoptionSuccess, (state, { adoption }) =>
-    ({ ...state, loading: false, adoption })),
+    ({ ...state, loading: false, adoptions: [...state.adoptions, adoption] })),
 
   on(AdoptionsActions.loadAdoptionFailure, (state, { error }) =>
     ({ ...state, loading: false, error })),

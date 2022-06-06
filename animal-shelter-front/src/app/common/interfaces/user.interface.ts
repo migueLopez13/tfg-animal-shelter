@@ -8,8 +8,8 @@ export interface User {
   name: string;
   surname: string;
   avatar: string;
-  social: UserSocial[];
-  address: UserAddress[];
-  phone: UserPhone[];
+  social?: UserSocial[];
+  address?: UserAddress[];
+  phone?: UserPhone[];
   role: Role[];
 }

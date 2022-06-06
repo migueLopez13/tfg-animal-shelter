@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { navbarOption } from 'src/app/common/interfaces/nabvar-option.interface';
 import { navbarOptions } from 'src/app/common/models/navbar.model';
+import { faLongArrowAltDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar-options',
@@ -10,6 +11,7 @@ import { navbarOptions } from 'src/app/common/models/navbar.model';
 export class NavbarOptionsComponent {
 
   options = navbarOptions
+  icon = faLongArrowAltDown
 
   constructor(private readonly router: Router) { }
 

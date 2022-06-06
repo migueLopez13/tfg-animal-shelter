@@ -17,8 +17,16 @@
 @import "./styles/05-COMPONENTS/user-avatar";
 @import "./styles/05-COMPONENTS/dropdown";
 @import "./styles/05-COMPONENTS/breadcrumb";
+@import "./styles/05-COMPONENTS/user-form";
+@import "./styles/05-COMPONENTS/login-view";
 
 //06-TRUMPS
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

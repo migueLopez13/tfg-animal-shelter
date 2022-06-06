@@ -1,16 +1,19 @@
 <div class="user-avatar">
   <img
-    *ngIf="hasImage; else defaultImage"
+    *ngIf="!userProfile; else userLogged"
     class="avatar"
-    src="userProfile.avatar"
+    src="../../../../assets/default-user.png"
+    matTooltip="Login"
     (click)="toRoute('profile')"
-    matTooltip="tooltipMessage"
   />
-  <ng-template #defaultImage>
+  <ng-template #userLogged>
+    <div>
+      {{ userProfile?.name }}
+    </div>
     <img
       class="avatar"
-      src="../../../../assets/default-user.png"
-      matTooltip="{{ tooltipMessage }}"
+      src="userProfile.avatar"
+      matTooltip="Profile"
       (click)="toRoute('login')"
     />
   </ng-template>

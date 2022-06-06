@@ -5,6 +5,13 @@
     (click)="moveToRoute(option)"
   >
     {{ option.name }}
+
+    <fa-icon
+      *ngIf="option.dropdownOptions"
+      [icon]="icon"
+      class="icon fa-fw"
+    ></fa-icon>
+
     <dropdown
       *ngIf="option.dropdownOptions"
       class="option-dropdown"
