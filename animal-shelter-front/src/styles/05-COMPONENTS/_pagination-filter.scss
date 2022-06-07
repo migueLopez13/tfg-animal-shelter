@@ -20,9 +20,13 @@
     display: flex;
     flex-direction: row;
     gap: 15px;
-    cursor: pointer;
     line-height: 45px;
     letter-spacing: 0;
+
+    .number:hover {
+      color: var(--grey-03-color);
+      cursor: pointer;
+    }
 
     .selected-page {
       color: var(--gold-color);
