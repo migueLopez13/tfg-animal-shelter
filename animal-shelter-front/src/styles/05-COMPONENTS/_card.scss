@@ -6,7 +6,7 @@
   justify-content: center;
   width: 70vw;
   margin: 0px auto;
-  min-height: 60vh;
+  min-height: 63vh;
 }
 
 .card {
@@ -18,6 +18,8 @@
   flex-direction: column;
   align-items: center;
   border-radius: 2px;
+  animation: fadeIn;
+  animation-duration: 1s;
 
   &--image-wrapper {
     img {

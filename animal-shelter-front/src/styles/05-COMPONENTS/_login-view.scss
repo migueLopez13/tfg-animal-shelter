@@ -1,7 +1,9 @@
 .login-view {
   width: 500px;
-  height: 66vh;
+  height: 69vh;
   margin: 0px auto;
+  animation: fadeIn;
+  animation-duration: 1s;
 
   .controls {
     display: flex;

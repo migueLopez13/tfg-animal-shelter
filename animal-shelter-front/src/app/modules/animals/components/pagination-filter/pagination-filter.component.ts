@@ -65,9 +65,9 @@ export class PaginationFilterComponent implements OnInit {
   }
 
   lastPage() {
-    this.paginationFilter.pageNumber > 1
+    this.paginationFilter.pageNumber > 0
       ? this.paginationFilter.pageNumber--
-      : this.paginationFilter.pageNumber = 1
+      : this.paginationFilter.pageNumber = 0
     this.pagination()
     this.emit()
   }

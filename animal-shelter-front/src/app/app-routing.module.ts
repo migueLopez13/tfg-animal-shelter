@@ -5,7 +5,7 @@ import { InConstructionComponent } from './shared/components/in-construction/in-
 
 const routes: Routes = [
   {
-    path: '*',
+    path: '',
     component: InConstructionComponent
   },
   {

@@ -1,12 +1,14 @@
 .in-construction {
   margin: auto;
   width: 100vw;
-  height: 66vh;
+  height: 69vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-bottom: 200px;
+  animation: fadeIn;
+  animation-duration: 1s;
 
   img {
     width: 300px;

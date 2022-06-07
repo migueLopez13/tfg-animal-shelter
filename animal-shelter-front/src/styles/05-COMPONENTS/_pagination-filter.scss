@@ -16,6 +16,7 @@
     cursor: pointer;
     line-height: 50px;
   }
+
   .pages {
     display: flex;
     flex-direction: row;
@@ -30,6 +31,8 @@
 
     .selected-page {
       color: var(--gold-color);
+      animation: heartBeat;
+      animation-duration: 2s;
     }
   }
 }
