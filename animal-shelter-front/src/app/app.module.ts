@@ -28,7 +28,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     DropdownItemComponent,
     InConstructionComponent,
     BreadcrumbsComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

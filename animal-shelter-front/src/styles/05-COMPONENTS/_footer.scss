@@ -11,6 +11,7 @@
   font-family: Quicksand;
   font-weight: bolder;
   font-size: var(--text-xl);
+  user-select: none;
 
   &--authors {
     display: flex;

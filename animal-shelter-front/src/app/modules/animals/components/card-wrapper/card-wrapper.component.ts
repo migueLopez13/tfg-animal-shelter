@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CardData } from 'src/app/common/interfaces/card-data.interface';
+import { AnimalData } from 'src/app/common/interfaces/card-data.interface';
 
 @Component({
   selector: 'app-card-wrapper',
@@ -8,7 +8,7 @@ import { CardData } from 'src/app/common/interfaces/card-data.interface';
   styleUrls: ['./card-wrapper.component.scss']
 })
 export class CardWrapperComponent {
-  @Input() cards: Observable<CardData[]> | null = null
+  @Input() cards: Observable<AnimalData[]> | null = null
 
   constructor() { }
 

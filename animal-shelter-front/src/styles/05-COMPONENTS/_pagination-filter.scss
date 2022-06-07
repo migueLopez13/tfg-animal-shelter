@@ -1,0 +1,31 @@
+.pagination {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100vw;
+  height: 50px;
+  padding: 30px;
+  justify-content: center;
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  user-select: none;
+  font-family: Quicksand;
+
+  .icon {
+    color: var(--gold-color);
+    cursor: pointer;
+    line-height: 50px;
+  }
+  .pages {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    cursor: pointer;
+    line-height: 45px;
+    letter-spacing: 0;
+
+    .selected-page {
+      color: var(--gold-color);
+    }
+  }
+}

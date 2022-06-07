@@ -1,1 +1,6 @@
-<app-card-wrapper [cards]="animals"></app-card-wrapper>
+<app-card-wrapper [cards]="animalsFiltered"></app-card-wrapper>
+<app-pagination-filter
+  [elements]="animals"
+  [elementsPerPage]="8"
+  (change)="changePagination($event)"
+></app-pagination-filter>

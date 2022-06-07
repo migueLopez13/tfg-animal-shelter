@@ -6,6 +6,7 @@
   justify-content: center;
   width: 70vw;
   margin: 0px auto;
+  min-height: 60vh;
 }
 
 .card {
@@ -39,7 +40,7 @@
   }
 
   .link {
-    color: var(--blue-light-color);
+    color: var(--blue-medium-color);
     cursor: pointer;
     height: 30px;
     width: 100%;

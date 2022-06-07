@@ -30,14 +30,14 @@ export const AnimalsActions = {
   ),
 
   loadAnimalsByKindSuccess: createAction(
-    '[AnimalsByKind] Success',
+    '[AnimalsByKind load] Success',
     props<{
       animals: Animal[];
     }>()
   ),
 
   loadAnimalsByKindFailure: createAction(
-    '[AnimalsByKind] Failure',
+    '[AnimalsByKind load] Failure',
     props<{
       error: string;
     }>()

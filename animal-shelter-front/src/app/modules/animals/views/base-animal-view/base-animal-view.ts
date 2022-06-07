@@ -1,10 +1,11 @@
 import { Component, OnInit } from "@angular/core"
 import { Store } from "@ngrx/store"
 import { Observable, map } from "rxjs"
-import { CardData } from "src/app/common/interfaces/card-data.interface"
+import { AnimalData } from "src/app/common/interfaces/card-data.interface"
 import { AnimalsActions } from "src/app/state/core/animals/animals.action"
 import { AnimalsSelectors } from "src/app/state/core/animals/animals.selectors"
 import { AppState } from "src/app/state/interfaces/app.state.interface"
+import { FilterPagination } from "../../components/pagination-filter/pagination-filter.component"
 
 @Component({
   selector: 'app-base',
@@ -12,7 +13,8 @@ import { AppState } from "src/app/state/interfaces/app.state.interface"
 })
 export class BaseAnimalView implements OnInit {
   animalKind: String
-  animals!: Observable<CardData[]>
+  animals!: Observable<AnimalData[]>
+  animalsFiltered!: Observable<AnimalData[]>
 
   constructor(
     private readonly animalsStore: Store<AppState>,
@@ -29,6 +31,7 @@ export class BaseAnimalView implements OnInit {
       )
 
     this.fillAnimalsCards()
+    this.animalsFiltered = this.animals
   }
 
   fillAnimalsCards() {
@@ -51,9 +54,13 @@ export class BaseAnimalView implements OnInit {
             kind: animal.kind,
             breed: animal.breed,
             route: `animals/${animal.id}`
-          } as CardData
+          } as AnimalData
         })
-      })) as Observable<CardData[]>
+      })) as Observable<AnimalData[]>
+  }
+
+  changePagination(data: any) {
+    this.animalsFiltered = data
   }
 
 }
