@@ -6,6 +6,7 @@ import { ShelterMedia } from "./entities/shelter-media.entity";
 import { ShelterSocial } from "./entities/shelter-social.entity";
 import { Shelter } from "./entities/shelter.entity";
 import { UserAddress } from "./entities/user-address.entity";
+import { UserCredential } from "./entities/user-credentials.entity";
 import { UserPhone } from "./entities/user-phone.entity";
 import { UserSocial } from "./entities/user-social.entity";
 import { User } from "./entities/user.entity";
@@ -18,6 +19,7 @@ export const entities = [
   UserSocial,
   UserAddress,
   UserPhone,
+  UserCredential,
   Shelter,
   ShelterSocial,
   ShelterMedia,

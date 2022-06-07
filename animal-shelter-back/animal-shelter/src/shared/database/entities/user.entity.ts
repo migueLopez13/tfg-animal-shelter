@@ -2,8 +2,9 @@ import { Adoption } from './adoption.entity';
 import { UserAddress } from './user-address.entity';
 import { UserPhone } from './user-phone.entity';
 import { UserSocial } from './user-social.entity';
-import { Column, Entity, PrimaryColumn, OneToMany, ManyToMany, JoinTable, BaseEntity } from 'typeorm';
+import { Column, Entity, PrimaryColumn, OneToMany, OneToOne, ManyToMany, JoinTable, BaseEntity } from 'typeorm';
 import { Role } from './role.entity';
+import { UserCredential } from './user-credentials.entity';
 
 @Entity('users')
 export class User extends BaseEntity {
@@ -53,4 +54,11 @@ export class User extends BaseEntity {
     nullable: true
   })
   adoptions: Adoption[];
+
+  @OneToOne(() => UserCredential, (credential) => credential.user, {
+    eager: false,
+    cascade: ["insert", "update", "remove"],
+    nullable: true
+  })
+  userCredential: UserCredential;
 }

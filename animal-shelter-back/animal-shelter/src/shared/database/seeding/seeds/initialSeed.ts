@@ -12,6 +12,7 @@ import { Adoption } from "../../entities/adoption.entity";
 import { UserSocial } from "../../entities/user-social.entity";
 import { ShelterMedia } from "../../entities/shelter-media.entity";
 import { ShelterSocial } from "../../entities/shelter-social.entity";
+import { UserCredential } from "../../entities/user-credentials.entity";
 
 export default class InitialDatabaseSeed implements Seeder {
   public async run(factory: Factory, connection: Connection): Promise<void> {
@@ -53,6 +54,11 @@ export default class InitialDatabaseSeed implements Seeder {
       user.name = 'miguel'
       user.surname = 'lopez'
       return user
+    }).create();
+
+    await factory((UserCredential))().map(async (credential) => {
+      credential.user = admin
+      return credential
     }).create();
 
     await factory(UserAddress)().map(async (address) => {

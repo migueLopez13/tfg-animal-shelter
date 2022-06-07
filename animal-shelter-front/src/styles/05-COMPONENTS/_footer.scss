@@ -12,6 +12,8 @@
   font-weight: bolder;
   font-size: var(--text-xl);
   user-select: none;
+  animation: fadeInUp;
+  animation-duration: 1s;
 
   &--authors {
     display: flex;

@@ -12,8 +12,9 @@ import { AnimalModule } from './modules/animal/animal.module';
 import { AnimalMediaModule } from './modules/animal-media/animal-media.module';
 import { VaccineModule } from './modules/vaccine/vaccine.module';
 import { AdoptionModule } from './modules/adoption/adoption.module';
-import { ClientsModule, Transport } from '@nestjs/microservices';
 import { AddressModule } from './modules/address/address.module';
+import { AuthModule } from './modules/auth/auth.module';
+
 
 @Module({
   imports: [
@@ -31,6 +32,7 @@ import { AddressModule } from './modules/address/address.module';
     VaccineModule,
     AdoptionModule,
     AddressModule,
+    AuthModule,
   ],
   controllers: [],
 })
