@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-view',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class LoginViewComponent implements OnInit {
 
   form: string = 'Login'
-  constructor() { }
+  constructor(private readonly route: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,4 +19,7 @@ export class LoginViewComponent implements OnInit {
     this.form = selected.innerText
   }
 
+  goHome() {
+    this.route.navigateByUrl('home')
+  }
 }

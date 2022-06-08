@@ -131,7 +131,9 @@
   </mat-form-field>
 
   <div class="user-form--buttons">
+    <button mat-raised-button (click)="saveForm()" class="login-button">
+      {{ saveLabel }}
+    </button>
     <button mat-button (click)="goBack()">Back</button>
-    <button mat-raised-button (click)="(save)">{{ saveLabel }}</button>
   </div>
 </form>

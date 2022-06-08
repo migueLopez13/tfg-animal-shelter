@@ -50,14 +50,26 @@ export default class InitialDatabaseSeed implements Seeder {
     }
 
     const admin = await factory((User))().map(async (user) => {
-      user.email = 'mlopari216@g.educaand.com'
-      user.name = 'miguel'
-      user.surname = 'lopez'
+      user.email = 'admin@admin.com'
+      user.name = 'admin'
+      user.surname = 'admin'
       return user
     }).create();
 
     await factory((UserCredential))().map(async (credential) => {
       credential.user = admin
+      return credential
+    }).create();
+
+    const user = await factory((User))().map(async (user) => {
+      user.email = 'user@user.com'
+      user.name = 'user'
+      user.surname = 'user'
+      return user
+    }).create();
+
+    await factory((UserCredential))().map(async (credential) => {
+      credential.user = user
       return credential
     }).create();
 
@@ -86,7 +98,7 @@ export default class InitialDatabaseSeed implements Seeder {
     await factory(Role)().map(async (role) => {
       role.id = '2'
       role.name = 'user'
-      role.users = [...users, admin]
+      role.users = [...users, admin, user]
       return role
     }).create();
 

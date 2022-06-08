@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { navbarOption } from 'src/app/common/interfaces/nabvar-option.interface';
+import { NavbarOption } from 'src/app/shared/domain/interfaces/nabvar-option.interface';
 
 @Component({
   selector: 'dropdown',
@@ -7,7 +7,7 @@ import { navbarOption } from 'src/app/common/interfaces/nabvar-option.interface'
 })
 export class DropdownComponent implements OnInit {
 
-  @Input() list?: navbarOption[]
+  @Input() list?: NavbarOption[]
 
   constructor() { }
 

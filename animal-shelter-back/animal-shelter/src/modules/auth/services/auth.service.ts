@@ -25,7 +25,8 @@ export class AuthService {
 
   async generateUserToken(email: string) {
     const user = await this.usersService.findOne(email);
-    const payload: JWTPayload = { email, name: user.name, roles: user.role };
+    const isAdmin = user.role.some((role) => role.name === 'admin')
+    const payload: JWTPayload = { email, name: user.name, isAdmin };
     return {
       access_token: this.jwtService.sign(payload),
     };

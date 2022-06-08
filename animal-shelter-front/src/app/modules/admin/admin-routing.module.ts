@@ -31,6 +31,10 @@ const routes: Routes = [
     },
     component: InConstructionComponent
   },
+  {
+    path: '**',
+    redirectTo: 'dashboard'
+  },
 ];
 
 @NgModule({

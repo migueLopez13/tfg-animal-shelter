@@ -1,8 +1,8 @@
 import { createAction, props } from '@ngrx/store';
-import { UserAddress } from 'src/app/common/interfaces/user-address.interface';
-import { UserPhone } from 'src/app/common/interfaces/user-phone.interface';
-import { UserSocial } from 'src/app/common/interfaces/user-social.interface';
-import { User } from 'src/app/common/interfaces/user.interface';
+import { UserAddress } from 'src/app/shared/domain/interfaces/user-address.interface';
+import { UserPhone } from 'src/app/shared/domain/interfaces/user-phone.interface';
+import { UserSocial } from 'src/app/shared/domain/interfaces/user-social.interface';
+import { User } from 'src/app/shared/domain/interfaces/user.interface';
 
 
 export const UsersActions = {

@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
-import { ShelterMedia } from 'src/app/common/interfaces/shelter-media.interface';
-import { ShelterSocial } from 'src/app/common/interfaces/shelter-social.interface';
-import { Shelter } from 'src/app/common/interfaces/shelter.interface';
+import { ShelterMedia } from 'src/app/shared/domain/interfaces/shelter-media.interface';
+import { ShelterSocial } from 'src/app/shared/domain/interfaces/shelter-social.interface';
+import { Shelter } from 'src/app/shared/domain/interfaces/shelter.interface';
 
 
 export const SheltersActions = {

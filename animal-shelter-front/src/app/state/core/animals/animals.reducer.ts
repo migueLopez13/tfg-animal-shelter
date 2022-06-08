@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { AnimalsState } from '../../interfaces/animals.state.interface';
-import { AnimalsActions } from './animals.action';
+import { AnimalsActions } from './animals.actions';
 
 
 

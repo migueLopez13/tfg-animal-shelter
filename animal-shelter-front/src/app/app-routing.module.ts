@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from './common/guards/admin.guard';
+import { LogoutGuard } from './common/guards/logout.guard';
+import { UserGuard } from './common/guards/user.guard';
+import { HomeComponent } from './modules/home/home.component';
 import { InConstructionComponent } from './shared/components/in-construction/in-construction.component';
 
 
@@ -63,6 +67,7 @@ const routes: Routes = [
     data: {
       breadcrumb: 'Admin',
     },
+    canActivate: [AdminGuard],
     loadChildren: () =>
       import('./modules/admin/admin.module').then(
         (m) => m.AdminModule
@@ -73,10 +78,19 @@ const routes: Routes = [
     data: {
       breadcrumb: 'Profile',
     },
+    canActivate: [UserGuard],
     loadChildren: () =>
       import('./modules/profile/profile.module').then(
         (m) => m.ProfileModule
       ),
+  },
+  {
+    path: 'logout',
+    data: {
+      breadcrumb: 'logout',
+    },
+    canActivate: [LogoutGuard],
+    component: HomeComponent
   }
 ];
 

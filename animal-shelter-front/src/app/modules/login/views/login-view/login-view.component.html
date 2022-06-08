@@ -12,7 +12,10 @@
     </div>
   </div>
   <div class="login-view--forms">
-    <app-login-form *ngIf="form === 'Login'"></app-login-form>
-    <app-register-form *ngIf="form === 'Register'"></app-register-form>
+    <app-login-form *ngIf="form === 'Login'" (back)="goHome()"></app-login-form>
+    <app-register-form
+      *ngIf="form === 'Register'"
+      (back)="goHome()"
+    ></app-register-form>
   </div>
 </div>

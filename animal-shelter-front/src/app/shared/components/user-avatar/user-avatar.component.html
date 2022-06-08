@@ -7,14 +7,16 @@
     (click)="toRoute('login')"
   />
   <ng-template #userLogged>
-    <div>
-      {{ userProfile?.name }}
+    <div class="user-email">
+      {{ userProfile?.email }}
     </div>
-    <img
-      class="avatar"
-      src="{{ userProfile.avatar }}"
-      matTooltip="Profile"
-      (click)="toRoute('profile')"
-    />
+    <div class="image-container">
+      <img
+        class="avatar"
+        src="../../../../assets/{{ userProfile.avatar }}"
+        (click)="toRoute('profile')"
+      />
+      <dropdown [list]="userOptions"></dropdown>
+    </div>
   </ng-template>
 </div>

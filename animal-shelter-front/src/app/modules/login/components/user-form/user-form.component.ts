@@ -17,9 +17,7 @@ export class UserFormComponent {
 
   saveForm() {
     if (this.formGroup.valid)
-      return this.save.emit(this.formGroup)
-
-    //TODO Toast con error
+      return this.save.emit(this.formGroup.value)
   }
 
   goBack() {

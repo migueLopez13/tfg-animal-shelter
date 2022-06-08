@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Adoption } from 'src/app/common/interfaces/adoption.interface';
+import { Adoption } from 'src/app/shared/domain/interfaces/adoption.interface';
 
 export const AdoptionsActions = {
 

@@ -1,4 +1,4 @@
-import { Shelter } from "src/app/common/interfaces/shelter.interface";
+import { Shelter } from "src/app/shared/domain/interfaces/shelter.interface";
 
 
 export interface SheltersState {

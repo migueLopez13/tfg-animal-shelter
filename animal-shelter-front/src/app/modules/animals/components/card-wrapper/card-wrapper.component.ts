@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AnimalData } from 'src/app/common/interfaces/card-data.interface';
+import { AnimalData } from 'src/app/shared/domain/interfaces/card-data.interface';
 
 @Component({
   selector: 'app-card-wrapper',

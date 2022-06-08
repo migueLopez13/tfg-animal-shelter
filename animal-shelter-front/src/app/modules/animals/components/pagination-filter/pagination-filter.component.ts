@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { AnimalData } from 'src/app/common/interfaces/card-data.interface';
+import { AnimalData } from 'src/app/shared/domain/interfaces/card-data.interface';
 import { faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 

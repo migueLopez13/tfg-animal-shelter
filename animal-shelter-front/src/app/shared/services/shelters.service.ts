@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
-import { ShelterMedia } from "src/app/common/interfaces/shelter-media.interface";
-import { ShelterSocial } from "src/app/common/interfaces/shelter-social.interface";
-import { Shelter } from "src/app/common/interfaces/shelter.interface";
-import { User } from "src/app/common/interfaces/user.interface";
-import { ShelterMediaRepository } from "../repository/shelter-media.repository";
-import { ShelterSocialRepository } from "../repository/shelter-social.repository";
-import { SheltersRepository } from "../repository/shelters.repository";
-import { UsersRepository } from "../repository/users.repository";
+import { ShelterMedia } from "src/app/shared/domain/interfaces/shelter-media.interface";
+import { ShelterSocial } from "src/app/shared/domain/interfaces/shelter-social.interface";
+import { Shelter } from "src/app/shared/domain/interfaces/shelter.interface";
+import { User } from "src/app/shared/domain/interfaces/user.interface";
+import { ShelterMediaRepository } from "./repository/shelter-media.repository";
+import { ShelterSocialRepository } from "./repository/shelter-social.repository";
+import { SheltersRepository } from "./repository/shelters.repository";
+import { UsersRepository } from "./repository/users.repository";
 import { BaseService } from "./base.service";
 
 @Injectable({

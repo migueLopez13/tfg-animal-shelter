@@ -1,4 +1,4 @@
-import { User } from "src/app/common/interfaces/user.interface";
+import { User } from "src/app/shared/domain/interfaces/user.interface";
 
 
 

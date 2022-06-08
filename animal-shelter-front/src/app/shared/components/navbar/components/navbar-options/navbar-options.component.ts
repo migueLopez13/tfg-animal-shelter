@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { navbarOption } from 'src/app/common/interfaces/nabvar-option.interface';
-import { navbarOptions } from 'src/app/common/models/navbar.model';
+import { NavbarOption } from 'src/app/shared/domain/interfaces/nabvar-option.interface';
+import { navbarOptions } from 'src/app/shared/domain/models/navbar.model';
 import { faLongArrowAltDown } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -15,7 +15,7 @@ export class NavbarOptionsComponent {
 
   constructor(private readonly router: Router) { }
 
-  moveToRoute(option: navbarOption) {
+  moveToRoute(option: NavbarOption) {
     if (!option.dropdownOptions)
       this.router.navigateByUrl(option.route as string)
   }

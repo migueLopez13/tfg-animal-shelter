@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
-import { Adoption } from "src/app/common/interfaces/adoption.interface";
-import { AdoptionsRepository } from "../repository/adoptions.repository";
+import { Adoption } from "src/app/shared/domain/interfaces/adoption.interface";
+import { AdoptionsRepository } from "./repository/adoptions.repository";
 import { BaseService } from "./base.service";
 
 @Injectable({

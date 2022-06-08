@@ -1,12 +1,12 @@
 import { Injectable } from "@angular/core";
-import { UserAddress } from "src/app/common/interfaces/user-address.interface";
-import { UserPhone } from "src/app/common/interfaces/user-phone.interface";
-import { UserSocial } from "src/app/common/interfaces/user-social.interface";
-import { User } from "src/app/common/interfaces/user.interface";
-import { UserAddressRepository } from "../repository/user-address.repository";
-import { UserPhoneRepository } from "../repository/user-phone.repository";
-import { UserSocialRepository } from "../repository/user-social.repository";
-import { UsersRepository } from "../repository/users.repository";
+import { UserAddress } from "src/app/shared/domain/interfaces/user-address.interface";
+import { UserPhone } from "src/app/shared/domain/interfaces/user-phone.interface";
+import { UserSocial } from "src/app/shared/domain/interfaces/user-social.interface";
+import { User } from "src/app/shared/domain/interfaces/user.interface";
+import { UserAddressRepository } from "./repository/user-address.repository";
+import { UserPhoneRepository } from "./repository/user-phone.repository";
+import { UserSocialRepository } from "./repository/user-social.repository";
+import { UsersRepository } from "./repository/users.repository";
 import { BaseService } from "./base.service";
 
 @Injectable({

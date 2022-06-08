@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginViewComponent } from './views/login-view/login-view.component';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 
 
@@ -27,6 +28,6 @@ import { LoginViewComponent } from './views/login-view/login-view.component';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatButtonModule
-  ]
+  ],
 })
 export class LoginModule { }

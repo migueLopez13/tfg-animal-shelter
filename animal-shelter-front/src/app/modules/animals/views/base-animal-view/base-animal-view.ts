@@ -1,11 +1,10 @@
 import { Component, OnInit } from "@angular/core"
 import { Store } from "@ngrx/store"
 import { Observable, map } from "rxjs"
-import { AnimalData } from "src/app/common/interfaces/card-data.interface"
-import { AnimalsActions } from "src/app/state/core/animals/animals.action"
+import { AnimalData } from "src/app/shared/domain/interfaces/card-data.interface"
+import { AnimalsActions } from "src/app/state/core/animals/animals.actions"
 import { AnimalsSelectors } from "src/app/state/core/animals/animals.selectors"
 import { AppState } from "src/app/state/interfaces/app.state.interface"
-import { FilterPagination } from "../../components/pagination-filter/pagination-filter.component"
 
 @Component({
   selector: 'app-base',

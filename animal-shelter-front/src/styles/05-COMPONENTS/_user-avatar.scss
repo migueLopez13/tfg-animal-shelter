@@ -1,9 +1,29 @@
-.user-avatar{
+.user-avatar {
   display: flex;
   align-items: center;
+
+  .dropdown {
+    display: none;
+  }
+
+  .image-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .image-container:hover {
+    .dropdown {
+      display: block;
+      overflow-x: hidden;
+      cursor: pointer;
+    }
+  }
 }
-.avatar{
+.avatar {
   position: relative;
   width: 60px;
   cursor: pointer;
+}
+.user-email {
+  @include baseTitle(white);
+  margin-right: 10px;
 }

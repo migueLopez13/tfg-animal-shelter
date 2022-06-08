@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -6,6 +6,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   templateUrl: './register-form.component.html'
 })
 export class RegisterFormComponent implements OnInit {
+
+  @Output() back = new EventEmitter()
+
   registerForm!: FormGroup
   name!: FormControl
   surname!: FormControl
@@ -52,10 +55,9 @@ export class RegisterFormComponent implements OnInit {
 
   register(data: any) {
     console.log('register', data)
-    //TODO
   }
   goBack() {
-    //TODO
+    this.back.emit()
   }
 }
 

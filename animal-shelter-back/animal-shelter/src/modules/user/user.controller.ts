@@ -7,24 +7,32 @@ import {
   Body,
   Param,
   ValidationPipe,
+  UseGuards,
 } from '@nestjs/common';
 import { UserDTO } from '../../shared/domain/dto/user.dto';
 import { UsersService } from './user.service';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { AuthGuard } from '@nestjs/passport';
+import { Auth } from 'src/common/decorators/auth.decorator';
 
 @ApiTags('users')
 @Controller('users')
 export class UsersController {
-  constructor(private readonly usersService: UsersService) {}
+  constructor(private readonly usersService: UsersService) { }
 
   @Get()
-  private find() {
-    return this.usersService.find();
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  private find(@Auth() { role }: UserDTO) {
+    if (role.some((role) => role.name === 'admin'))
+      return this.usersService.find();
   }
 
   @Get(':id')
-  private findOne(@Param('id') params) {
-    return this.usersService.findOne(params);
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  private findOne(@Auth() { email }: UserDTO) {
+    return this.usersService.findOne(email);
   }
 
   @Post()
@@ -33,12 +41,20 @@ export class UsersController {
   }
 
   @Put()
-  private update(@Body(ValidationPipe) user: UserDTO) {
-    return this.usersService.update(user);
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  private update(
+    @Body(ValidationPipe) user: UserDTO, @Auth() { email, role }: UserDTO
+  ) {
+    if (user.email === email || role.some((role) => role.name === 'admin'))
+      return this.usersService.update(user);
   }
 
   @Delete(':id')
-  private delete(@Param('id') params) {
-    return this.usersService.delete(params);
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  private delete(@Param('email') params, @Auth() { email, role }: UserDTO) {
+    if (role.some((role) => role.name === 'admin'))
+      return this.usersService.delete(params);
   }
 }

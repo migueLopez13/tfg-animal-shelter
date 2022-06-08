@@ -1,4 +1,4 @@
-import { Animal } from "src/app/common/interfaces/animal.interface";
+import { Animal } from "src/app/shared/domain/interfaces/animal.interface";
 
 
 export interface AnimalsState {
