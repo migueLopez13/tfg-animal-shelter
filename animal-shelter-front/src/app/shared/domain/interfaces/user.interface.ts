@@ -8,6 +8,7 @@ export interface User {
   name: string;
   surname: string;
   avatar: string;
+  password?: string;
   social?: UserSocial[];
   address?: UserAddress[];
   phone?: UserPhone[];

@@ -9,10 +9,6 @@ import { InConstructionComponent } from './shared/components/in-construction/in-
 
 const routes: Routes = [
   {
-    path: '',
-    component: InConstructionComponent
-  },
-  {
     path: 'home',
     data: {
       breadcrumb: 'Home',
@@ -91,6 +87,10 @@ const routes: Routes = [
     },
     canActivate: [LogoutGuard],
     component: HomeComponent
+  },
+  {
+    path: '**',
+    component: InConstructionComponent
   }
 ];
 

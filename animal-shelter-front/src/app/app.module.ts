@@ -17,10 +17,6 @@ import { InConstructionComponent } from './shared/components/in-construction/in-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { JwtInterceptor } from './common/interceptor/jwt.interceptor';
-import { AuthService } from './shared/services/auth.service';
-import { Store } from '@ngrx/store';
-import { AppState } from './state/interfaces/app.state.interface';
-import { AuthActions } from './state/core/auth/auth.action';
 
 
 @NgModule({

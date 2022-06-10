@@ -8,12 +8,19 @@ import {
   Param,
   ValidationPipe,
   UseGuards,
+  UseInterceptors,
+  UploadedFiles,
 } from '@nestjs/common';
 import { UserDTO } from '../../shared/domain/dto/user.dto';
 import { UsersService } from './user.service';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { AuthGuard } from '@nestjs/passport';
 import { Auth } from 'src/common/decorators/auth.decorator';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { Express, response } from 'express';
+import { diskStorage } from 'multer';
+
+
 
 @ApiTags('users')
 @Controller('users')
@@ -38,6 +45,20 @@ export class UsersController {
   @Post()
   private insert(@Body(ValidationPipe) user: UserDTO) {
     return this.usersService.insert(user);
+  }
+
+  @Put()
+  @ApiBearerAuth()
+  @UseGuards(AuthGuard('jwt'))
+  @UseInterceptors(FileInterceptor('avatar', {
+    storage: diskStorage({
+      destination: './uploads',
+    }),
+  }))
+  private updateAvatar(
+    @UploadedFiles() file: Express.Multer.File,
+    @Auth() { email }: UserDTO) {
+    return this.usersService.updateAvatar(email, file)
   }
 
   @Put()

@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { UserCredential } from 'src/shared/database/entities/user-credentials.entity';
 import { RoleDTO } from './role.dto';
 import { UserAddressDTO } from './user-address.dto';
 import { UserPhoneDTO } from './user-phone.dto';
@@ -28,5 +29,4 @@ export class UserDTO {
 
   @ApiProperty()
   role: RoleDTO[];
-
 }

@@ -1,13 +1,11 @@
 import { Injectable } from "@angular/core"
 import { Router } from "@angular/router"
 import { Store } from "@ngrx/store"
-import { map, tap } from "rxjs"
 import { AuthActions } from "src/app/state/core/auth/auth.action"
 import { AppState } from "src/app/state/interfaces/app.state.interface"
 import { ILogin } from "../domain/interfaces/login.interface"
 import { User } from "../domain/interfaces/user.interface"
 import { AuthRepository } from "./repository/auth.repository"
-import { UsersService } from "./users.service"
 
 
 @Injectable({
@@ -34,7 +32,9 @@ export class AuthService {
   }
 
   register(user: User) {
-    this.repository.register(user)
+    this.repository.register(user).subscribe(() => {
+      this.loginUser({ email: user.email, password: user.password as string })
+    })
   }
 
   logout() {

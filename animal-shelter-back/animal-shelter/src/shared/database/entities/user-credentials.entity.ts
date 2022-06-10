@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, JoinColumn, PrimaryGeneratedColumn, BeforeInsert, BaseEntity } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn, BeforeInsert, BaseEntity } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { User } from './user.entity';
 
@@ -7,9 +7,11 @@ export class UserCredential extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: string;
 
-  @ManyToOne(() => User, (user: User) => user.userCredential)
-  @JoinColumn()
+  @ManyToOne(() => User, (user: User) => user.password)
   user: User;
+
+  @Column({ unique: true })
+  userEmail: string;
 
   @Column()
   password: string;

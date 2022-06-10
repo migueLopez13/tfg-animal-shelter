@@ -15,7 +15,7 @@ export class AuthEffects {
     this.actions$.pipe(
       ofType('[Auth check] Request'),
       switchMap(() =>
-        this.user.find(1).pipe(
+        this.user.find('me').pipe(
           map((user) => ({
             type: '[Auth check] Success',
             user,
