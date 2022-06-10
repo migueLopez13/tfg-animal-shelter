@@ -1,0 +1,57 @@
+.profile {
+  width: 70vw;
+  min-height: 68vh;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 100px;
+  margin: auto;
+  gap: 20px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px var(--blue-dark-color);
+  animation: fadeIn 2s;
+
+  &--header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 250px;
+
+    &--avatar {
+      width: 30%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: aquamarine;
+    }
+    &--user-info {
+      width: 70%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: red;
+    }
+  }
+  &--content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    &--phone {
+      height: 70px;
+      background-color: bisque;
+    }
+    &--address {
+      height: 70px;
+      background-color: bisque;
+    }
+    &--social {
+      height: 70px;
+      background-color: bisque;
+    }
+    &--adoptions {
+      height: 70px;
+      background-color: bisque;
+    }
+  }
+}

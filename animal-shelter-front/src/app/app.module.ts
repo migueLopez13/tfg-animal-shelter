@@ -17,6 +17,7 @@ import { InConstructionComponent } from './shared/components/in-construction/in-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { JwtInterceptor } from './common/interceptor/jwt.interceptor';
+import { BaseModalComponent } from './shared/components/base-modal/base-modal.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { JwtInterceptor } from './common/interceptor/jwt.interceptor';
     InConstructionComponent,
     BreadcrumbsComponent,
     FooterComponent,
+    BaseModalComponent,
   ],
   imports: [
     BrowserModule,
