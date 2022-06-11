@@ -10,4 +10,8 @@ export class UsersRepository extends BaseRepository<User>{
   constructor(private readonly http: HttpClient) {
     super(http, 'users')
   }
+
+  updateAvatar(file: File) {
+    return this.http.put(`${this.baseUrl}/avatar`, file)
+  }
 }

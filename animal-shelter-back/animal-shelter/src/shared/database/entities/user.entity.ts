@@ -2,7 +2,7 @@ import { Adoption } from './adoption.entity';
 import { UserAddress } from './user-address.entity';
 import { UserPhone } from './user-phone.entity';
 import { UserSocial } from './user-social.entity';
-import { Column, Entity, PrimaryColumn, OneToMany, OneToOne, ManyToMany, JoinTable, BaseEntity, BeforeInsert } from 'typeorm';
+import { Column, Entity, PrimaryColumn, OneToMany, OneToOne, ManyToMany, JoinTable, BaseEntity, JoinColumn } from 'typeorm';
 import { Role } from './role.entity';
 import { UserCredential } from './user-credentials.entity';
 
@@ -49,6 +49,7 @@ export class User extends BaseEntity {
     eager: true,
     cascade: ["insert", "update", "remove"],
   })
+  @JoinColumn()
   adoptions: Adoption[];
 
   @OneToOne(() => UserCredential, (credential) => credential.user, {

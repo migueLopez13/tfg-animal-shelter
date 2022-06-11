@@ -23,10 +23,10 @@ export class AuthService {
 
   async loginUser(login: ILogin) {
     this.repository.loginUser(login).subscribe(
-      (token) => {
+      async (token) => {
         localStorage.setItem('access_token', token.access_token)
         this.store.dispatch(AuthActions.checkUserRequest())
-        this.route.navigateByUrl('profile')
+        this.route.navigateByUrl('home')
       }
     )
   }

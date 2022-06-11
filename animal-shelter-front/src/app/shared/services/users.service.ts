@@ -43,6 +43,10 @@ export class UsersService extends BaseService<User> {
     return this.userPhoneRepository.update(id, phone)
   }
 
+  updateAvatar(file: File) {
+    return this.usersRepository.updateAvatar(file)
+  }
+
   removePhone(id: number) {
     return this.userPhoneRepository.delete(id)
   }

@@ -1,12 +1,164 @@
-<div class="profile">
-  <div class="profile--header">
-    <div class="profile--header--avatar">IMAGEN AVATAR</div>
-    <div class="profile--header--user-info">INFO USER</div>
-  </div>
-  <div class="profile--content">
-    <div class="profile--content--phone">USER-PHONES</div>
-    <div class="profile--content--address">USER-ADDRESS</div>
-    <div class="profile--content--social">USER-SOCIAL</div>
-    <div class="profile--content--adoptions">USER-ADOPTIONS</div>
+<div class="wrapper">
+  <div class="profile">
+    <div class="profile--header">
+      <app-profile-image
+        class="profile--header--avatar"
+        [profile]="profile"
+        (edit)="openImageModal()"
+      ></app-profile-image>
+      <app-profile-user-info
+        class="profile--header--user-info"
+        [profile]="profile"
+        (save)="saveProfile()"
+      >
+      </app-profile-user-info>
+    </div>
+    <div class="profile--content">
+      <cdk-accordion class="profile-accordion">
+        <cdk-accordion-item
+          #accordionPhone="cdkAccordionItem"
+          class="profile-accordion-item"
+          role="button"
+          tabindex="0"
+          [attr.id]="'accordion-header-phone'"
+          [attr.aria-expanded]="accordionPhone.expanded"
+          [attr.aria-controls]="'accordion-body-phone'"
+        >
+          <div
+            class="profile-accordion-item-header"
+            (click)="accordionPhone.toggle()"
+          >
+            Phone
+            <span class="profile-accordion-item-description">
+              <fa-icon [icon]="accordionPhone.expanded ? closeIcon : openIcon">
+              </fa-icon>
+            </span>
+          </div>
+          <div
+            class="profile-accordion-item-body"
+            role="region"
+            [style.display]="accordionPhone.expanded ? '' : 'none'"
+            [attr.id]="'accordion-body-phone'"
+            [attr.aria-labelledby]="'accordion-header-phone'"
+          >
+            <app-profile-phone
+              class="profile--content--phone"
+              [phones]="profile.phone"
+              (newPhone)="openNewPhoneModal()"
+              (editPhone)="openEditPhoneModal($event)"
+            ></app-profile-phone>
+          </div>
+        </cdk-accordion-item>
+
+        <cdk-accordion-item
+          #accordionAddress="cdkAccordionItem"
+          class="profile-accordion-item"
+          role="button"
+          tabindex="0"
+          [attr.id]="'accordion-header-address'"
+          [attr.aria-expanded]="accordionAddress.expanded"
+          [attr.aria-controls]="'accordion-body-address'"
+        >
+          <div
+            class="profile-accordion-item-header"
+            (click)="accordionAddress.toggle()"
+          >
+            Address
+            <span class="profile-accordion-item-description">
+              <fa-icon
+                [icon]="accordionAddress.expanded ? closeIcon : openIcon"
+              >
+              </fa-icon>
+            </span>
+          </div>
+          <div
+            class="profile-accordion-item-body"
+            role="region"
+            [style.display]="accordionAddress.expanded ? '' : 'none'"
+            [attr.id]="'accordion-body-address'"
+            [attr.aria-labelledby]="'accordion-header-address'"
+          >
+            <app-profile-address
+              class="profile--content--address"
+              [addresses]="profile.address"
+              (newAddress)="openNewAddressModal()"
+              (editAddress)="openEditAddressModal($event)"
+            >
+            </app-profile-address>
+          </div>
+        </cdk-accordion-item>
+
+        <cdk-accordion-item
+          #accordionSocial="cdkAccordionItem"
+          class="profile-accordion-item"
+          role="button"
+          tabindex="0"
+          [attr.id]="'accordion-header-social'"
+          [attr.aria-expanded]="accordionSocial.expanded"
+          [attr.aria-controls]="'accordion-body-social'"
+        >
+          <div
+            class="profile-accordion-item-header"
+            (click)="accordionSocial.toggle()"
+          >
+            Social
+            <span class="profile-accordion-item-description">
+              <fa-icon [icon]="accordionSocial.expanded ? closeIcon : openIcon">
+              </fa-icon>
+            </span>
+          </div>
+          <div
+            class="profile-accordion-item-body"
+            role="region"
+            [style.display]="accordionSocial.expanded ? '' : 'none'"
+            [attr.id]="'accordion-body-social'"
+            [attr.aria-labelledby]="'accordion-header-social'"
+          >
+            <app-profile-social
+              class="profile--content--social"
+              [socialMedia]="profile.social"
+              (newSocial)="openNewSocialModal()"
+              (editSocial)="openEditSocialModal($event)"
+            ></app-profile-social>
+          </div>
+        </cdk-accordion-item>
+
+        <cdk-accordion-item
+          #accordionAdoptions="cdkAccordionItem"
+          class="profile-accordion-item"
+          role="button"
+          tabindex="0"
+          [attr.id]="'accordion-header-adoptions'"
+          [attr.aria-expanded]="accordionAdoptions.expanded"
+          [attr.aria-controls]="'accordion-body-adoptions'"
+        >
+          <div
+            class="profile-accordion-item-header"
+            (click)="accordionAdoptions.toggle()"
+          >
+            Adoptions
+            <span class="profile-accordion-item-description">
+              <fa-icon
+                [icon]="accordionAdoptions.expanded ? closeIcon : openIcon"
+              >
+              </fa-icon>
+            </span>
+          </div>
+          <div
+            class="profile-accordion-item-body"
+            role="region"
+            [style.display]="accordionAdoptions.expanded ? '' : 'none'"
+            [attr.id]="'accordion-body-adoptions'"
+            [attr.aria-labelledby]="'accordion-header-adoptions'"
+          >
+            <app-profile-adoptions
+              class="profile--content--adoptions"
+              [adoptions]="profile.adoptions"
+            >
+            </app-profile-adoptions>
+          </div>
+        </cdk-accordion-item>
+      </cdk-accordion>
+    </div>
   </div>
 </div>

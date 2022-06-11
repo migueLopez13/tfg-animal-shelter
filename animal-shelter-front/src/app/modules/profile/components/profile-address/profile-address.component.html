@@ -1,1 +1,10 @@
-<p>profile-address works!</p>
+<div *ngIf="!addresses?.length; else addressList">
+  You have not registered address, add new
+</div>
+<ng-template #addressList>
+  <div class="profile-address">
+    <div *ngFor="let address of addresses; let i = index">
+      {{ address.address }}
+    </div>
+  </div>
+</ng-template>

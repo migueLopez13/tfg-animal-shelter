@@ -278,4 +278,23 @@ export const UsersReducer = createReducer(
     loading: true,
     error
   })),
+
+  on(UsersActions.updateUserAvatarRequest, (state) => ({
+    ...state,
+    loading: true,
+  })),
+
+  on(UsersActions.updateUserAvatarSuccess, (state, { user }) => ({
+    ...state,
+    loading: false,
+    Users: [...state.users.map(
+      (_user) => _user.email === user.email ? user : _user
+    )]
+  })),
+
+  on(UsersActions.updateUserPhoneFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error
+  })),
 );

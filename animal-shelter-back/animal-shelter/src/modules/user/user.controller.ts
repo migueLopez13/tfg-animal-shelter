@@ -61,7 +61,7 @@ export class UsersController {
     return this.usersService.updateAvatar(email, file)
   }
 
-  @Put()
+  @Put('avatar')
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   private update(

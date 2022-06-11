@@ -61,6 +61,21 @@ export default class InitialDatabaseSeed implements Seeder {
       return credential
     }).create();
 
+    await factory(UserAddress)().map(async (address) => {
+      address.user = admin
+      return address
+    }).create();
+
+    await factory(UserPhone)().map(async (phone) => {
+      phone.user = admin
+      return phone
+    }).create();
+
+    await factory(UserSocial)().map(async (social) => {
+      social.user = admin
+      return social
+    }).create();
+
     const user = await factory((User))().map(async (user) => {
       user.email = 'user@user.com'
       user.name = 'user'
@@ -74,17 +89,17 @@ export default class InitialDatabaseSeed implements Seeder {
     }).create();
 
     await factory(UserAddress)().map(async (address) => {
-      address.user = admin
+      address.user = user
       return address
     }).create();
 
     await factory(UserPhone)().map(async (phone) => {
-      phone.user = admin
+      phone.user = user
       return phone
     }).create();
 
     await factory(UserSocial)().map(async (social) => {
-      social.user = admin
+      social.user = user
       return social
     }).create();
 

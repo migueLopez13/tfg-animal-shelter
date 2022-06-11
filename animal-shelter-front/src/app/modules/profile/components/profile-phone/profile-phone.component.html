@@ -1,1 +1,10 @@
-<p>profile-phone works!</p>
+<div *ngIf="!phones?.length; else phonelist">
+  You have not registered phones, add new
+</div>
+<ng-template #phonelist>
+  <div class="profile-phone">
+    <div *ngFor="let phone of phones; let i = index">
+      {{ phone.phone }}
+    </div>
+  </div>
+</ng-template>

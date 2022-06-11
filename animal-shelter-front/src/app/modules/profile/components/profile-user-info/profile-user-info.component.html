@@ -1,0 +1,97 @@
+<div class="profile-user">
+  <mat-form-field
+    class="profile-user--name"
+    appearance="fill"
+    [formGroup]="profileForm"
+  >
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      type="name"
+      formControlName="name"
+      placeholder="Juan"
+      autocomplete="off"
+    />
+    <mat-error
+      *ngIf="
+        profileForm.get('name')?.invalid &&
+        !profileForm.get('name')?.hasError('required')
+      "
+    >
+      Please enter a valid name
+    </mat-error>
+    <mat-error *ngIf="profileForm.get('name')?.hasError('required')">
+      Name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field
+    class="profile-user--surname"
+    appearance="fill"
+    [formGroup]="profileForm"
+  >
+    <mat-label>Surname</mat-label>
+    <input
+      matInput
+      type="surname"
+      formControlName="surname"
+      placeholder="Ruedas"
+      autocomplete="off"
+    />
+    <mat-error
+      *ngIf="
+        profileForm.get('surname')?.invalid &&
+        !profileForm.get('surname')?.hasError('required')
+      "
+    >
+      Please enter a valid surname
+    </mat-error>
+    <mat-error *ngIf="profileForm.get('surname')?.hasError('required')">
+      Surname is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field
+    class="profile-user--email"
+    appearance="fill"
+    [formGroup]="profileForm"
+  >
+    <mat-label>Email</mat-label>
+    <input
+      matInput
+      type="email"
+      formControlName="email"
+      placeholder="Ex. pat@example.com"
+      autocomplete="off"
+    />
+    <mat-error
+      *ngIf="
+        profileForm.get('email')?.hasError('email') &&
+        !profileForm.get('email')?.hasError('required')
+      "
+    >
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="profileForm.get('email')?.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <div class="change-password">
+    <button mat-raised-button (click)="changePassword()" class="button-pass">
+      Change password
+    </button>
+  </div>
+
+  <div class="save">
+    <button mat-raised-button (click)="saveProfile()" class="button-save">
+      Save
+    </button>
+  </div>
+
+  <div class="delete-account">
+    <button mat-raised-button (click)="deleteUser()" class="button-delete">
+      Delete account
+    </button>
+  </div>
+</div>

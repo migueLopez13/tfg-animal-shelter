@@ -92,6 +92,26 @@ export class UsersEffects {
     )
   );
 
+  updateUserAvatar$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType('[User updateAvatar] Request'),
+      switchMap(({ file }) =>
+        this.usersService.updateAvatar(file).pipe(
+          map((user) => ({
+            type: '[User updateAvatar] Success',
+            user,
+          })),
+          catchError((error) =>
+            of({
+              type: '[User updateAvatar] Failure',
+              error,
+            })
+          )
+        )
+      )
+    )
+  );
+
   removeUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType('[User remove] Request'),

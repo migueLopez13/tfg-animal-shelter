@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faChevronCircleDown, faChevronCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { State, Store } from '@ngrx/store';
 import { User } from 'src/app/shared/domain/interfaces/user.interface';
 import { AuthSelectors } from 'src/app/state/core/auth/auth.selectors';
@@ -10,6 +11,8 @@ import { AppState } from 'src/app/state/interfaces/app.state.interface';
 })
 export class ProfileViewComponent implements OnInit {
   profile!: User
+  openIcon = faChevronCircleDown
+  closeIcon = faChevronCircleUp
 
   constructor(private readonly state: Store<AppState>) { }
 
@@ -20,5 +23,14 @@ export class ProfileViewComponent implements OnInit {
       }
     )
   }
+
+  openImageModal() { }
+  saveProfile() { }
+  openNewPhoneModal() { }
+  openNewAddressModal() { }
+  openNewSocialModal() { }
+  openEditPhoneModal(event: any) { }
+  openEditAddressModal(event: any) { }
+  openEditSocialModal(event: any) { }
 
 }

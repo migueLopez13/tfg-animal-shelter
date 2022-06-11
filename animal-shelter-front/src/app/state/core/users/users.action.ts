@@ -77,6 +77,21 @@ export const UsersActions = {
     props<{ error: string }>()
   ),
 
+  updateUserAvatarRequest: createAction(
+    '[User updateAvatar] Request',
+    props<{ userEmail: string, file: File }>()
+  ),
+
+  updateUserAvatarSuccess: createAction(
+    '[User updateAvatar] Success',
+    props<{ user: User }>()
+  ),
+
+  updateUserAvatarFailure: createAction(
+    '[User updateAvatar] Failure',
+    props<{ error: string }>()
+  ),
+
   removeUserRequest: createAction(
     '[User remove] Request',
     props<{ userEmail: string }>()

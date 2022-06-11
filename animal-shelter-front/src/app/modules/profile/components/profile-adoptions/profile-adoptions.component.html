@@ -1,0 +1,10 @@
+<div *ngIf="!adoptions?.length; else adoptionList">
+  You have not registered adoptions.
+</div>
+<ng-template #adoptionList>
+  <div class="profile-adoptions">
+    <div *ngFor="let adoption of adoptions; let i = index">
+      {{ adoption.animalId }}
+    </div>
+  </div>
+</ng-template>

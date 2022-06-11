@@ -1,3 +1,4 @@
+import { Adoption } from "./adoption.interface";
 import { Role } from "./role.interface";
 import { UserAddress } from "./user-address.interface";
 import { UserPhone } from "./user-phone.interface";
@@ -13,4 +14,5 @@ export interface User {
   address?: UserAddress[];
   phone?: UserPhone[];
   role: Role[];
+  adoptions?: Adoption[]
 }
