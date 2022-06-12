@@ -1,8 +1,8 @@
 import { createAction, props } from '@ngrx/store';
-import { ILogin } from 'src/app/shared/domain/interfaces/login.interface';
+import { UserPhone } from 'src/app/shared/domain/interfaces/user-phone.interface';
 import { User } from 'src/app/shared/domain/interfaces/user.interface';
 
-export const AuthActions = {
+export const ProfileActions = {
 
   checkUserRequest: createAction(
     '[Auth check] Request',

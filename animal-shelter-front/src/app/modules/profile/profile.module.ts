@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { BaseModalComponent } from 'src/app/shared/components/base-modal/base-modal.component';
 import { ModalConfirmationComponent } from 'src/app/shared/components/modal-confirmation/modal-confirmation.component';
+import { ModalPhoneComponent } from 'src/app/shared/components/modal-phone/modal-phone.component';
 
 
 
@@ -30,6 +31,7 @@ import { ModalConfirmationComponent } from 'src/app/shared/components/modal-conf
     ProfileAdoptionsComponent,
     ModalConfirmationComponent,
     BaseModalComponent,
+    ModalPhoneComponent
   ],
   imports: [
     CommonModule,

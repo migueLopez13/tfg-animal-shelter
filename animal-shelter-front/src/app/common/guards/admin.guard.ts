@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AuthService } from 'src/app/shared/services/auth.service';
-import { AuthSelectors } from 'src/app/state/core/auth/auth.selectors';
+import { ProfileSelectors } from 'src/app/state/core/profile/profile.selectors';
 import { AppState } from 'src/app/state/interfaces/app.state.interface';
 
 @Injectable({
@@ -26,8 +25,8 @@ export class AdminGuard implements CanActivate {
 
     let isAdmin = false
 
-    this.store.select(AuthSelectors.selectCurrentUser).subscribe((user) => {
-      isAdmin = user?.role.some((role) => role.name === 'admin') as boolean
+    this.store.select(ProfileSelectors.selectCurrentUser).subscribe((user) => {
+      isAdmin = user[0]?.role.some((role) => role.name === 'admin') as boolean
     })
 
     if (isAdmin) {

@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { faChevronCircleDown, faChevronCircleUp } from '@fortawesome/free-solid-svg-icons';
 import { State, Store } from '@ngrx/store';
+import { UserPhone } from 'src/app/shared/domain/interfaces/user-phone.interface';
 import { User } from 'src/app/shared/domain/interfaces/user.interface';
-import { AuthSelectors } from 'src/app/state/core/auth/auth.selectors';
+import { ProfileActions } from 'src/app/state/core/profile/profile.action';
+import { ProfileSelectors } from 'src/app/state/core/profile/profile.selectors';
+import { UsersActions } from 'src/app/state/core/users/users.action';
 import { AppState } from 'src/app/state/interfaces/app.state.interface';
 
 @Component({
@@ -17,10 +20,9 @@ export class ProfileViewComponent implements OnInit {
   constructor(private readonly state: Store<AppState>) { }
 
   ngOnInit(): void {
-    this.state.select(AuthSelectors.selectCurrentUser).subscribe(
+    this.state.select(ProfileSelectors.selectCurrentUser).subscribe(
       (user) => {
-        this.profile = user as User
-        console.log(user)
+        this.profile = user[0] as User
       }
     )
   }
@@ -29,9 +31,20 @@ export class ProfileViewComponent implements OnInit {
 
   changeAvatar(event: any) { }
 
-  newPhone(event: any) { }
-  editPhone(event: any) { }
-  deletePhone(event: any) { }
+  newPhone(phone: UserPhone) {
+    phone.userEmail = this.profile.email
+    this.state.dispatch(UsersActions.addUserPhoneRequest({ phone }))
+  }
+  editPhone(phone: UserPhone) {
+    this.state.dispatch(UsersActions.updateUserPhoneRequest(
+      { phoneId: phone.id, phone }
+    ))
+  }
+  deletePhone(id: number) {
+    this.state.dispatch(UsersActions.removeUserPhoneRequest(
+      { phoneId: id }
+    ))
+  }
 
   newAddress(event: any) { }
   editAddress(event: any) { }

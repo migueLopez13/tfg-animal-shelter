@@ -17,7 +17,6 @@ export class Adoption extends BaseEntity {
   id: string;
 
   @ManyToOne(() => User, (user) => user.adoptions, {
-    cascade: ["update"]
   })
   user: User;
 

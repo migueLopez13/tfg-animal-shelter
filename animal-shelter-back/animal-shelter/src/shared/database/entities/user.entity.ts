@@ -34,7 +34,6 @@ export class User extends BaseEntity {
 
   @OneToMany(() => UserPhone, (phone) => phone.user, {
     eager: true,
-    cascade: ["insert", "update", "remove"],
   })
   phone: UserPhone[];
 
@@ -47,7 +46,6 @@ export class User extends BaseEntity {
 
   @OneToMany(() => Adoption, (adoption) => adoption.user, {
     eager: true,
-    cascade: ["insert", "update", "remove"],
   })
   @JoinColumn()
   adoptions: Adoption[];

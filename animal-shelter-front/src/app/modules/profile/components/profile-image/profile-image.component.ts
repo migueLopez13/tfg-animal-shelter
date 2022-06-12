@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/shared/domain/interfaces/user.interface';
 import { AppState } from 'src/app/state/interfaces/app.state.interface';
 
@@ -10,7 +11,7 @@ import { AppState } from 'src/app/state/interfaces/app.state.interface';
 })
 export class ProfileImageComponent implements OnInit {
 
-  @Input() profile!: User
+  @Input() profile!: Readonly<User>
   @Output() edit = new EventEmitter()
   editIcon = faPencilAlt
 

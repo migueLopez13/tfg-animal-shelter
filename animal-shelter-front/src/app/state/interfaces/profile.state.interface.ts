@@ -1,8 +1,8 @@
 import { User } from "src/app/shared/domain/interfaces/user.interface";
 
-export interface AuthState {
+export interface ProfileState {
   loading: boolean;
   isAuthenticated: boolean,
-  user?: Readonly<User>;
+  user: ReadonlyArray<User>;
   error?: any;
 }

@@ -10,6 +10,7 @@ export class UsersEffects {
   constructor(
     private readonly actions$: Actions,
     private readonly usersService: UsersService
+
   ) { }
 
   loadUsers$ = createEffect(() =>
@@ -176,7 +177,7 @@ export class UsersEffects {
     this.actions$.pipe(
       ofType('[UserAddress remove] Request'),
       switchMap(({ addressId }) =>
-        this.usersService.remove(addressId).pipe(
+        this.usersService.removeAddress(addressId).pipe(
           map((address) => ({
             type: '[UserAddress remove] Success',
             address,
@@ -236,7 +237,7 @@ export class UsersEffects {
     this.actions$.pipe(
       ofType('[UserSocial remove] Request'),
       switchMap(({ socialId }) =>
-        this.usersService.remove(socialId).pipe(
+        this.usersService.removeSocial(socialId).pipe(
           map((social) => ({
             type: '[UserSocial remove] Success',
             social,
@@ -295,8 +296,8 @@ export class UsersEffects {
   removeUserPhone$ = createEffect(() =>
     this.actions$.pipe(
       ofType('[UserPhone remove] Request'),
-      switchMap(({ phoneId }) =>
-        this.usersService.remove(phoneId).pipe(
+      switchMap(({ phoneId }) => {
+        return this.usersService.removePhone(phoneId).pipe(
           map((phone) => ({
             type: '[UserPhone remove] Success',
             phone,
@@ -308,6 +309,7 @@ export class UsersEffects {
             })
           )
         )
+      }
       )
     )
   );

@@ -8,7 +8,7 @@ import { User } from 'src/app/shared/domain/interfaces/user.interface';
 })
 export class ProfileUserInfoComponent implements OnInit {
 
-  @Input() profile!: User
+  @Input() profile!: Readonly<User> | null
   @Output() save = new EventEmitter()
   @Output() change = new EventEmitter()
   @Output() delete = new EventEmitter()
@@ -34,7 +34,7 @@ export class ProfileUserInfoComponent implements OnInit {
         phone: '',
         role: ''
       })
-    this.profileForm.setValue(this.profile)
+    this.profileForm.setValue(this.profile as User)
   }
 
   createValidators() {

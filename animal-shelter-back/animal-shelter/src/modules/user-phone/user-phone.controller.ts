@@ -15,7 +15,7 @@ import { UserPhoneService } from './user-phone.service';
 @ApiTags('user-phone')
 @Controller('user-phone')
 export class UserPhoneController {
-  constructor(private readonly phoneService: UserPhoneService) {}
+  constructor(private readonly phoneService: UserPhoneService) { }
 
   @Get()
   private find() {
@@ -32,7 +32,7 @@ export class UserPhoneController {
     return this.phoneService.insert(phone);
   }
 
-  @Put()
+  @Put(':id')
   private update(@Body(ValidationPipe) phone: UserPhoneDTO) {
     return this.phoneService.update(phone);
   }

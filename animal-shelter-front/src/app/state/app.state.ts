@@ -3,8 +3,8 @@ import { AdoptionsEffects } from "./core/adoptions/adoptions.effects";
 import { AdoptionsReducer } from "./core/adoptions/adoptions.reducer";
 import { AnimalsEffects } from "./core/animals/animals.effects";
 import { AnimalsReducer } from "./core/animals/animals.reducer";
-import { AuthEffects } from "./core/auth/auth.effects";
-import { AuthReducer } from "./core/auth/auth.reducer";
+import { ProfileEffects } from "./core/profile/profile.effects";
+import { ProfileReducer } from "./core/profile/profile.reducer";
 import { SheltersEffects } from "./core/shelters/shelters.effects";
 import { SheltersReducer } from "./core/shelters/shelters.reducer";
 import { UsersEffects } from "./core/users/users.effects";
@@ -17,10 +17,10 @@ export const ROOT_REDUCERS: ActionReducerMap<AppState> = {
   animals: AnimalsReducer,
   shelters: SheltersReducer,
   users: UsersReducer,
-  auth: AuthReducer
+  profile: ProfileReducer
 };
 
 export const ROOT_EFFECTS = [
-  AdoptionsEffects, AnimalsEffects, SheltersEffects, UsersEffects, AuthEffects
+  AdoptionsEffects, AnimalsEffects, SheltersEffects, UsersEffects, ProfileEffects
 ];
 

@@ -34,9 +34,6 @@ import { ModalSocialComponent } from './shared/components/modal-social/modal-soc
     InConstructionComponent,
     BreadcrumbsComponent,
     FooterComponent,
-    ModalPhoneComponent,
-    ModalAddressComponent,
-    ModalSocialComponent,
   ],
   imports: [
     BrowserModule,

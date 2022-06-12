@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 import { UsersService } from 'src/app/shared/services/users.service';
 
 @Injectable()
-export class AuthEffects {
+export class ProfileEffects {
   constructor(
     private readonly actions$: Actions,
     private readonly user: UsersService,

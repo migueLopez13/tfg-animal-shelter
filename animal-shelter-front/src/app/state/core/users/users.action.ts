@@ -229,7 +229,7 @@ export const UsersActions = {
 
   removeUserPhoneRequest: createAction(
     '[UserPhone remove] Request',
-    props<{ phoneId: string }>()
+    props<{ phoneId: number }>()
   ),
 
   removeUserPhoneSuccess: createAction(

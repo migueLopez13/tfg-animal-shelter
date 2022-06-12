@@ -8,6 +8,14 @@
     (close)="closeConfirmation()"
     (true)="removeElement($event)"
   ></app-modal-confirmation>
+  <app-modal-phone
+    *ngIf="showEdit || showAdd"
+    [element]="element"
+    (add)="addElement($event)"
+    (edit)="editElement($event)"
+    (close)="closeModal()"
+  >
+  </app-modal-phone>
   <div class="profile-section">
     <div
       *ngFor="let element of elements; let i = index"

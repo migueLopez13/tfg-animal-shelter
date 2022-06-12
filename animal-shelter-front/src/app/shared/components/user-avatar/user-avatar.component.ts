@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { User } from 'src/app/shared/domain/interfaces/user.interface';
-import { AuthActions } from 'src/app/state/core/auth/auth.action';
-import { AuthSelectors } from 'src/app/state/core/auth/auth.selectors';
+import { ProfileSelectors } from 'src/app/state/core/profile/profile.selectors';
 import { AppState } from 'src/app/state/interfaces/app.state.interface';
 import { NavbarOption } from '../../domain/interfaces/nabvar-option.interface';
 @Component({
@@ -30,9 +29,9 @@ export class UserAvatarComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.store.select(AuthSelectors.selectCurrentUser).subscribe((user) => {
-      this.userProfile = user as Readonly<User>
-      if (user?.role.some(({ name }) => name === 'admin')) {
+    this.store.select(ProfileSelectors.selectCurrentUser).subscribe((user) => {
+      this.userProfile = user[0] as Readonly<User>
+      if (user[0]?.role.some(({ name }) => name === 'admin')) {
         this.userOptions =
           [
             {

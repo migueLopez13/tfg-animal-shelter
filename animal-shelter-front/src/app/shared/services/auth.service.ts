@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core"
 import { Router } from "@angular/router"
 import { Store } from "@ngrx/store"
-import { AuthActions } from "src/app/state/core/auth/auth.action"
+import { ProfileActions } from "src/app/state/core/profile/profile.action"
 import { AppState } from "src/app/state/interfaces/app.state.interface"
 import { ILogin } from "../domain/interfaces/login.interface"
 import { User } from "../domain/interfaces/user.interface"
@@ -25,7 +25,7 @@ export class AuthService {
     this.repository.loginUser(login).subscribe(
       async (token) => {
         localStorage.setItem('access_token', token.access_token)
-        this.store.dispatch(AuthActions.checkUserRequest())
+        this.store.dispatch(ProfileActions.checkUserRequest())
         this.route.navigateByUrl('home')
       }
     )
@@ -39,7 +39,7 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('access_token')
-    this.store.dispatch(AuthActions.logoutRequest())
+    this.store.dispatch(ProfileActions.logoutRequest())
     this.route.navigateByUrl('login')
   }
 }

@@ -14,7 +14,7 @@
     />
     <mat-error
       *ngIf="
-        profileForm.get('name')?.invalid &&
+        profileForm.get('name')?.hasError('min') &&
         !profileForm.get('name')?.hasError('required')
       "
     >
@@ -40,7 +40,7 @@
     />
     <mat-error
       *ngIf="
-        profileForm.get('surname')?.invalid &&
+        profileForm.get('surname')?.hasError('min') &&
         !profileForm.get('surname')?.hasError('required')
       "
     >

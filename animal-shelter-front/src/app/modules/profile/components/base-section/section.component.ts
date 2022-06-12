@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { UserPhone } from 'src/app/shared/domain/interfaces/user-phone.interface';
 
 @Component({
   selector: 'app-profile-phone',
@@ -8,10 +7,11 @@ import { UserPhone } from 'src/app/shared/domain/interfaces/user-phone.interface
 export class Section<T>{
 
   @Input() elements?: T[]
+  @Input() id?: string
 
   @Output() add = new EventEmitter()
   @Output() edit = new EventEmitter()
-  @Output() remove = new EventEmitter()
+  @Output() delete = new EventEmitter()
 
   showConfirmation = false
   showEdit = false
@@ -34,30 +34,30 @@ export class Section<T>{
     this.element = element
     this.showEdit = true
   }
-  closeEdit() {
-    this.showConfirmation = false
-  }
 
   openAdd() {
+    this.element = undefined
     this.showAdd = true
   }
-  closeAdd() {
+
+  closeModal() {
     this.showAdd = false
+    this.showEdit = false
   }
 
 
   editElement(element: T) {
-    this.closeEdit()
+    this.closeModal()
     this.edit.emit(element)
   }
 
   addElement(element: T) {
-    this.closeAdd()
+    this.closeModal()
     this.add.emit(element)
   }
 
   removeElement(id: number) {
     this.closeConfirmation()
-    this.remove.emit(id)
+    this.delete.emit(id)
   }
 }
