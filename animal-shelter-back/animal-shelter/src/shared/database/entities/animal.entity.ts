@@ -79,10 +79,7 @@ export class Animal extends BaseEntity {
   vaccine: Vaccine[];
 
   @OneToOne(
-    () => Adoption, (adoption) => adoption.animal, { nullable: true }
+    () => Adoption, (adoption) => adoption.animal, { cascade: true, nullable: true }
   )
   adoption: Adoption;
-
-  @Column({ nullable: true })
-  adoptionId: string
 }

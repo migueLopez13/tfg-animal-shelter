@@ -1,1 +1,9 @@
-<p>base-modal works!</p>
+<div class="base-modal">
+  <div class="modal">
+    <div class="modal--header">
+      <ng-content select="[title]" class="title"></ng-content>
+    </div>
+    <ng-content select="[body]" class="modal"></ng-content>
+    <ng-content select="[buttons]" class="modal--buttons"> </ng-content>
+  </div>
+</div>

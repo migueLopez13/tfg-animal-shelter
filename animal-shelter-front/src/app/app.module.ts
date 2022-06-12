@@ -17,7 +17,10 @@ import { InConstructionComponent } from './shared/components/in-construction/in-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { JwtInterceptor } from './common/interceptor/jwt.interceptor';
-import { BaseModalComponent } from './shared/components/base-modal/base-modal.component';
+import { MatButtonModule } from '@angular/material/button';
+import { ModalPhoneComponent } from './shared/components/modal-phone/modal-phone.component';
+import { ModalAddressComponent } from './shared/components/modal-address/modal-address.component';
+import { ModalSocialComponent } from './shared/components/modal-social/modal-social.component';
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { BaseModalComponent } from './shared/components/base-modal/base-modal.co
     InConstructionComponent,
     BreadcrumbsComponent,
     FooterComponent,
-    BaseModalComponent,
+    ModalPhoneComponent,
+    ModalAddressComponent,
+    ModalSocialComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,8 @@ import { BaseModalComponent } from './shared/components/base-modal/base-modal.co
     StateModule,
     BrowserAnimationsModule,
     MatTooltipModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatButtonModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

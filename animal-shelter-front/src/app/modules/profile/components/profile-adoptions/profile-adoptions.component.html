@@ -2,9 +2,36 @@
   You have not registered adoptions.
 </div>
 <ng-template #adoptionList>
-  <div class="profile-adoptions">
-    <div *ngFor="let adoption of adoptions; let i = index">
-      {{ adoption.animalId }}
+  <div class="profile-section">
+    <div
+      *ngFor="let adoption of adoptions; let i = index"
+      class="profile-section--item"
+    >
+      <div class="column">
+        <div class="title">date:</div>
+        {{ adoption.date.slice(0, 10) }}
+      </div>
+      <div class="column">
+        <div class="title">Animal name:</div>
+        {{ adoption.animal.name }}
+      </div>
+      <div class="column">
+        <div class="title">Kind:</div>
+        {{ adoption.animal.kind }}
+      </div>
+      <div class="column">
+        <div class="title">Shelter:</div>
+        {{ adoption.animal.shelterEmail }}
+      </div>
+      <div class="buttons-wrapper">
+        <button
+          mat-raised-button
+          (click)="see(adoption.animal.id)"
+          color="accent"
+        >
+          Show
+        </button>
+      </div>
     </div>
   </div>
 </ng-template>

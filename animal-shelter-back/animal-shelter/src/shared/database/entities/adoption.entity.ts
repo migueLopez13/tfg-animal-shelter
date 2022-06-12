@@ -25,6 +25,7 @@ export class Adoption extends BaseEntity {
   userEmail: string;
 
   @OneToOne(() => Animal, (animal) => animal.adoption, {
+    eager: true,
     cascade: ["update"]
   })
   @JoinColumn()

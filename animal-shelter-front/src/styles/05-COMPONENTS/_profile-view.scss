@@ -71,7 +71,7 @@
   .profile-accordion-item {
     display: block;
     border: solid 1px var(--grey-05-color);
-
+    background-color: var(--blue-light-color);
     color: var(--blue-dark-color);
     font-family: Catamaran;
     font-size: large;
@@ -86,6 +86,7 @@
     display: flex;
     align-content: center;
     justify-content: space-between;
+    user-select: none;
   }
 
   .profile-accordion-item-description {
@@ -95,6 +96,7 @@
   .profile-accordion-item-header,
   .profile-accordion-item-body {
     padding: 16px;
+    animation: fadeInDown 0.5s;
   }
 
   .profile-accordion-item-body {

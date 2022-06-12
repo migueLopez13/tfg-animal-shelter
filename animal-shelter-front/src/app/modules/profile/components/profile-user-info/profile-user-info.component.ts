@@ -10,6 +10,8 @@ export class ProfileUserInfoComponent implements OnInit {
 
   @Input() profile!: User
   @Output() save = new EventEmitter()
+  @Output() change = new EventEmitter()
+  @Output() delete = new EventEmitter()
 
   profileForm!: FormGroup
   name!: FormControl
@@ -48,7 +50,16 @@ export class ProfileUserInfoComponent implements OnInit {
   }
 
 
-  deleteUser() { }
-  saveProfile() { }
-  changePassword() { }
+  deleteUser() {
+    this.delete.emit()
+  }
+
+  saveProfile() {
+    if (this.profileForm.valid)
+      this.save.emit(this.profileForm.value)
+  }
+
+  changePassword() {
+    this.change.emit()
+  }
 }

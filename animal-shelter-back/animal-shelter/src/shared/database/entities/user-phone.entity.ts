@@ -16,5 +16,8 @@ export class UserPhone extends BaseEntity {
   countryCode: string;
 
   @Column()
+  label: string;
+
+  @Column()
   phone: string;
 }

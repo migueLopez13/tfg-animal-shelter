@@ -117,6 +117,8 @@ export default class InitialDatabaseSeed implements Seeder {
       return role
     }).create();
 
+    let animals = []
+
     for (const shelter of shelters) {
       await factory(ShelterMedia)().map(async (media) => {
         media.shelter = shelter
@@ -182,7 +184,14 @@ export default class InitialDatabaseSeed implements Seeder {
           return adoption
         }).create();
       }
+
+      animals = [...animals, ...cats, ...dogs, ...birds]
     }
+    await factory(Adoption)().map(async (adoption) => {
+      adoption.animal = animals[3]
+      adoption.user = admin
+      return adoption
+    }).create();
   }
 }
 

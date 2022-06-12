@@ -1,0 +1,12 @@
+<app-base-modal (close)="closeModal()">
+  <div title>Confirmation</div>
+  <div body>Are you sure?</div>
+  <div buttons>
+    <button mat-raised-button (click)="closeModal()" class="button-save">
+      No
+    </button>
+    <button mat-raised-button (click)="confirm()" class="button-save">
+      Yes
+    </button>
+  </div>
+</app-base-modal>

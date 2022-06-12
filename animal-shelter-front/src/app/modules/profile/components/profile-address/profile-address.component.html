@@ -1,10 +1,53 @@
-<div *ngIf="!addresses?.length; else addressList">
+<div *ngIf="!elements?.length; else addressList">
   You have not registered address, add new
 </div>
 <ng-template #addressList>
-  <div class="profile-address">
-    <div *ngFor="let address of addresses; let i = index">
-      {{ address.address }}
+  <app-modal-confirmation
+    *ngIf="showConfirmation"
+    [element]="element"
+    (close)="closeConfirmation()"
+    (true)="removeElement($event)"
+  ></app-modal-confirmation>
+  <div class="profile-section">
+    <div
+      *ngFor="let address of elements; let i = index"
+      class="profile-section--item"
+    >
+      <div class="column">
+        <div class="title">Label:</div>
+        {{ address.label }}
+      </div>
+      <div class="column">
+        <div class="title">State code:</div>
+        {{ address.provinceCode }}
+      </div>
+      <div class="column">
+        <div class="title">Address:</div>
+        {{ address.address }}
+      </div>
+      <div class="column">
+        <div class="title">Zip:</div>
+        {{ address.zip }}
+      </div>
+      <div class="buttons-wrapper">
+        <button
+          mat-raised-button
+          (click)="openEdit(address)"
+          class="button-edit"
+        >
+          Edit
+        </button>
+        <button
+          mat-raised-button
+          (click)="openConfirmation(address.id)"
+          class="button-remove"
+        >
+          Delete
+        </button>
+      </div>
     </div>
   </div>
 </ng-template>
+<button mat-raised-button (click)="openAdd()" color="accent">
+  New Address
+</button>

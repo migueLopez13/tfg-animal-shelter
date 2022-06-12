@@ -11,6 +11,7 @@ define(UserAddress, (faker: typeof Faker.faker) => {
   userAddress.provinceCode = 'ES-MA'
   userAddress.zip = '29003'
   userAddress.address = 'calle de prueba'
+  userAddress.label = faker.name.firstName()
 
   return userAddress;
 });

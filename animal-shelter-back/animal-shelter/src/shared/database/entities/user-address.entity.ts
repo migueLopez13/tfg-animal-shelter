@@ -23,6 +23,9 @@ export class UserAddress extends BaseEntity {
   provinceCode: string;
 
   @Column()
+  label: string;
+
+  @Column()
   zip: string;
 
   @Column()

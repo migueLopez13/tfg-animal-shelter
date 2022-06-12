@@ -1,10 +1,50 @@
-<div *ngIf="!socialMedia?.length; else socialList">
+<div *ngIf="!elements?.length; else socialList">
   You have not any social media, add new
 </div>
 <ng-template #socialList>
-  <div class="profile-social">
-    <div *ngFor="let social of socialMedia; let i = index">
-      {{ social.url }}
+  <app-modal-confirmation
+    *ngIf="showConfirmation"
+    [element]="element"
+    (close)="closeConfirmation()"
+    (true)="removeElement($event)"
+  ></app-modal-confirmation>
+  <div class="profile-section">
+    <div
+      *ngFor="let social of elements; let i = index"
+      class="profile-section--item"
+    >
+      <div class="column">
+        <div class="title">Label:</div>
+        {{ social.name }}
+      </div>
+      <div class="column">
+        <div class="title">Link:</div>
+        <a href="{{ social.url }}">
+          <img
+            src="../../../../assets/{{ social.name }}.png"
+            alt="{{ social.name }}"
+          />
+        </a>
+      </div>
+      <div class="buttons-wrapper">
+        <button
+          mat-raised-button
+          (click)="openEdit(social)"
+          class="button-edit"
+        >
+          Edit
+        </button>
+        <button
+          mat-raised-button
+          (click)="openConfirmation(social.id)"
+          class="button-remove"
+        >
+          Delete
+        </button>
+      </div>
     </div>
   </div>
 </ng-template>
+<button mat-raised-button (click)="openAdd()" color="accent">
+  New Social link
+</button>

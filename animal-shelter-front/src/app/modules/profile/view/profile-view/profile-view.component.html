@@ -4,12 +4,12 @@
       <app-profile-image
         class="profile--header--avatar"
         [profile]="profile"
-        (edit)="openImageModal()"
+        (edit)="changeAvatar($event)"
       ></app-profile-image>
       <app-profile-user-info
         class="profile--header--user-info"
         [profile]="profile"
-        (save)="saveProfile()"
+        (save)="saveProfile($event)"
       >
       </app-profile-user-info>
     </div>
@@ -43,9 +43,10 @@
           >
             <app-profile-phone
               class="profile--content--phone"
-              [phones]="profile.phone"
-              (newPhone)="openNewPhoneModal()"
-              (editPhone)="openEditPhoneModal($event)"
+              [elements]="profile.phone"
+              (add)="newPhone($event)"
+              (edit)="editPhone($event)"
+              (delete)="deletePhone($event)"
             ></app-profile-phone>
           </div>
         </cdk-accordion-item>
@@ -80,9 +81,10 @@
           >
             <app-profile-address
               class="profile--content--address"
-              [addresses]="profile.address"
-              (newAddress)="openNewAddressModal()"
-              (editAddress)="openEditAddressModal($event)"
+              [elements]="profile.address"
+              (add)="newAddress($event)"
+              (edit)="editAddress($event)"
+              (delete)="deleteAddress($event)"
             >
             </app-profile-address>
           </div>
@@ -116,9 +118,10 @@
           >
             <app-profile-social
               class="profile--content--social"
-              [socialMedia]="profile.social"
-              (newSocial)="openNewSocialModal()"
-              (editSocial)="openEditSocialModal($event)"
+              [elements]="profile.social"
+              (add)="newSocial($event)"
+              (edit)="editSocial($event)"
+              (delete)="deleteSocial($event)"
             ></app-profile-social>
           </div>
         </cdk-accordion-item>

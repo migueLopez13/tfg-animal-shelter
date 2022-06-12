@@ -20,17 +20,25 @@ export class ProfileViewComponent implements OnInit {
     this.state.select(AuthSelectors.selectCurrentUser).subscribe(
       (user) => {
         this.profile = user as User
+        console.log(user)
       }
     )
   }
 
-  openImageModal() { }
-  saveProfile() { }
-  openNewPhoneModal() { }
-  openNewAddressModal() { }
-  openNewSocialModal() { }
-  openEditPhoneModal(event: any) { }
-  openEditAddressModal(event: any) { }
-  openEditSocialModal(event: any) { }
+  saveProfile(event: any) { }
+
+  changeAvatar(event: any) { }
+
+  newPhone(event: any) { }
+  editPhone(event: any) { }
+  deletePhone(event: any) { }
+
+  newAddress(event: any) { }
+  editAddress(event: any) { }
+  deleteAddress(event: any) { }
+
+  newSocial(event: any) { }
+  editSocial(event: any) { }
+  deleteSocial(event: any) { }
 
 }

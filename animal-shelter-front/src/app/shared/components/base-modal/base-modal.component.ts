@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-base-modal',
   templateUrl: './base-modal.component.html'
 })
-export class BaseModalComponent implements OnInit {
+export class BaseModalComponent {
+
+  @Output() close = new EventEmitter()
 
   constructor() { }
 
-  ngOnInit(): void {
+  closeModal() {
+    this.close.emit()
   }
 
 }

@@ -5,7 +5,6 @@ import { ProfileViewComponent } from './view/profile-view/profile-view.component
 import { ProfileAddressComponent } from './components/profile-address/profile-address.component';
 import { ProfileSocialComponent } from './components/profile-social/profile-social.component';
 import { ProfilePhoneComponent } from './components/profile-phone/profile-phone.component';
-import { ProfileModalAvatarComponent } from './components/profile-modal-avatar/profile-modal-avatar.component';
 import { ProfileImageComponent } from './components/profile-image/profile-image.component';
 import { ProfileUserInfoComponent } from './components/profile-user-info/profile-user-info.component';
 import { ProfileAdoptionsComponent } from './components/profile-adoptions/profile-adoptions.component';
@@ -15,20 +14,22 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
+import { BaseModalComponent } from 'src/app/shared/components/base-modal/base-modal.component';
+import { ModalConfirmationComponent } from 'src/app/shared/components/modal-confirmation/modal-confirmation.component';
 
 
 
 @NgModule({
   declarations: [
-
     ProfileViewComponent,
     ProfileAddressComponent,
     ProfileSocialComponent,
     ProfilePhoneComponent,
-    ProfileModalAvatarComponent,
     ProfileImageComponent,
     ProfileUserInfoComponent,
-    ProfileAdoptionsComponent
+    ProfileAdoptionsComponent,
+    ModalConfirmationComponent,
+    BaseModalComponent,
   ],
   imports: [
     CommonModule,

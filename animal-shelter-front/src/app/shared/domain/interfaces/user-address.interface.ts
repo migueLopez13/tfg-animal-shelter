@@ -6,5 +6,6 @@ export interface UserAddress {
   provinceCode: string;
   zip: string;
   address: string;
+  label: string;
   userEmail: string;
 }

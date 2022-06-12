@@ -1,10 +1,47 @@
-<div *ngIf="!phones?.length; else phonelist">
+<div *ngIf="!elements?.length; else phonelist">
   You have not registered phones, add new
 </div>
 <ng-template #phonelist>
-  <div class="profile-phone">
-    <div *ngFor="let phone of phones; let i = index">
-      {{ phone.phone }}
+  <app-modal-confirmation
+    *ngIf="showConfirmation"
+    [element]="element"
+    (close)="closeConfirmation()"
+    (true)="removeElement($event)"
+  ></app-modal-confirmation>
+  <div class="profile-section">
+    <div
+      *ngFor="let element of elements; let i = index"
+      class="profile-section--item"
+    >
+      <div class="column">
+        <div class="title">Label:</div>
+        {{ element.label }}
+      </div>
+      <div class="column">
+        <div class="title">Country code:</div>
+        {{ element.countryCode }}
+      </div>
+      <div class="column">
+        <div class="title">Phone:</div>
+        {{ element.phone }}
+      </div>
+      <div class="buttons-wrapper">
+        <button
+          mat-raised-button
+          (click)="openEdit(element)"
+          class="button-edit"
+        >
+          Edit
+        </button>
+        <button
+          mat-raised-button
+          (click)="openConfirmation(element.id)"
+          class="button-remove"
+        >
+          Delete
+        </button>
+      </div>
     </div>
   </div>
 </ng-template>
+<button mat-raised-button (click)="openAdd()" color="accent">New Phone</button>

@@ -11,6 +11,9 @@ export class UserPhoneDTO {
   countryCode: string;
 
   @ApiProperty()
+  label: string;
+
+  @ApiProperty()
   phone: string;
 
 }

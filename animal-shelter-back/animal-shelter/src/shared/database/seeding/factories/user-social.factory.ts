@@ -7,6 +7,6 @@ import { UserSocial } from '../../entities/user-social.entity';
 define(UserSocial, (faker: typeof Faker.faker) => {
   const userSocial = new UserSocial();
   userSocial.name = 'instagram'
-  userSocial.url = 'https://www.instagram.com/ester_exposito/?hl=es'
+  userSocial.url = 'https://www.instagram.com/naschurmann/?hl=es'
   return userSocial;
 });

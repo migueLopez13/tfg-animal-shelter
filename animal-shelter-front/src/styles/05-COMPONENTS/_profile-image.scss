@@ -17,14 +17,13 @@
       justify-content: center;
       align-items: center;
       background-color: var(--blue-dark-color);
-      color: var(--gold-color);
+      color: white;
       padding: 5px;
       border-radius: 100px;
       position: relative;
       bottom: 30px;
       left: 45px;
       &:hover {
-        color: white;
         background-color: var(--blue-medium-color);
         cursor: pointer;
       }
