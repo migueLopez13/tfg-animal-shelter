@@ -1,3 +1,9 @@
+<app-modal-confirmation
+  *ngIf="showConfirmation"
+  [element]="user.email"
+  (close)="closeConfirmation()"
+  (true)="deleteUser($event)"
+></app-modal-confirmation>
 <div class="profile-user">
   <mat-form-field
     class="profile-user--name"
@@ -57,24 +63,7 @@
     [formGroup]="profileForm"
   >
     <mat-label>Email</mat-label>
-    <input
-      matInput
-      type="email"
-      formControlName="email"
-      placeholder="Ex. pat@example.com"
-      autocomplete="off"
-    />
-    <mat-error
-      *ngIf="
-        profileForm.get('email')?.hasError('email') &&
-        !profileForm.get('email')?.hasError('required')
-      "
-    >
-      Please enter a valid email address
-    </mat-error>
-    <mat-error *ngIf="profileForm.get('email')?.hasError('required')">
-      Email is <strong>required</strong>
-    </mat-error>
+    <input matInput disabled value="{{ user.email }}" />
   </mat-form-field>
 
   <div class="change-password">
@@ -90,7 +79,11 @@
   </div>
 
   <div class="delete-account">
-    <button mat-raised-button (click)="deleteUser()" class="button-delete">
+    <button
+      mat-raised-button
+      (click)="openConfirmation()"
+      class="button-delete"
+    >
       Delete account
     </button>
   </div>

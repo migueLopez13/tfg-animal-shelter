@@ -14,7 +14,7 @@ export class CitiesService {
 
   getCitiesByCountry =
     (country_id: string) =>
-      this.cities.query(`select * from cities where country_id=${country_id};`)
+      this.cities.query(`select * from cities where cities.country_id=${country_id};`)
 
   getCitiesByState =
     (state_id: string) =>

@@ -17,6 +17,10 @@ import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { BaseModalComponent } from 'src/app/shared/components/base-modal/base-modal.component';
 import { ModalConfirmationComponent } from 'src/app/shared/components/modal-confirmation/modal-confirmation.component';
 import { ModalPhoneComponent } from 'src/app/shared/components/modal-phone/modal-phone.component';
+import { ModalAddressComponent } from 'src/app/shared/components/modal-address/modal-address.component';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { MatSelectModule } from '@angular/material/select';
+import { ModalImageComponent } from './components/profile-image/components/modal-image/modal-image.component';
 
 
 
@@ -31,7 +35,9 @@ import { ModalPhoneComponent } from 'src/app/shared/components/modal-phone/modal
     ProfileAdoptionsComponent,
     ModalConfirmationComponent,
     BaseModalComponent,
-    ModalPhoneComponent
+    ModalPhoneComponent,
+    ModalAddressComponent,
+    ModalImageComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +47,9 @@ import { ModalPhoneComponent } from 'src/app/shared/components/modal-phone/modal
     ReactiveFormsModule,
     MatFormFieldModule,
     MatButtonModule,
-    CdkAccordionModule
+    CdkAccordionModule,
+    NgxMatSelectSearchModule,
+    MatSelectModule
   ]
 })
 export class ProfileModule { }

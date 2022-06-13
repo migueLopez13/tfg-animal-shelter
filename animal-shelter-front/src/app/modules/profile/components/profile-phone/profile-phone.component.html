@@ -1,24 +1,24 @@
-<div *ngIf="!elements?.length; else phonelist">
+<app-modal-confirmation
+  *ngIf="showConfirmation"
+  [element]="element"
+  (close)="closeConfirmation()"
+  (true)="removeElement($event)"
+></app-modal-confirmation>
+<app-modal-phone
+  *ngIf="showEdit || showAdd"
+  [element]="element"
+  (add)="addElement($event)"
+  (edit)="editElement($event)"
+  (close)="closeModal()"
+>
+</app-modal-phone>
+<div *ngIf="!(phones | async)?.length; else phonelist">
   You have not registered phones, add new
 </div>
 <ng-template #phonelist>
-  <app-modal-confirmation
-    *ngIf="showConfirmation"
-    [element]="element"
-    (close)="closeConfirmation()"
-    (true)="removeElement($event)"
-  ></app-modal-confirmation>
-  <app-modal-phone
-    *ngIf="showEdit || showAdd"
-    [element]="element"
-    (add)="addElement($event)"
-    (edit)="editElement($event)"
-    (close)="closeModal()"
-  >
-  </app-modal-phone>
   <div class="profile-section">
     <div
-      *ngFor="let element of elements; let i = index"
+      *ngFor="let element of phones | async; let i = index"
       class="profile-section--item"
     >
       <div class="column">

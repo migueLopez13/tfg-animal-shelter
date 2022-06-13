@@ -1,8 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
 import { User } from 'src/app/shared/domain/interfaces/user.interface';
+import { ProfileSelectors } from 'src/app/state/core/profile/profile.selectors';
 import { AppState } from 'src/app/state/interfaces/app.state.interface';
 
 @Component({
@@ -11,16 +11,17 @@ import { AppState } from 'src/app/state/interfaces/app.state.interface';
 })
 export class ProfileImageComponent implements OnInit {
 
-  @Input() profile!: Readonly<User>
-  @Output() edit = new EventEmitter()
   editIcon = faPencilAlt
+  user!: User
 
-  constructor() { }
+  constructor(private readonly state: Store<AppState>) { }
 
   ngOnInit(): void {
+    this.state.select(ProfileSelectors.selectCurrentUser).subscribe((user) => {
+      this.user = user
+    })
   }
 
   editImage() {
-    this.edit.emit()
   }
 }

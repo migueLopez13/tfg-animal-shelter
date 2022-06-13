@@ -1,4 +1,4 @@
-<div *ngIf="!elements?.length; else socialList">
+<div *ngIf="!(user | async)?.social?.length; else socialList">
   You have not any social media, add new
 </div>
 <ng-template #socialList>
@@ -10,7 +10,7 @@
   ></app-modal-confirmation>
   <div class="profile-section">
     <div
-      *ngFor="let social of elements; let i = index"
+      *ngFor="let social of (user | async)?.social; let i = index"
       class="profile-section--item"
     >
       <div class="column">

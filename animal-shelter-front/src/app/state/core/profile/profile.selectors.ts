@@ -11,6 +11,11 @@ export const ProfileSelectors = {
     ({ user }: ProfileState) => user
   ),
 
+  selectUserPhones: createSelector(
+    profileFeature,
+    ({ phones }: ProfileState) => phones
+  ),
+
   selectAuthLoading: createSelector(
     profileFeature,
     ({ loading }: ProfileState) => loading

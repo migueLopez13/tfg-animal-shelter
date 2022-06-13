@@ -1,17 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/shared/domain/interfaces/user.interface';
 
 @Component({
   selector: 'app-profile-phone',
   template: '<div></div>'
 })
-export class Section<T>{
-
-  @Input() elements?: T[]
-  @Input() id?: string
-
-  @Output() add = new EventEmitter()
-  @Output() edit = new EventEmitter()
-  @Output() delete = new EventEmitter()
+export class Section {
 
   showConfirmation = false
   showEdit = false
@@ -30,7 +25,7 @@ export class Section<T>{
     this.showConfirmation = false
   }
 
-  openEdit(element: T) {
+  openEdit(element: any) {
     this.element = element
     this.showEdit = true
   }
@@ -46,18 +41,16 @@ export class Section<T>{
   }
 
 
-  editElement(element: T) {
+  editElement(element: any) {
     this.closeModal()
-    this.edit.emit(element)
   }
 
-  addElement(element: T) {
+  addElement(element: any) {
     this.closeModal()
-    this.add.emit(element)
+
   }
 
   removeElement(id: number) {
     this.closeConfirmation()
-    this.delete.emit(id)
   }
 }

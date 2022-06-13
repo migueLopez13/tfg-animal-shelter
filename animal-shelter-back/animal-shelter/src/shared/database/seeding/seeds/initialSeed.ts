@@ -53,6 +53,7 @@ export default class InitialDatabaseSeed implements Seeder {
       user.email = 'admin@admin.com'
       user.name = 'admin'
       user.surname = 'admin'
+      user.avatar = 'perfil.png'
       return user
     }).create();
 

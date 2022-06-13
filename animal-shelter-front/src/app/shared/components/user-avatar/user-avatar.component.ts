@@ -30,8 +30,8 @@ export class UserAvatarComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.select(ProfileSelectors.selectCurrentUser).subscribe((user) => {
-      this.userProfile = user[0] as Readonly<User>
-      if (user[0]?.role.some(({ name }) => name === 'admin')) {
+      this.userProfile = user as Readonly<User>
+      if (user?.role?.some(({ name }) => name === 'admin')) {
         this.userOptions =
           [
             {

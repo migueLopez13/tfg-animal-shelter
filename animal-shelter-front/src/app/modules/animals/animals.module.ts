@@ -9,6 +9,8 @@ import { CardWrapperComponent } from './components/card-wrapper/card-wrapper.com
 import { BaseAnimalView } from './views/base-animal-view/base-animal-view';
 import { PaginationFilterComponent } from './components/pagination-filter/pagination-filter.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AnimalViewComponent } from './views/animal-view/animal-view.component';
+import { AnimalMediaSliderComponent } from './components/animal-media-slider/animal-media-slider.component';
 
 
 
@@ -20,7 +22,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     DogsComponent,
     CardWrapperComponent,
     BaseAnimalView,
-    PaginationFilterComponent
+    PaginationFilterComponent,
+    AnimalViewComponent,
+    AnimalMediaSliderComponent
   ],
   imports: [
     CommonModule,

@@ -14,7 +14,7 @@ export class UserAddressDTO {
   stateCode: string;
 
   @ApiProperty()
-  provinceCode: string;
+  province: string;
 
   @ApiProperty()
   zip: string;

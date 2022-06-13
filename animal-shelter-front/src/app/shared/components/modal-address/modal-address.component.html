@@ -1,1 +1,98 @@
-<p>modal-address works!</p>
+<app-base-modal>
+  <div title>Address</div>
+  <div body>
+    <div class="phone-form">
+      <mat-form-field appearance="fill" [formGroup]="addressForm">
+        <mat-label>Label</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="label"
+          placeholder="example: home"
+          autocomplete="off"
+        />
+        <mat-error
+          *ngIf="
+            addressForm.get('label')?.hasError('min') &&
+            !addressForm.get('label')?.hasError('required')
+          "
+        >
+          Please enter a valid label
+        </mat-error>
+        <mat-error *ngIf="addressForm.get('label')?.hasError('required')">
+          Label is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" [formGroup]="addressForm">
+        <mat-label>Province</mat-label>
+        <mat-select formControlName="province" placeholder="City" #singleSelect>
+          <mat-option>
+            <ngx-mat-select-search
+              [formControl]="statesCodesFilterCtrl"
+            ></ngx-mat-select-search>
+          </mat-option>
+
+          <mat-option
+            *ngFor="let stateCode of filteredStatesCodes | async"
+            [value]="stateCode.name"
+          >
+            {{ stateCode.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" [formGroup]="addressForm">
+        <mat-label>Address</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="address"
+          placeholder="example: 123456789"
+          autocomplete="off"
+        />
+        <mat-error
+          *ngIf="
+            addressForm.get('address')?.hasError('min') &&
+            !addressForm.get('address')?.hasError('required')
+          "
+        >
+          Please enter a valid address
+        </mat-error>
+        <mat-error *ngIf="addressForm.get('address')?.hasError('required')">
+          Address is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" [formGroup]="addressForm">
+        <mat-label>Zip</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="zip"
+          placeholder="example: 123456789"
+          autocomplete="off"
+        />
+        <mat-error
+          *ngIf="
+            addressForm.get('zip')?.hasError('min') &&
+            !addressForm.get('zip')?.hasError('required')
+          "
+        >
+          Please enter a valid zip
+        </mat-error>
+        <mat-error *ngIf="addressForm.get('zip')?.hasError('required')">
+          Zip is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div buttons>
+    <button mat-raised-button (click)="closeModal()" class="button-save">
+      back
+    </button>
+    <button mat-raised-button (click)="saveElement()" class="button-save">
+      save
+    </button>
+  </div>
+</app-base-modal>

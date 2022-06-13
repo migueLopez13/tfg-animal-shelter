@@ -20,7 +20,7 @@ export class UserAddress extends BaseEntity {
   stateCode: string;
 
   @Column()
-  provinceCode: string;
+  province: string;
 
   @Column()
   label: string;

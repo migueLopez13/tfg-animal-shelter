@@ -1,16 +1,8 @@
 <div class="wrapper">
   <div class="profile">
     <div class="profile--header">
-      <app-profile-image
-        class="profile--header--avatar"
-        [profile]="profile"
-        (edit)="changeAvatar($event)"
-      ></app-profile-image>
-      <app-profile-user-info
-        class="profile--header--user-info"
-        [profile]="profile"
-        (save)="saveProfile($event)"
-      >
+      <app-profile-image class="profile--header--avatar"></app-profile-image>
+      <app-profile-user-info class="profile--header--user-info">
       </app-profile-user-info>
     </div>
     <div class="profile--content">
@@ -43,10 +35,6 @@
           >
             <app-profile-phone
               class="profile--content--phone"
-              [elements]="profile.phone"
-              (add)="newPhone($event)"
-              (edit)="editPhone($event)"
-              (delete)="deletePhone($event)"
             ></app-profile-phone>
           </div>
         </cdk-accordion-item>
@@ -79,13 +67,7 @@
             [attr.id]="'accordion-body-address'"
             [attr.aria-labelledby]="'accordion-header-address'"
           >
-            <app-profile-address
-              class="profile--content--address"
-              [elements]="profile.address"
-              (add)="newAddress($event)"
-              (edit)="editAddress($event)"
-              (delete)="deleteAddress($event)"
-            >
+            <app-profile-address class="profile--content--address">
             </app-profile-address>
           </div>
         </cdk-accordion-item>
@@ -118,10 +100,6 @@
           >
             <app-profile-social
               class="profile--content--social"
-              [elements]="profile.social"
-              (add)="newSocial($event)"
-              (edit)="editSocial($event)"
-              (delete)="deleteSocial($event)"
             ></app-profile-social>
           </div>
         </cdk-accordion-item>
@@ -154,10 +132,7 @@
             [attr.id]="'accordion-body-adoptions'"
             [attr.aria-labelledby]="'accordion-header-adoptions'"
           >
-            <app-profile-adoptions
-              class="profile--content--adoptions"
-              [adoptions]="profile.adoptions"
-            >
+            <app-profile-adoptions class="profile--content--adoptions">
             </app-profile-adoptions>
           </div>
         </cdk-accordion-item>

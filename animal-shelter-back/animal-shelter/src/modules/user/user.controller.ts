@@ -47,7 +47,7 @@ export class UsersController {
     return this.usersService.insert(user);
   }
 
-  @Put()
+  @Put('avatar')
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   @UseInterceptors(FileInterceptor('avatar', {
@@ -61,7 +61,7 @@ export class UsersController {
     return this.usersService.updateAvatar(email, file)
   }
 
-  @Put('avatar')
+  @Put(':id')
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   private update(

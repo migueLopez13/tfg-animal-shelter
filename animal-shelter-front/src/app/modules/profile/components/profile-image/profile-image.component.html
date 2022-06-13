@@ -1,12 +1,12 @@
 <div class="profile-image">
   <div class="image-wrapper">
-    <img src="../../../../assets/{{ profile?.avatar }}" alt="user-image" />
+    <img src="../../../../assets/{{ user.avatar }}" alt="user-image" />
     <div class="edit-icon">
       <fa-icon [icon]="editIcon" (click)="editImage()"></fa-icon>
     </div>
   </div>
   <div class="user-resume">
-    <div>{{ profile?.name }} {{ profile?.surname }}</div>
-    <div>{{ profile?.email }}</div>
+    <div>{{ user.name }} {{ user.surname }}</div>
+    <div>{{ user.email }}</div>
   </div>
 </div>

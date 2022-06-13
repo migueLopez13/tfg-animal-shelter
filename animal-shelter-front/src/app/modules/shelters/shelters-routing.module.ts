@@ -1,10 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InConstructionComponent } from 'src/app/shared/components/in-construction/in-construction.component';
+import { AllSheltersViewComponent } from './views/all-shelters-view/all-shelters-view.component';
+import { ShelterViewComponent } from './views/shelter-view/shelter-view.component';
 
 const routes: Routes = [
-  { path: '', component: InConstructionComponent },
-  { path: 'animals', component: InConstructionComponent },
+  {
+    path: '',
+    data: {
+      breadcrumb: 'Shelters',
+    },
+    component: AllSheltersViewComponent
+  },
+  {
+    path: ':id',
+    data: {
+      breadcrumb: 'Shelter/:id',
+    },
+    component: ShelterViewComponent
+  },
 
 ];
 

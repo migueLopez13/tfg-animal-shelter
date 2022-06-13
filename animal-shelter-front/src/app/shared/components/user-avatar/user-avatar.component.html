@@ -1,6 +1,6 @@
 <div class="user-avatar">
   <img
-    *ngIf="!userProfile; else userLogged"
+    *ngIf="!userProfile.avatar; else userLogged"
     class="avatar"
     src="../../../../assets/default-user.png"
     matTooltip="Login"
@@ -8,7 +8,7 @@
   />
   <ng-template #userLogged>
     <div class="user-email">
-      {{ userProfile?.email }}
+      {{ userProfile.email }}
     </div>
     <div class="image-container">
       <img

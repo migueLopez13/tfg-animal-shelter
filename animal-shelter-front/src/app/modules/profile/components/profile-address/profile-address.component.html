@@ -1,16 +1,26 @@
-<div *ngIf="!elements?.length; else addressList">
+<app-modal-confirmation
+  *ngIf="showConfirmation"
+  [element]="element"
+  (close)="closeConfirmation()"
+  (true)="removeElement($event)"
+></app-modal-confirmation>
+
+<app-modal-address
+  *ngIf="showEdit || showAdd"
+  [element]="element"
+  (add)="addElement($event)"
+  (edit)="editElement($event)"
+  (close)="closeModal()"
+></app-modal-address>
+
+<div *ngIf="!(user | async)?.address?.length; else addressList">
   You have not registered address, add new
 </div>
+
 <ng-template #addressList>
-  <app-modal-confirmation
-    *ngIf="showConfirmation"
-    [element]="element"
-    (close)="closeConfirmation()"
-    (true)="removeElement($event)"
-  ></app-modal-confirmation>
   <div class="profile-section">
     <div
-      *ngFor="let address of elements; let i = index"
+      *ngFor="let address of (user | async)?.address; let i = index"
       class="profile-section--item"
     >
       <div class="column">
@@ -18,8 +28,8 @@
         {{ address.label }}
       </div>
       <div class="column">
-        <div class="title">State code:</div>
-        {{ address.provinceCode }}
+        <div class="title">City:</div>
+        {{ address.province }}
       </div>
       <div class="column">
         <div class="title">Address:</div>

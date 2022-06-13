@@ -3,7 +3,7 @@ export interface UserAddress {
   id: number;
   countryCode: string;
   stateCode: string;
-  provinceCode: string;
+  province: string;
   zip: string;
   address: string;
   label: string;
