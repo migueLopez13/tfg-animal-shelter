@@ -1,1 +1,5 @@
-<p>animal-media-slider works!</p>
+<div class="slideshow">
+  <div *ngFor="let media of images" class="animal-media">
+    <img src="./../../../../../assets/{{ media?.url }}" alt="animalImage" />
+  </div>
+</div>

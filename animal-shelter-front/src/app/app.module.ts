@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,9 +18,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { JwtInterceptor } from './common/interceptor/jwt.interceptor';
 import { MatButtonModule } from '@angular/material/button';
-import { ModalPhoneComponent } from './shared/components/modal-phone/modal-phone.component';
-import { ModalAddressComponent } from './shared/components/modal-address/modal-address.component';
-import { ModalSocialComponent } from './shared/components/modal-social/modal-social.component';
 
 
 @NgModule({

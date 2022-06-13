@@ -9,10 +9,10 @@ import { ShelterViewComponent } from './views/shelter-view/shelter-view.componen
 
 @NgModule({
   declarations: [
-  
+
     ShelterCardComponent,
-       AllSheltersViewComponent,
-       ShelterViewComponent
+    AllSheltersViewComponent,
+    ShelterViewComponent
   ],
   imports: [
     CommonModule,
