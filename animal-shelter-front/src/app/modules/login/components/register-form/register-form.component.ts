@@ -67,7 +67,7 @@ export class RegisterFormComponent implements OnInit {
         surname: user.surname,
         password: user.password,
         email: user.email,
-        avatar: 'default-user.png',
+        avatar: '../../../../assets/default-user.png',
         role: [{
           id: 2,
           name: 'user'

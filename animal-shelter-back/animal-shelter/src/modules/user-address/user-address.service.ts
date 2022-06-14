@@ -19,8 +19,8 @@ export class UserAddressService {
     return this.addressRepository.insert(address);
   };
 
-  update = (address: UserAddressDTO) =>
-    this.addressRepository.update(address.id, address);
+  update = (id: string, address: UserAddressDTO) =>
+    this.addressRepository.update(id, address);
 
   delete = (id: string) => this.addressRepository.delete(id);
 }

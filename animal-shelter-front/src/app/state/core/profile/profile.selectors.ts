@@ -11,6 +11,11 @@ export const ProfileSelectors = {
     ({ user }: ProfileState) => user
   ),
 
+  selectUserAddresses: createSelector(
+    profileFeature,
+    ({ addresses }: ProfileState) => addresses
+  ),
+
   selectUserPhones: createSelector(
     profileFeature,
     ({ phones }: ProfileState) => phones

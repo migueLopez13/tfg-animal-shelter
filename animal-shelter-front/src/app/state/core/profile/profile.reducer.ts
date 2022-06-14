@@ -1,4 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
+import { UserAddress } from 'src/app/shared/domain/interfaces/user-address.interface';
 import { UserPhone } from 'src/app/shared/domain/interfaces/user-phone.interface';
 import { User } from 'src/app/shared/domain/interfaces/user.interface';
 import { ProfileState } from '../../interfaces/profile.state.interface';
@@ -9,7 +10,8 @@ export const initialState: ProfileState = {
   loading: false,
   isAuthenticated: false,
   user: {} as User,
-  phones: []
+  phones: [],
+  addresses: []
 };
 
 export const ProfileReducer = createReducer(
@@ -20,7 +22,8 @@ export const ProfileReducer = createReducer(
 
   on(ProfileActions.checkUserSuccess, (state, { user }) => {
     const phones = user.phone as UserPhone[]
-    return ({ ...state, loading: false, isAuthenticated: true, user: user, phones })
+    const addresses = user.address as UserAddress[]
+    return ({ ...state, loading: false, isAuthenticated: true, user: user, phones, addresses })
   }),
 
   on(ProfileActions.checkUserFailure, (state, { error }) =>
@@ -33,7 +36,7 @@ export const ProfileReducer = createReducer(
     ({ ...state, loading: false, user })),
 
   on(ProfileActions.updateProfileFailure, (state, { error }) =>
-    ({ ...state, loading: false, isAuthenticated: false, error })),
+    ({ ...state, loading: false, error })),
 
   on(ProfileActions.updateAvatarRequest, (state) =>
     ({ ...state, loading: true })),
@@ -42,7 +45,7 @@ export const ProfileReducer = createReducer(
     ({ ...state, loading: false, user })),
 
   on(ProfileActions.updateAvatarFailure, (state, { error }) =>
-    ({ ...state, loading: false, isAuthenticated: false, error })),
+    ({ ...state, loading: false, error })),
 
   on(ProfileActions.addPhoneRequest, (state) =>
     ({ ...state, loading: true })),
@@ -53,8 +56,18 @@ export const ProfileReducer = createReducer(
   })),
 
   on(ProfileActions.addPhoneFailure, (state, { error }) =>
-    ({ ...state, loading: false, isAuthenticated: false, error })),
+    ({ ...state, loading: false, error })),
 
+  on(ProfileActions.addAddressRequest, (state) =>
+    ({ ...state, loading: true })),
+
+  on(ProfileActions.addAddressSuccess, (state, { address }) => ({
+    ...state, loading: false,
+    addresses: [...state.addresses, address]
+  })),
+
+  on(ProfileActions.addAddressFailure, (state, { error }) =>
+    ({ ...state, loading: false, isAuthenticated: false, error })),
 
   on(ProfileActions.updatePhoneRequest, (state) =>
     ({ ...state, loading: true })),
@@ -69,6 +82,19 @@ export const ProfileReducer = createReducer(
   on(ProfileActions.updatePhoneFailure, (state, { error }) =>
     ({ ...state, loading: false, isAuthenticated: false, error })),
 
+  on(ProfileActions.updateAddressRequest, (state) =>
+    ({ ...state, loading: true })),
+
+  on(ProfileActions.updateAddressSuccess, (state, { address }) => ({
+    ...state, loading: false,
+    addresses: state.addresses.map((_address) =>
+      _address.id === address.id ? address : _address)
+  })
+  ),
+
+  on(ProfileActions.updateAddressFailure, (state, { error }) =>
+    ({ ...state, loading: false, isAuthenticated: false, error })),
+
   on(ProfileActions.deletePhoneRequest, (state) =>
     ({ ...state, loading: true })),
 
@@ -81,7 +107,19 @@ export const ProfileReducer = createReducer(
   ),
 
   on(ProfileActions.deletePhoneFailure, (state, { error }) =>
-    ({ ...state, loading: false, isAuthenticated: false, error })),
+    ({ ...state, loading: false, error })),
+
+  on(ProfileActions.deleteAddressRequest, (state) =>
+    ({ ...state, loading: true })),
+
+  on(ProfileActions.deleteAddressSuccess, (state, { idAddress }) =>
+  ({
+    ...state, loading: false,
+    addresses: state.addresses.filter(({ id }) => id !== idAddress)
+  })),
+
+  on(ProfileActions.deleteAddressFailure, (state, { error }) =>
+    ({ ...state, loading: false, error })),
 
   on(ProfileActions.logoutRequest, (state) =>
     ({ ...state, loading: true })),

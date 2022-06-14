@@ -1,4 +1,5 @@
 import { createAction, props } from '@ngrx/store';
+import { UserAddress } from 'src/app/shared/domain/interfaces/user-address.interface';
 import { UserPhone } from 'src/app/shared/domain/interfaces/user-phone.interface';
 import { User } from 'src/app/shared/domain/interfaces/user.interface';
 
@@ -125,6 +126,71 @@ export const ProfileActions = {
 
   deletePhoneFailure: createAction(
     '[ProfilePhone remove] Failure',
+    props<{
+      error: string;
+    }>()
+  ),
+
+  addAddressRequest: createAction(
+    '[ProfileAddress add] Request',
+    props<{
+      address: UserAddress;
+    }>()
+  ),
+
+
+  addAddressSuccess: createAction(
+    '[ProfileAddress add] Success',
+    props<{
+      address: UserAddress;
+    }>()
+  ),
+
+  addAddressFailure: createAction(
+    '[ProfileAddress add] Failure',
+    props<{
+      error: string;
+    }>()
+  ),
+
+  updateAddressRequest: createAction(
+    '[ProfileAddress update] Request',
+    props<{
+      addressId: number,
+      address: UserAddress
+    }>()
+  ),
+
+  updateAddressSuccess: createAction(
+    '[ProfileAddress update] Success',
+    props<{
+      address: UserAddress;
+    }>()
+  ),
+
+  updateAddressFailure: createAction(
+    '[ProfileAddress update] Failure',
+    props<{
+      error: string;
+    }>()
+  ),
+
+  deleteAddressRequest: createAction(
+    '[ProfileAddress remove] Request',
+    props<{
+      idAddress: number;
+    }>()
+  ),
+
+  deleteAddressSuccess: createAction(
+    '[ProfileAddress remove] Success',
+    props<{
+      idAddress: number;
+    }>()
+  ),
+
+  deleteAddressFailure: createAction(
+    '[ProfileAddress remove] Failure',
     props<{
       error: string;
     }>()

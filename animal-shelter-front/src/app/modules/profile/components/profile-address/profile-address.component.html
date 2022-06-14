@@ -13,14 +13,14 @@
   (close)="closeModal()"
 ></app-modal-address>
 
-<div *ngIf="!(user | async)?.address?.length; else addressList">
+<div *ngIf="!(addresses | async)?.length; else addressList">
   You have not registered address, add new
 </div>
 
 <ng-template #addressList>
   <div class="profile-section">
     <div
-      *ngFor="let address of (user | async)?.address; let i = index"
+      *ngFor="let address of addresses | async; let i = index"
       class="profile-section--item"
     >
       <div class="column">

@@ -140,6 +140,70 @@ export class ProfileEffects {
     )
   )
 
+
+  addAddressUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType('[ProfileAddress add] Request'),
+      switchMap(({ address }) =>
+        this.user.addAddress(address).pipe(
+          map((address) => ({
+            type: '[ProfileAddress add] Success',
+            address,
+          })
+          ),
+          catchError((error) =>
+            of({
+              type: '[ProfileAddress add] Failure',
+              error,
+            })
+          )
+        )
+      )
+    )
+  )
+
+  updateAddressUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType('[ProfileAddress update] Request'),
+      switchMap(({ addressId, address }) =>
+        this.user.updateAddress(addressId, address).pipe(
+          map((_address) => ({
+            type: '[ProfileAddress update] Success',
+            address,
+          })
+          ),
+          catchError((error) =>
+            of({
+              type: '[ProfileAddress update] Failure',
+              error,
+            })
+          )
+        )
+      )
+    )
+  )
+
+  deleteAddressUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType('[ProfileAddress remove] Request'),
+      switchMap(({ idAddress }) =>
+        this.user.removeAddress(idAddress).pipe(
+          map((address) => ({
+            type: '[ProfileAddress remove] Success',
+            idAddress,
+          })
+          ),
+          catchError((error) =>
+            of({
+              type: '[ProfileAddress remove] Failure',
+              error,
+            })
+          )
+        )
+      )
+    )
+  )
+
   logoutUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType('[Auth logout] Request'),

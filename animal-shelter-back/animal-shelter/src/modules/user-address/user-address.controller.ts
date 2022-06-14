@@ -15,7 +15,7 @@ import { UserAddressService } from './user-address.service';
 @ApiTags('user-address')
 @Controller('user-address')
 export class UserAddressController {
-  constructor(private readonly addressService: UserAddressService) {}
+  constructor(private readonly addressService: UserAddressService) { }
 
   @Get()
   private find() {
@@ -32,9 +32,9 @@ export class UserAddressController {
     return this.addressService.insert(address);
   }
 
-  @Put()
-  private update(@Body(ValidationPipe) address: UserAddressDTO) {
-    return this.addressService.update(address);
+  @Put(':id')
+  private update(@Param('id') params, @Body(ValidationPipe) address: UserAddressDTO) {
+    return this.addressService.update(params, address);
   }
 
   @Delete(':id')
