@@ -6,6 +6,9 @@ import { ProfileViewComponent } from './view/profile-view/profile-view.component
 const routes: Routes = [
   {
     path: '**',
+    data: {
+      breadcrumb: '',
+    },
     component: ProfileViewComponent
   },
 ];

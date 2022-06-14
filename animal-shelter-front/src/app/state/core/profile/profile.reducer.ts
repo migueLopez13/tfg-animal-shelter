@@ -29,12 +29,19 @@ export const ProfileReducer = createReducer(
   on(ProfileActions.updateProfileRequest, (state) =>
     ({ ...state, loading: true })),
 
-  on(ProfileActions.updateProfileSuccess, (state, { user }) => ({
-    ...state, loading: false, user
-  })
-  ),
+  on(ProfileActions.updateProfileSuccess, (state, { user }) =>
+    ({ ...state, loading: false, user })),
 
   on(ProfileActions.updateProfileFailure, (state, { error }) =>
+    ({ ...state, loading: false, isAuthenticated: false, error })),
+
+  on(ProfileActions.updateAvatarRequest, (state) =>
+    ({ ...state, loading: true })),
+
+  on(ProfileActions.updateAvatarSuccess, (state, { user }) =>
+    ({ ...state, loading: false, user })),
+
+  on(ProfileActions.updateAvatarFailure, (state, { error }) =>
     ({ ...state, loading: false, isAuthenticated: false, error })),
 
   on(ProfileActions.addPhoneRequest, (state) =>

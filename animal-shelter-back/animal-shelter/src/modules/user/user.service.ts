@@ -26,9 +26,9 @@ export class UsersService {
     return this.usersRepository.save(user);
   };
 
-  updateAvatar = async (email: string, file: Express.Multer.File) => {
+  updateAvatar = async (email: string, file: string) => {
     const user = await this.usersRepository.findOne(email)
-    user.avatar = `${file.destination}/${file.filename}`
+    user.avatar = file
     return user.save()
   }
 

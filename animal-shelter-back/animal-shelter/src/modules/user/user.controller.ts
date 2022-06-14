@@ -50,15 +50,11 @@ export class UsersController {
   @Put('avatar')
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
-  @UseInterceptors(FileInterceptor('avatar', {
-    storage: diskStorage({
-      destination: './uploads',
-    }),
-  }))
   private updateAvatar(
-    @UploadedFiles() file: Express.Multer.File,
-    @Auth() { email }: UserDTO) {
-    return this.usersService.updateAvatar(email, file)
+    @Auth() { email }: UserDTO,
+    @Body(ValidationPipe) avatar: any
+  ) {
+    return this.usersService.updateAvatar(email, avatar.image)
   }
 
   @Put(':id')

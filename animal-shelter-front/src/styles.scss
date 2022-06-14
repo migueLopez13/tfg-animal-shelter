@@ -10,6 +10,7 @@
 
 //03-ELEMENTS
 @import "./styles/03-ELEMENTS/scrollbar";
+@import "./styles/03-ELEMENTS/modal";
 
 //04-OBJECTS
 
@@ -31,14 +32,6 @@
 @import "./styles/05-COMPONENTS/base-modal";
 @import "./styles/05-COMPONENTS/animal-view";
 @import "./styles/05-COMPONENTS/animal-media-slider";
+@import "./styles/05-COMPONENTS/modal-image";
 
 //06-TRUMPS
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
-}

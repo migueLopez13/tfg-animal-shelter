@@ -13,6 +13,7 @@ export class ProfileImageComponent implements OnInit {
 
   editIcon = faPencilAlt
   user!: User
+  showModal = false
 
   constructor(private readonly state: Store<AppState>) { }
 
@@ -23,5 +24,9 @@ export class ProfileImageComponent implements OnInit {
   }
 
   editImage() {
+    this.showModal = true
+  }
+  closeModal() {
+    this.showModal = false
   }
 }

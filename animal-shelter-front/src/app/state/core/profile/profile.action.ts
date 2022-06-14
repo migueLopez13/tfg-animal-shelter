@@ -44,12 +44,34 @@ export const ProfileActions = {
     }>()
   ),
 
+  updateAvatarRequest: createAction(
+    '[Profile updateAvatar] Request',
+    props<{
+      avatar: string
+    }>()
+  ),
+
+  updateAvatarSuccess: createAction(
+    '[Profile updateAvatar] Success',
+    props<{
+      user: User;
+    }>()
+  ),
+
+  updateAvatarFailure: createAction(
+    '[Profile updateAvatar] Failure',
+    props<{
+      error: string;
+    }>()
+  ),
+
   addPhoneRequest: createAction(
     '[ProfilePhone add] Request',
     props<{
       phone: UserPhone;
     }>()
   ),
+
 
   addPhoneSuccess: createAction(
     '[ProfilePhone add] Success',

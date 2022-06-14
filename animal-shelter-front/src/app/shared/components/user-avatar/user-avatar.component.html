@@ -13,7 +13,7 @@
     <div class="image-container">
       <img
         class="avatar"
-        src="../../../../assets/{{ userProfile.avatar }}"
+        src="{{ userProfile.avatar }}"
         (click)="toRoute('profile')"
       />
       <app-dropdown [list]="userOptions"></app-dropdown>

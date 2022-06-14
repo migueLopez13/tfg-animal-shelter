@@ -35,6 +35,27 @@ export class ProfileEffects {
     )
   )
 
+  updateProfileAvatar$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType('[Profile updateAvatar] Request'),
+      switchMap(({ avatar }) =>
+        this.user.updateAvatar(avatar).pipe(
+          map((user) => ({
+            type: '[Profile updateAvatar] Success',
+            user,
+          })
+          ),
+          catchError((error) =>
+            of({
+              type: '[Profile updateAvatar] Failure',
+              error,
+            })
+          )
+        )
+      )
+    )
+  )
+
   updateProfile$ = createEffect(() =>
     this.actions$.pipe(
       ofType('[Profile update] Request'),

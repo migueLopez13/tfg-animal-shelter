@@ -43,7 +43,7 @@ export class BaseAnimalView implements OnInit {
           let image = '../../../assets/default-animal.png'
 
           if (animal.media) {
-            image = `../../../assets/${animal.media[0].url}`
+            image = `${animal.media[0].url}`
           }
 
           return {

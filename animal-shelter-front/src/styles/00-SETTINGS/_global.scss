@@ -50,7 +50,13 @@
   --text-2xl: 30px;
 }
 
+html,
 body {
+  height: 100%;
   overflow-x: hidden;
   background-color: var(--blue-medium-color);
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }

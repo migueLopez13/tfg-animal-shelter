@@ -21,6 +21,7 @@ import { ModalAddressComponent } from 'src/app/shared/components/modal-address/m
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { MatSelectModule } from '@angular/material/select';
 import { ModalImageComponent } from './components/profile-image/components/modal-image/modal-image.component';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 
 
 
@@ -49,6 +50,7 @@ import { ModalImageComponent } from './components/profile-image/components/modal
     MatButtonModule,
     CdkAccordionModule,
     NgxMatSelectSearchModule,
+    MaterialFileInputModule,
     MatSelectModule
   ]
 })
