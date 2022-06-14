@@ -20,8 +20,8 @@ export class UserSocialService {
     return this.socialRepository.insert(social);
   };
 
-  update = (social: UserSocialDTO) =>
-    this.socialRepository.update(social.id, social);
+  update = (id: number, social: UserSocialDTO) =>
+    this.socialRepository.update(id, social);
 
   delete = (id: string) => this.socialRepository.delete(id);
 }

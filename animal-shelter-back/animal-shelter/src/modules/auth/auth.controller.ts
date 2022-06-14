@@ -1,6 +1,10 @@
-import { Body, Controller, Post, UnauthorizedException } from '@nestjs/common';
+import { Body, Controller, Param, Post, Put, UnauthorizedException, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { ApiTags } from '@nestjs/swagger';
+import { Auth } from 'src/common/decorators/auth.decorator';
+import { ChangePasswordRequestDTO } from 'src/shared/domain/dto/change-password-request.dto';
 import { LoginDTO } from 'src/shared/domain/dto/login.dto';
+import { UserDTO } from 'src/shared/domain/dto/user.dto';
 import { AuthService } from './services/auth.service';
 
 @ApiTags('auth')
@@ -18,8 +22,17 @@ export class AuthController {
     return await this.authService.generateUserToken(email);
   }
 
-  @Post('login/shelter')
-  async loginshelter(@Body() login: LoginDTO) {
-    //TODO
+  @Put('login/user/:email')
+  @UseGuards(AuthGuard('jwt'))
+  async changePassword(
+    @Body() passwordChangeRequest: ChangePasswordRequestDTO,
+    @Auth() { email, role }: UserDTO,
+    @Param('email') params
+  ): Promise<any> {
+    if (email === params || role.some((role) => role.name === 'admin')) {
+      return this.authService.changePassword(email, passwordChangeRequest);
+    }
+    return Error('unhautorized')
   }
+
 }

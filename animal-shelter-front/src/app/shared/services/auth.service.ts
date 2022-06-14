@@ -3,6 +3,7 @@ import { Router } from "@angular/router"
 import { Store } from "@ngrx/store"
 import { ProfileActions } from "src/app/state/core/profile/profile.action"
 import { AppState } from "src/app/state/interfaces/app.state.interface"
+import { changePasswordRequest } from "../domain/interfaces/change-password-request.interface"
 import { ILogin } from "../domain/interfaces/login.interface"
 import { User } from "../domain/interfaces/user.interface"
 import { AuthRepository } from "./repository/auth.repository"
@@ -35,6 +36,10 @@ export class AuthService {
     this.repository.register(user).subscribe(() => {
       this.loginUser({ email: user.email, password: user.password as string })
     })
+  }
+
+  changePassword(email: string, passwords: changePasswordRequest) {
+    return this.repository.changePassword(email, passwords)
   }
 
   logout() {

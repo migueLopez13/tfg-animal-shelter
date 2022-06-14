@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http"
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { changePasswordRequest } from "../../domain/interfaces/change-password-request.interface";
 import { ILogin } from "../../domain/interfaces/login.interface";
 import { User } from "../../domain/interfaces/user.interface";
 
@@ -28,5 +29,8 @@ export class AuthRepository {
     return this._http.post<User>(`${this.baseUrl}/users`, user);
   }
 
+  changePassword(email: string, passwords: changePasswordRequest) {
+    return this._http.put(`${this.baseUrl}/auth/login/user/${email}`, passwords);
+  }
 
 }

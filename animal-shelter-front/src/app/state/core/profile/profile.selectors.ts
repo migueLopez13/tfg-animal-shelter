@@ -11,6 +11,11 @@ export const ProfileSelectors = {
     ({ user }: ProfileState) => user
   ),
 
+  selectUserSocialLinks: createSelector(
+    profileFeature,
+    ({ socialLinks }: ProfileState) => socialLinks
+  ),
+
   selectUserAddresses: createSelector(
     profileFeature,
     ({ addresses }: ProfileState) => addresses

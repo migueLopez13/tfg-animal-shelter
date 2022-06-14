@@ -8,14 +8,14 @@ const routes: Routes = [
   {
     path: '',
     data: {
-      breadcrumb: 'Shelters',
+      breadcrumb: '',
     },
     component: AllSheltersViewComponent
   },
   {
     path: ':id',
     data: {
-      breadcrumb: 'Shelter/:id',
+      breadcrumb: '',
     },
     component: ShelterViewComponent
   },

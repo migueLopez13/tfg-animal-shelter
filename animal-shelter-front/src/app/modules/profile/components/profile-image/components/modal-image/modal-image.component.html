@@ -1,6 +1,6 @@
 <app-base-modal>
   <div title>User avatar</div>
-  <div body class="modal-avatar-body">
+  <div body class="modal-body--avatar">
     <div class="avatar-image">
       <img [src]="imageSrc" alt="user-avatar" />
     </div>
@@ -12,12 +12,8 @@
       ></ngx-mat-file-input>
     </mat-form-field>
   </div>
-  <div buttons class="modal-buttons">
-    <button mat-raised-button (click)="closeModal()" class="button-save">
-      Back
-    </button>
-    <button mat-raised-button (click)="saveElement()" class="button-save">
-      Save
-    </button>
+  <div buttons>
+    <button mat-raised-button (click)="closeModal()" class="back">Back</button>
+    <button mat-raised-button (click)="saveElement()" class="save">Save</button>
   </div>
 </app-base-modal>

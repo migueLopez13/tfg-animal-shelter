@@ -204,6 +204,69 @@ export class ProfileEffects {
     )
   )
 
+  addSocialUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType('[ProfileSocial add] Request'),
+      switchMap(({ social }) =>
+        this.user.addSocial(social).pipe(
+          map((social) => ({
+            type: '[ProfileSocial add] Success',
+            social,
+          })
+          ),
+          catchError((error) =>
+            of({
+              type: '[ProfileSocial add] Failure',
+              error,
+            })
+          )
+        )
+      )
+    )
+  )
+
+  updateSocialUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType('[ProfileSocial update] Request'),
+      switchMap(({ socialId, social }) =>
+        this.user.updateSocial(socialId, social).pipe(
+          map((_Social) => ({
+            type: '[ProfileSocial update] Success',
+            social,
+          })
+          ),
+          catchError((error) =>
+            of({
+              type: '[ProfileSocial update] Failure',
+              error,
+            })
+          )
+        )
+      )
+    )
+  )
+
+  deleteSocialUser$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType('[ProfileSocial remove] Request'),
+      switchMap(({ idSocial }) =>
+        this.user.removeSocial(idSocial).pipe(
+          map((social) => ({
+            type: '[ProfileSocial remove] Success',
+            idSocial,
+          })
+          ),
+          catchError((error) =>
+            of({
+              type: '[ProfileSocial remove] Failure',
+              error,
+            })
+          )
+        )
+      )
+    )
+  )
+
   logoutUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType('[Auth logout] Request'),

@@ -1,6 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { UserAddress } from 'src/app/shared/domain/interfaces/user-address.interface';
 import { UserPhone } from 'src/app/shared/domain/interfaces/user-phone.interface';
+import { UserSocial } from 'src/app/shared/domain/interfaces/user-social.interface';
 import { User } from 'src/app/shared/domain/interfaces/user.interface';
 
 export const ProfileActions = {
@@ -191,6 +192,71 @@ export const ProfileActions = {
 
   deleteAddressFailure: createAction(
     '[ProfileAddress remove] Failure',
+    props<{
+      error: string;
+    }>()
+  ),
+
+  addSocialRequest: createAction(
+    '[ProfileSocial add] Request',
+    props<{
+      social: UserSocial;
+    }>()
+  ),
+
+
+  addSocialSuccess: createAction(
+    '[ProfileSocial add] Success',
+    props<{
+      social: UserSocial;
+    }>()
+  ),
+
+  addSocialFailure: createAction(
+    '[ProfileSocial add] Failure',
+    props<{
+      error: string;
+    }>()
+  ),
+
+  updateSocialRequest: createAction(
+    '[ProfileSocial update] Request',
+    props<{
+      socialId: number,
+      social: UserSocial
+    }>()
+  ),
+
+  updateSocialSuccess: createAction(
+    '[ProfileSocial update] Success',
+    props<{
+      social: UserSocial;
+    }>()
+  ),
+
+  updateSocialFailure: createAction(
+    '[ProfileSocial update] Failure',
+    props<{
+      error: string;
+    }>()
+  ),
+
+  deleteSocialRequest: createAction(
+    '[ProfileSocial remove] Request',
+    props<{
+      idSocial: number;
+    }>()
+  ),
+
+  deleteSocialSuccess: createAction(
+    '[ProfileSocial remove] Success',
+    props<{
+      idSocial: number;
+    }>()
+  ),
+
+  deleteSocialFailure: createAction(
+    '[ProfileSocial remove] Failure',
     props<{
       error: string;
     }>()

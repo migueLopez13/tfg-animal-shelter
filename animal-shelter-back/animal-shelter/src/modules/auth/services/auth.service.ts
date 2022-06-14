@@ -1,5 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { response } from 'express';
+import { ChangePasswordRequestDTO } from 'src/shared/domain/dto/change-password-request.dto';
+import { json } from 'stream/consumers';
 import { UsersService } from '../../user/user.service';
 import { JWTPayload } from '../interface/jwt-payload.interface';
 import { CredentialService } from './credentials.service';
@@ -19,10 +22,6 @@ export class AuthService {
     return credential.validatePassword(pass);
   }
 
-  async validateShelter(email: string, pass: string) {
-    //TODO
-  }
-
   async generateUserToken(email: string) {
     const user = await this.usersService.findOne(email);
     const isAdmin = user.role.some((role) => role.name === 'admin')
@@ -32,7 +31,15 @@ export class AuthService {
     };
   }
 
-  async generateShelterToken(email: string) {
-    //TODO
+  async changePassword(email: string, passwords: ChangePasswordRequestDTO) {
+    const user = await this.usersService.findOne(email);
+    const credential = await this.credentialService.findOne(user)
+    if (credential.validatePassword(passwords.oldPassword)) {
+      credential.password = passwords.newPassword
+      return credential.save()
+    }
+    else {
+      return Error('incorrect password')
+    }
   }
 }

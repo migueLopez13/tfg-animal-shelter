@@ -1,4 +1,18 @@
-<div *ngIf="!(user | async)?.social?.length; else socialList">
+<app-modal-confirmation
+  *ngIf="showConfirmation"
+  [element]="element"
+  (close)="closeConfirmation()"
+  (true)="removeElement($event)"
+></app-modal-confirmation>
+<app-modal-social
+  *ngIf="showEdit || showAdd"
+  [element]="element"
+  (add)="addElement($event)"
+  (edit)="editElement($event)"
+  (close)="closeModal()"
+>
+</app-modal-social>
+<div *ngIf="!(socialNetworks | async)?.length; else socialList">
   You have not any social media, add new
 </div>
 <ng-template #socialList>
@@ -10,7 +24,7 @@
   ></app-modal-confirmation>
   <div class="profile-section">
     <div
-      *ngFor="let social of (user | async)?.social; let i = index"
+      *ngFor="let social of socialNetworks | async; let i = index"
       class="profile-section--item"
     >
       <div class="column">

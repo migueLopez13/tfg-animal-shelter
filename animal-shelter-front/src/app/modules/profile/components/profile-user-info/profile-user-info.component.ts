@@ -19,6 +19,7 @@ export class ProfileUserInfoComponent implements OnInit {
   surname!: FormControl
   email!: FormControl
   showConfirmation = false
+  showChangePassword = false
 
   constructor(
     private readonly fb: FormBuilder,
@@ -81,6 +82,10 @@ export class ProfileUserInfoComponent implements OnInit {
     }
   }
 
-  changePassword() {
+  showModalPassword() {
+    this.showChangePassword = true
+  }
+  closePassword() {
+    this.showChangePassword = false
   }
 }

@@ -15,7 +15,7 @@ import { UserSocialService } from './user-social.service';
 @ApiTags('user-social')
 @Controller('user-social')
 export class UserSocialController {
-  constructor(private readonly socialService: UserSocialService) {}
+  constructor(private readonly socialService: UserSocialService) { }
 
   @Get()
   private find() {
@@ -32,9 +32,9 @@ export class UserSocialController {
     return this.socialService.insert(social);
   }
 
-  @Put()
-  private update(@Body(ValidationPipe) social: UserSocialDTO) {
-    return this.socialService.update(social);
+  @Put(':id')
+  private update(@Param('id') params, @Body(ValidationPipe) social: UserSocialDTO) {
+    return this.socialService.update(params, social);
   }
 
   @Delete(':id')

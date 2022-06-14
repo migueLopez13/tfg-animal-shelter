@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InConstructionComponent } from 'src/app/shared/components/in-construction/in-construction.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -8,7 +9,7 @@ const routes: Routes = [
     data: {
       breadcrumb: 'Dashboard',
     },
-    component: InConstructionComponent
+    component: DashboardComponent
   },
   {
     path: 'animals',

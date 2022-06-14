@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InConstructionComponent {
   message =
-    'Página en construccion, estamos trabajando en ello.';
+    "Under construction, we'll be back soon.";
 
   constructor() { }
 

@@ -18,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { JwtInterceptor } from './common/interceptor/jwt.interceptor';
 import { MatButtonModule } from '@angular/material/button';
+import { ModalPasswordComponent } from './shared/components/modal-password/modal-password.component';
 
 
 @NgModule({

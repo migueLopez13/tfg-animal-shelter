@@ -1,80 +1,74 @@
 <app-base-modal>
   <div title>Phone</div>
   <div body>
-    <div class="phone-form">
-      <mat-form-field appearance="fill" [formGroup]="phoneForm">
-        <mat-label>Label</mat-label>
-        <input
-          matInput
-          type="text"
-          formControlName="label"
-          placeholder="example: home"
-          autocomplete="off"
-        />
-        <mat-error
-          *ngIf="
-            phoneForm.get('label')?.hasError('min') &&
-            !phoneForm.get('label')?.hasError('required')
-          "
-        >
-          Please enter a valid label
-        </mat-error>
-        <mat-error *ngIf="phoneForm.get('label')?.hasError('required')">
-          Label is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
+    <mat-form-field appearance="fill" [formGroup]="phoneForm">
+      <mat-label>Label</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="label"
+        placeholder="example: home"
+        autocomplete="off"
+      />
+      <mat-error
+        *ngIf="
+          phoneForm.get('label')?.hasError('min') &&
+          !phoneForm.get('label')?.hasError('required')
+        "
+      >
+        Please enter a valid label
+      </mat-error>
+      <mat-error *ngIf="phoneForm.get('label')?.hasError('required')">
+        Label is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
 
-      <mat-form-field appearance="fill" [formGroup]="phoneForm">
-        <mat-label>Country code</mat-label>
-        <input
-          matInput
-          type="text"
-          formControlName="countryCode"
-          placeholder="example: +34"
-          autocomplete="off"
-        />
-        <mat-error
-          *ngIf="
-            phoneForm.get('countryCode')?.hasError('pattern') &&
-            !phoneForm.get('countryCode')?.hasError('required')
-          "
-        >
-          Please enter a valid country code
-        </mat-error>
-        <mat-error *ngIf="phoneForm.get('countryCode')?.hasError('required')">
-          Country code is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
+    <mat-form-field appearance="fill" [formGroup]="phoneForm">
+      <mat-label>Country code</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="countryCode"
+        placeholder="example: +34"
+        autocomplete="off"
+      />
+      <mat-error
+        *ngIf="
+          phoneForm.get('countryCode')?.hasError('pattern') &&
+          !phoneForm.get('countryCode')?.hasError('required')
+        "
+      >
+        Please enter a valid country code
+      </mat-error>
+      <mat-error *ngIf="phoneForm.get('countryCode')?.hasError('required')">
+        Country code is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
 
-      <mat-form-field appearance="fill" [formGroup]="phoneForm">
-        <mat-label>Phone</mat-label>
-        <input
-          matInput
-          type="text"
-          formControlName="phone"
-          placeholder="example: 123456789"
-          autocomplete="off"
-        />
-        <mat-error
-          *ngIf="
-            phoneForm.get('phone')?.hasError('pattern') &&
-            !phoneForm.get('phone')?.hasError('required')
-          "
-        >
-          Please enter a valid phone
-        </mat-error>
-        <mat-error *ngIf="phoneForm.get('phone')?.hasError('required')">
-          Phone is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-    </div>
+    <mat-form-field appearance="fill" [formGroup]="phoneForm">
+      <mat-label>Phone</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="phone"
+        placeholder="example: 123456789"
+        autocomplete="off"
+      />
+      <mat-error
+        *ngIf="
+          phoneForm.get('phone')?.hasError('pattern') &&
+          !phoneForm.get('phone')?.hasError('required')
+        "
+      >
+        Please enter a valid phone
+      </mat-error>
+      <mat-error *ngIf="phoneForm.get('phone')?.hasError('required')">
+        Phone is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
   </div>
   <div buttons>
-    <button mat-raised-button (click)="closeModal()" class="button-save">
-      back
-    </button>
-    <button mat-raised-button (click)="saveElement()" class="button-save">
-      save
-    </button>
+    <button mat-raised-button (click)="closeModal()" class="back">back</button>
+    <button mat-raised-button (click)="saveElement()" class="save">save</button>
   </div>
 </app-base-modal>

@@ -22,6 +22,8 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { MatSelectModule } from '@angular/material/select';
 import { ModalImageComponent } from './components/profile-image/components/modal-image/modal-image.component';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { ModalSocialComponent } from 'src/app/shared/components/modal-social/modal-social.component';
+import { ModalPasswordComponent } from 'src/app/shared/components/modal-password/modal-password.component';
 
 
 
@@ -38,7 +40,9 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
     BaseModalComponent,
     ModalPhoneComponent,
     ModalAddressComponent,
-    ModalImageComponent
+    ModalImageComponent,
+    ModalSocialComponent,
+    ModalPasswordComponent
   ],
   imports: [
     CommonModule,

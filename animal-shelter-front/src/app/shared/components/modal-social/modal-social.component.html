@@ -1,1 +1,37 @@
-<p>modal-social works!</p>
+<app-base-modal>
+  <div title>Social</div>
+  <div body>
+    <mat-form-field appearance="fill" [formGroup]="socialForm">
+      <mat-label>Social network</mat-label>
+      <mat-select formControlName="name">
+        <mat-option *ngFor="let social of socials" [value]="social">
+          {{ social }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="socialForm.get('name')?.hasError('required')">
+        Social network is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field
+      appearance="fill"
+      [formGroup]="socialForm"
+      class="large-input"
+    >
+      <mat-label>Url</mat-label>
+      <input
+        matInput
+        type="text"
+        formControlName="url"
+        placeholder="example: www.instagram.com/user"
+        autocomplete="off"
+      />
+      <mat-error *ngIf="socialForm.get('url')?.hasError('required')">
+        url is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div buttons>
+    <button mat-raised-button (click)="closeModal()" class="back">back</button>
+    <button mat-raised-button (click)="saveElement()" class="save">save</button>
+  </div>
+</app-base-modal>
