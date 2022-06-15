@@ -10,6 +10,7 @@ import { BaseTableComponent } from './components/base-table/base-table.component
 import { GraphComponent } from './components/graph/graph.component';
 import { NgChartsModule } from 'ng2-charts';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -22,11 +23,12 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     UsersComponent,
     BaseTableComponent,
     GraphComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
     CommonModule,
     AdminRouting,
+    FontAwesomeModule,
     NgChartsModule
   ]
 })

@@ -1,1 +1,12 @@
-<p>sidebar works!</p>
+<div class="sidebar" #sidebar>
+  <fa-icon
+    [icon]="sidebarIcon"
+    class="sidebar--icon fa-xl"
+    (click)="changeCollapse()"
+  ></fa-icon>
+  <div *ngIf="!collapsed" class="options">
+    <div class="item" *ngFor="let option of options">
+      {{ option.name }}
+    </div>
+  </div>
+</div>
