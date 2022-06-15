@@ -34,6 +34,10 @@ const routes: Routes = [
       breadcrumb: 'show/:id',
     },
     component: AnimalViewComponent
+  },
+  {
+    path: '**',
+    component: InConstructionComponent
   }
 
 ];

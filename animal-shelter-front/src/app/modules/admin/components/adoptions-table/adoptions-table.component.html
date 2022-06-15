@@ -1,0 +1,78 @@
+<div class="options">
+  <mat-form-field appearance="fill" class="filter">
+    <mat-label>
+      <fa-icon [icon]="searchIcon" class="show-more-icon"></fa-icon>
+      Filter
+    </mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search email" />
+  </mat-form-field>
+  <button
+    mat-raised-button
+    (click)="openAddAdoption()"
+    class="add"
+    color="accent"
+  >
+    <fa-icon [icon]="addIcon" class="show-more-icon"></fa-icon>
+    New adoption
+  </button>
+</div>
+<div class="table-container mat-elevation-z8">
+  <table
+    mat-table
+    [dataSource]="adoptionsData"
+    class="base-table"
+    matSort
+    matSortActive="created"
+  >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let adoption">
+        {{ adoption.id }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="animal">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Animal</th>
+      <td mat-cell *matCellDef="let adoption" class="align-right">
+        {{ adoption.animalId }}
+        <fa-icon
+          [icon]="showMoreIcon"
+          class="show-more-icon"
+          matTooltip="see More"
+        ></fa-icon>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="user">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>User email</th>
+      <td mat-cell *matCellDef="let adoption">{{ adoption.userEmail }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let adoption">{{ adoption.date }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let adoption">
+        <fa-icon
+          [icon]="editIcon"
+          class="edit-icon"
+          matTooltip="Edit"
+        ></fa-icon>
+        <fa-icon
+          [icon]="xIcon"
+          class="delete-icon"
+          matTooltip="Delete"
+        ></fa-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="adoptionsColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: adoptionsColumns"></tr>
+  </table>
+
+  <mat-paginator #paginator [pageSize]="10" showFirstLastButtons>
+  </mat-paginator>
+</div>

@@ -5,7 +5,11 @@
     (click)="changeCollapse()"
   ></fa-icon>
   <div *ngIf="!collapsed" class="options">
-    <div class="item" *ngFor="let option of options">
+    <div
+      class="item"
+      *ngFor="let option of options"
+      [routerLink]="[option.route]"
+    >
       {{ option.name }}
     </div>
   </div>

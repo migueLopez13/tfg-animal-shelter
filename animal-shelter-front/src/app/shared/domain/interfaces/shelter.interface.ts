@@ -5,6 +5,7 @@ export interface Shelter {
   email: string;
   name: string;
   description: string;
+  phone: string
   countryCode: string;
   stateCode: string;
   provinceCode: string;

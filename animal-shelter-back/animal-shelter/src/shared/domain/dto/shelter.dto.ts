@@ -13,13 +13,16 @@ export class ShelterDTO {
   description: string;
 
   @ApiProperty()
+  phone: string;
+
+  @ApiProperty()
+  provinceCode: string;
+
+  @ApiProperty()
   countryCode: string;
 
   @ApiProperty()
   stateCode: string;
-
-  @ApiProperty()
-  provinceCode: string;
 
   @ApiProperty()
   zip: string;

@@ -1,0 +1,129 @@
+<div class="options">
+  <mat-form-field appearance="fill" class="filter">
+    <mat-label>
+      <fa-icon [icon]="searchIcon" class="show-more-icon"></fa-icon>
+      Filter
+    </mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search email" />
+  </mat-form-field>
+  <button
+    mat-raised-button
+    (click)="openAddAnimal()"
+    class="add"
+    color="accent"
+  >
+    <fa-icon [icon]="addIcon" class="show-more-icon"></fa-icon>
+    New animal
+  </button>
+</div>
+<div class="table-container mat-elevation-z8">
+  <table
+    mat-table
+    [dataSource]="animalsData"
+    class="base-table"
+    matSort
+    matSortActive="created"
+  >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let animal">
+        {{ animal.id }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let animal">
+        {{ animal.name }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="birthdate">
+      <th mat-header-cell *matHeaderCellDef>Birthdate</th>
+      <td mat-cell *matCellDef="let animal">{{ animal.birthdate }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef>Gender</th>
+      <td mat-cell *matCellDef="let animal">{{ animal.gender }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="kind">
+      <th mat-header-cell *matHeaderCellDef>Kind</th>
+      <td mat-cell *matCellDef="let animal">{{ animal.kind }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="breed">
+      <th mat-header-cell *matHeaderCellDef>Breed</th>
+      <td mat-cell *matCellDef="let animal">{{ animal.breed }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="size">
+      <th mat-header-cell *matHeaderCellDef>Size</th>
+      <td mat-cell *matCellDef="let animal">{{ animal.size }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dewormed">
+      <th mat-header-cell *matHeaderCellDef>Dewormed</th>
+      <td mat-cell *matCellDef="let animal">{{ animal.dewormed }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let animal">
+        {{ animal.description.slice(0, 30) }}...
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="arrived-at">
+      <th mat-header-cell *matHeaderCellDef>Arrived at</th>
+      <td mat-cell *matCellDef="let animal">
+        {{ animal.arrivalDate.slice(0, 16) }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="media">
+      <th mat-header-cell *matHeaderCellDef>Media</th>
+      <td mat-cell *matCellDef="let animal">
+        <fa-icon
+          [icon]="showMoreIcon"
+          class="show-more-icon"
+          matTooltip="see More"
+        ></fa-icon>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="vaccines">
+      <th mat-header-cell *matHeaderCellDef>Vaccines</th>
+      <td mat-cell *matCellDef="let animal">
+        <fa-icon
+          [icon]="showMoreIcon"
+          class="show-more-icon"
+          matTooltip="see More"
+        ></fa-icon>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let animal">
+        <fa-icon
+          [icon]="editIcon"
+          class="edit-icon"
+          matTooltip="Edit"
+        ></fa-icon>
+        <fa-icon
+          [icon]="xIcon"
+          class="delete-icon"
+          matTooltip="Delete"
+        ></fa-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="animalsColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: animalsColumns"></tr>
+  </table>
+
+  <mat-paginator #paginator [pageSize]="10" showFirstLastButtons>
+  </mat-paginator>
+</div>

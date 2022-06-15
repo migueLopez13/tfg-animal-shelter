@@ -1,0 +1,97 @@
+<div class="options">
+  <mat-form-field appearance="fill" class="filter">
+    <mat-label>
+      <fa-icon [icon]="searchIcon" class="show-more-icon"></fa-icon>
+      Filter
+    </mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search email" />
+  </mat-form-field>
+  <button
+    mat-raised-button
+    (click)="openAddShelter()"
+    class="add"
+    color="accent"
+  >
+    <fa-icon [icon]="addIcon" class="show-more-icon"></fa-icon>
+    New shelter
+  </button>
+</div>
+<div class="table-container mat-elevation-z8">
+  <table
+    mat-table
+    [dataSource]="sheltersData"
+    class="base-table"
+    matSort
+    matSortActive="created"
+  >
+    <ng-container matColumnDef="email">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let shelter">
+        {{ shelter.email }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let shelter">
+        {{ shelter.name }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell mat-sort-header *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let shelter">
+        {{ shelter.description.slice(0, 90) }}...
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef>Phones</th>
+      <td mat-cell *matCellDef="let shelter">{{ shelter.phone }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="media">
+      <th mat-header-cell *matHeaderCellDef>Media</th>
+      <td mat-cell *matCellDef="let shelter">
+        <fa-icon
+          [icon]="showMoreIcon"
+          class="show-more-icon"
+          matTooltip="see More"
+        ></fa-icon>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="social">
+      <th mat-header-cell *matHeaderCellDef>Social</th>
+      <td mat-cell *matCellDef="let shelter">
+        <fa-icon
+          [icon]="showMoreIcon"
+          class="show-more-icon"
+          matTooltip="see More"
+        ></fa-icon>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let shelter">
+        <fa-icon
+          [icon]="editIcon"
+          class="edit-icon"
+          matTooltip="Edit"
+        ></fa-icon>
+        <fa-icon
+          [icon]="xIcon"
+          class="delete-icon"
+          matTooltip="Delete"
+        ></fa-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="sheltersColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: sheltersColumns"></tr>
+  </table>
+
+  <mat-paginator #paginator [pageSize]="10" showFirstLastButtons>
+  </mat-paginator>
+</div>

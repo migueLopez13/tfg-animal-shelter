@@ -13,20 +13,24 @@ export class SidebarComponent implements OnInit {
   sidebarIcon = faAngleDoubleRight
   options: NavbarOption[] = [
     {
+      name: 'Dashboard',
+      route: '/admin/dashboard',
+    },
+    {
       name: 'Animals',
-      route: '',
+      route: '/admin/animals',
     },
     {
       name: 'Users',
-      route: ''
+      route: '/admin/users'
     },
     {
       name: 'Adoptions',
-      route: ''
+      route: '/admin/adoptions'
     },
     {
       name: 'Shelters',
-      route: ''
+      route: '/admin/shelters'
     }
   ]
 

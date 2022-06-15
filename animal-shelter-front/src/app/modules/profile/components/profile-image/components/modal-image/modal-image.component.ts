@@ -44,11 +44,11 @@ export class ModalImageComponent implements OnInit {
       alert('invalid format');
       return;
     }
-    reader.onload = this._handleReaderLoaded.bind(this);
+    reader.onload = this.handleReaderLoaded.bind(this);
     reader.readAsDataURL(file);
   }
 
-  _handleReaderLoaded(e: any) {
+  handleReaderLoaded(e: any) {
     const reader = e.target;
     this.imageSrc = reader.result;
   }

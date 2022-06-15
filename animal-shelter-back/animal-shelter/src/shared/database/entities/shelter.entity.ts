@@ -15,7 +15,13 @@ export class Shelter extends BaseEntity {
   description: string;
 
   @Column()
+  phone: string;
+
+  @Column()
   countryCode: string;
+
+  @Column()
+  provinceCode: string;
 
   @Column()
   stateCode: string;

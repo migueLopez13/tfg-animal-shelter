@@ -10,6 +10,9 @@
   align-items: flex-end;
   gap: 30px;
   box-shadow: 2px 0 10px -8px var(--blue-dark-color);
+  background-color: var(--blue-medium-color);
+  z-index: 100;
+
   &--icon {
     color: var(--blue-dark-color);
     cursor: pointer;
@@ -25,10 +28,11 @@
     .item {
       height: 30px;
       cursor: pointer;
-      color: white;
+      color: var(--secondary-color);
       font-size: 20px;
+      border-bottom: 2px solid var(--secondary-color);
       &:hover {
-        color: var(--blue-dark-color);
+        color: white;
       }
     }
   }

@@ -1,0 +1,67 @@
+.options {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  .filter {
+    .mat-form-field-flex {
+      background-color: white;
+    }
+  }
+
+  .add {
+    justify-self: center;
+    margin-bottom: 24px;
+    font-size: 17px;
+  }
+}
+
+.table-container {
+  width: 90vw;
+  .base-table {
+    width: 100%;
+    th {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--blue-dark-color);
+    }
+    tr:hover {
+      background-color: whitesmoke;
+    }
+    .align-right {
+      display: grid;
+      grid-template-columns: 30px 25px;
+      gap: 5px;
+      height: 48px;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .show-more-icon {
+      color: var(--blue-light-color);
+      width: 25px;
+      height: 25px;
+      padding: 5px;
+      border-radius: 10px;
+      background-color: var(--blue-dark-color);
+      box-shadow: 2px 2px 5px 1px var(--grey-03-color);
+      cursor: pointer;
+    }
+    .edit-icon {
+      color: var(--blue-dark-color);
+      padding: 5px;
+      border-radius: 10px;
+      background-color: var(--gold-color);
+      box-shadow: 2px 2px 5px 1px var(--grey-03-color);
+      cursor: pointer;
+    }
+    .delete-icon {
+      color: black;
+      padding: 5px 7px;
+      border-radius: 10px;
+      background-color: var(--error-color);
+      box-shadow: 2px 2px 5px 1px var(--grey-03-color);
+      margin-left: 10px;
+      cursor: pointer;
+    }
+  }
+}

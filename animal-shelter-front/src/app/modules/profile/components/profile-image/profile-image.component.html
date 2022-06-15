@@ -6,7 +6,9 @@
 ></app-modal-image>
 <div class="profile-image">
   <div class="image-wrapper">
-    <img src="{{ user.avatar }}" alt="user-image" />
+    <div class="img-wrapper">
+      <img src="{{ user.avatar }}" alt="user-image" />
+    </div>
     <div class="edit-icon">
       <fa-icon [icon]="editIcon" (click)="editImage()"></fa-icon>
     </div>

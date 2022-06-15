@@ -5,11 +5,20 @@
     justify-content: center;
     align-items: center;
 
-    img {
+    .img-wrapper {
       width: 150px;
       height: 150px;
       border-radius: 100px;
       box-shadow: 1px 1px 2px var(--grey-02-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+
+      img {
+        max-width: 150px;
+        max-height: 150px;
+      }
     }
     .edit-icon {
       width: 30px;
