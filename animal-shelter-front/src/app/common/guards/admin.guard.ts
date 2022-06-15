@@ -23,7 +23,7 @@ export class AdminGuard implements CanActivate {
       return false;
     }
 
-    let isAdmin = false
+    let isAdmin = true
 
     this.store.select(ProfileSelectors.selectCurrentUser).subscribe((user) => {
       isAdmin = user?.role.some((role) => role.name === 'admin') as boolean

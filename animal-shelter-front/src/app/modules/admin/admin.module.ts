@@ -8,14 +8,8 @@ import { SheltersComponent } from './views/shelters/shelters.component';
 import { UsersComponent } from './views/users/users.component';
 import { BaseTableComponent } from './components/base-table/base-table.component';
 import { GraphComponent } from './components/graph/graph.component';
-import {
-  IgxDoughnutChartModule,
-  IgxRingSeriesModule,
-  IgxLegendModule,
-  IgxItemLegendModule
-} from "igniteui-angular-charts";
-import { FormsModule } from '@angular/forms';
-
+import { NgChartsModule } from 'ng2-charts';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -27,16 +21,13 @@ import { FormsModule } from '@angular/forms';
     SheltersComponent,
     UsersComponent,
     BaseTableComponent,
-    GraphComponent
+    GraphComponent,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
     AdminRouting,
-    FormsModule,
-    IgxDoughnutChartModule,
-    IgxRingSeriesModule,
-    IgxLegendModule,
-    IgxItemLegendModule
+    NgChartsModule
   ]
 })
 export class AdminModule { }
