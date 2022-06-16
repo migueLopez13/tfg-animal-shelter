@@ -32,6 +32,12 @@ export class Shelter extends BaseEntity {
   @Column()
   address: string;
 
+  @Column("decimal")
+  longitude: number;
+
+  @Column("decimal")
+  latitude: number;
+
   @OneToMany(() => ShelterMedia, (media) => media.shelter, {
     eager: true,
     cascade: ["insert", "update", "remove"],

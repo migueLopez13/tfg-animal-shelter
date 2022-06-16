@@ -1,0 +1,38 @@
+.shelter-view {
+  margin: 0px 100px;
+  padding: 50px;
+  background-color: white;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 1px 2px 8px var(--blue-dark-color);
+  animation: fadeIn 1s;
+
+  &--header {
+    display: flex;
+    flex-direction: row;
+    .shelter-media {
+      img {
+      }
+    }
+    .shelter-details {
+      &--item {
+        .title {
+        }
+      }
+    }
+  }
+  &--body {
+    display: flex;
+    flex-direction: row;
+    .shelter-maps {
+    }
+    .shelter-description {
+    }
+    #shelter-map {
+      width: 500px;
+      height: 400px;
+    }
+  }
+}

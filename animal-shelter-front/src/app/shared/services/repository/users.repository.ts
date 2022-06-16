@@ -12,7 +12,6 @@ export class UsersRepository extends BaseRepository<User>{
   }
 
   updateAvatar(base64: string) {
-    console.log(base64)
     return this.http.put(`${this.baseUrl}/avatar`, { image: base64 })
   }
 }

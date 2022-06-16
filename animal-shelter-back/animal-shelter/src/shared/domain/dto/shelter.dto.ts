@@ -31,6 +31,12 @@ export class ShelterDTO {
   address: string;
 
   @ApiProperty()
+  longitude: number;
+
+  @ApiProperty()
+  latitude: number;
+
+  @ApiProperty()
   media: ShelterMediaDTO[];
 
   @ApiProperty()

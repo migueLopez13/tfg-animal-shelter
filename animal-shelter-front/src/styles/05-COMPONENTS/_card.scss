@@ -33,6 +33,24 @@
       @include secondaryTitle;
       height: 50px;
     }
+    &--shelter {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    &--shelter-item {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 5px;
+
+      .item-title {
+        @include secondaryTitle;
+        line-height: 20px;
+      }
+    }
     .description {
       height: 80px;
       line-height: 20px;

@@ -47,7 +47,6 @@ export class AnimalsTableComponent implements OnInit {
   ngOnInit(): void {
     this.store.select(AnimalsSelectors.selectAnimals).subscribe((animals) => {
       this.animalsData.data = animals as Readonly<Animal>[]
-      console.log(animals)
     })
   }
 

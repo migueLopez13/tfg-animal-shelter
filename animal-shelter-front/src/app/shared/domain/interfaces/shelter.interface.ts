@@ -11,6 +11,8 @@ export interface Shelter {
   provinceCode: string;
   zip: string;
   address: string;
+  longitude: number;
+  latitude: number;
   media: ShelterMedia[];
   social?: ShelterSocial[];
 }

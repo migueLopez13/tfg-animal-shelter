@@ -16,7 +16,8 @@ import { ShelterViewComponent } from './views/shelter-view/shelter-view.componen
   ],
   imports: [
     CommonModule,
-    SheltersRouting
+    SheltersRouting,
+
   ]
 })
 export class SheltersModule { }

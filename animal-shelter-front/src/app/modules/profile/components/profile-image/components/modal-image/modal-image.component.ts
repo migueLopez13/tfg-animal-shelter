@@ -59,7 +59,6 @@ export class ModalImageComponent implements OnInit {
 
   saveElement() {
     if (this.avatar !== this.imageSrc) {
-      console.log(this.imageSrc)
       this.store.dispatch(
         ProfileActions.updateAvatarRequest(
           { avatar: this.imageSrc }

@@ -22,7 +22,8 @@ export const SheltersSelectors = {
   ),
 
   selectShelterById: (shelterEmail: string) =>
-    createSelector(SheltersFeature, ({ shelters }) =>
-      shelters.find(({ email }) => email === shelterEmail)
+    createSelector(SheltersFeature, ({ shelters }) => {
+      return shelters.find(({ email }) => email === shelterEmail)
+    }
     ),
 };

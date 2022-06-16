@@ -1,1 +1,6 @@
-<p>all-shelters-view works!</p>
+<div class="cards-wrapper">
+  <app-shelter-card
+    *ngFor="let shelter of shelters | async"
+    [shelter]="shelter"
+  ></app-shelter-card>
+</div>

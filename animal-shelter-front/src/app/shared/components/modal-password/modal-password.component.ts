@@ -63,7 +63,6 @@ export class ModalPasswordComponent implements OnInit {
           oldPassword: this.oldPassword.value,
           newPassword: this.newPassword.value
         }).subscribe((response) => {
-          console.log(response)
           this.closeModal()
         })
     } else {
