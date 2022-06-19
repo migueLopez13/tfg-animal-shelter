@@ -12,7 +12,7 @@ export class AdminModalPhonesComponent implements OnInit {
   @Output() close = new EventEmitter()
 
   element!: any
-  showSocial = false
+  showPhone = false
   showConfirmation = false
 
   constructor() { }
@@ -22,11 +22,11 @@ export class AdminModalPhonesComponent implements OnInit {
 
   openEdit(phone: UserPhone) {
     this.element = phone
-    this.showSocial = true
+    this.showPhone = true
   }
   openAdd() {
     this.element = undefined
-    this.showSocial = true
+    this.showPhone = true
   }
   openConfirmation(idPhone: number) {
     this.element = idPhone
@@ -34,7 +34,7 @@ export class AdminModalPhonesComponent implements OnInit {
   }
 
   closeSocial() {
-    this.showSocial = false
+    this.showPhone = false
   }
   closeConfirmation() {
     this.showConfirmation = false

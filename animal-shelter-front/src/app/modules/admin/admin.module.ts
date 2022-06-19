@@ -37,6 +37,7 @@ import { BaseModalComponent } from './components/modals/base-modal/base-modal.co
 import { ModalConfirmationComponent } from './components/modals/modal-confirmation/modal-confirmation.component';
 import { ModalManageSocialComponent } from './components/modals/modal-manage-social/modal-manage-social.component';
 import { ModalManagePhoneComponent } from './components/modals/modal-manage-phone/modal-manage-phone.component';
+import { ModalManageAddressComponent } from './components/modals/modal-manage-address/modal-manage-address.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { ModalManagePhoneComponent } from './components/modals/modal-manage-phon
     BaseModalComponent,
     ModalConfirmationComponent,
     ModalManageSocialComponent,
-    ModalManagePhoneComponent
+    ModalManagePhoneComponent,
+    ModalManageAddressComponent
   ],
   imports: [
     CommonModule,

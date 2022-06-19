@@ -1,7 +1,19 @@
+<app-modal-confirmation
+  *ngIf="showConfirmation"
+  [element]="element"
+  (close)="closeConfirmation()"
+  (true)="removeElement($event)"
+></app-modal-confirmation>
+<app-manage-phone
+  *ngIf="showPhone"
+  [element]="element"
+  (add)="addElement($event)"
+  (edit)="editElement($event)"
+  (close)="closeSocial()"
+></app-manage-phone>
 <div class="base-modal base-modal--secondary">
   <div class="modal">
     <div class="modal--header">User phones</div>
-    <div>admin-modal-shelters works!</div>
     <div>
       <div *ngIf="!phones.length; else phoneList" class="modal--body">
         You have not any phone, add new
@@ -10,7 +22,7 @@
         <div class="profile-section">
           <div *ngFor="let phone of phones" class="profile-section--item">
             <div class="column">
-              <div class="label">Label:</div>
+              <div class="title">Label:</div>
               {{ phone.label }}
             </div>
             <div class="column">
