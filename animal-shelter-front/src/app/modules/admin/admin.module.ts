@@ -25,6 +25,11 @@ import { AdoptionsTableComponent } from './components/adoptions-table/adoptions-
 import { AnimalsTableComponent } from './components/animals-table/animals-table.component';
 import { SheltersTableComponent } from './components/shelters-table/shelters-table.component';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { AdminModalUsersComponent } from './components/modals/admin-modal-users/admin-modal-users.component';
+import { AdminModalAnimalsComponent } from './components/modals/admin-modal-animals/admin-modal-animals.component';
+import { AdminModalAdoptionsComponent } from './components/modals/admin-modal-adoptions/admin-modal-adoptions.component';
+import { AdminModalSheltersComponent } from './components/modals/admin-modal-shelters/admin-modal-shelters.component';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +44,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     AdoptionsTableComponent,
     AnimalsTableComponent,
     SheltersTableComponent,
+    AdminModalAnimalsComponent,
+    AdminModalAdoptionsComponent,
+    AdminModalSheltersComponent,
+    AdminModalUsersComponent,
   ],
   imports: [
     CommonModule,

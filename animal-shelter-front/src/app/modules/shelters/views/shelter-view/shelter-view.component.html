@@ -1,41 +1,43 @@
 <div class="shelter-view">
   <div class="shelter-view--header">
     <div class="shelter-media">
+      <fa-icon [icon]="lastImage" class="icon fa-lg"></fa-icon>
       <img
         *ngFor="let image of shelter?.media"
         src="{{ image.url }}"
         alt="shelter-image"
       />
-    </div>
-    <div class="shelter-details">
-      <div class="shelter-details--item">
-        <div class="title">Name:</div>
-        {{ shelter?.name }}
-      </div>
-      <div class="shelter-details--item">
-        <div class="title">Email:</div>
-        {{ shelter?.email }}
-      </div>
-      <div class="shelter-details--item">
-        <div class="title">Phone:</div>
-        {{ shelter?.phone }}
-      </div>
-      <div class="shelter-details--item">
-        <div class="title">Address:</div>
-        {{ shelter?.address }}
-      </div>
-      <div class="shelter-details--item">
-        <div class="title">Zip:</div>
-        {{ shelter?.zip }}
-      </div>
+      <fa-icon [icon]="nextImage" class="icon fa-lg"></fa-icon>
     </div>
   </div>
   <div class="shelter-view--body">
-    <div class="shelter-maps">
-      <div #selterMap id="shelter-map"></div>
-    </div>
-    <div class="shelter-description">
-      {{ shelter?.description }}
+    <div #selterMap id="shelter-map"></div>
+    <div class="shelter-info">
+      <div class="shelter-details">
+        <div class="shelter-details--item">
+          <div class="title">Name:</div>
+          {{ shelter?.name }}
+        </div>
+        <div class="shelter-details--item">
+          <div class="title">Email:</div>
+          {{ shelter?.email }}
+        </div>
+        <div class="shelter-details--item">
+          <div class="title">Phone:</div>
+          {{ shelter?.phone }}
+        </div>
+        <div class="shelter-details--item">
+          <div class="title">Address:</div>
+          {{ shelter?.address }}
+        </div>
+        <div class="shelter-details--item">
+          <div class="title">Zip:</div>
+          {{ shelter?.zip }}
+        </div>
+      </div>
+      <div class="shelter-description">
+        {{ shelter?.description }}
+      </div>
     </div>
   </div>
 </div>

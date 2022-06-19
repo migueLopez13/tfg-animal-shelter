@@ -27,7 +27,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
     MatInputModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
   ],
 })
 export class LoginModule { }

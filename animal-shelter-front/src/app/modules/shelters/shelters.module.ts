@@ -4,6 +4,7 @@ import { SheltersRouting } from './shelters-routing.module';
 import { ShelterCardComponent } from './components/shelter-card/shelter-card.component';
 import { AllSheltersViewComponent } from './views/all-shelters-view/all-shelters-view.component';
 import { ShelterViewComponent } from './views/shelter-view/shelter-view.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -17,7 +18,7 @@ import { ShelterViewComponent } from './views/shelter-view/shelter-view.componen
   imports: [
     CommonModule,
     SheltersRouting,
-
+    FontAwesomeModule
   ]
 })
 export class SheltersModule { }

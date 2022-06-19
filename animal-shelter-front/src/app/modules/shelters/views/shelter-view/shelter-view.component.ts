@@ -14,6 +14,7 @@ import Icon from 'ol/style/Icon';
 import OSM from 'ol/source/OSM';
 import * as olProj from 'ol/proj';
 import TileLayer from 'ol/layer/Tile';
+import { faChevronCircleLeft, faChevronCircleRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-shelter-view',
@@ -25,6 +26,8 @@ export class ShelterViewComponent implements OnInit, AfterViewInit {
   map!: Map
   @ViewChild('shelterMap', { static: true })
   shelterMap?: ElementRef<HTMLElement>;
+  nextImage = faChevronCircleRight
+  lastImage = faChevronCircleLeft
 
   constructor(
     private readonly store: Store<AppState>,
@@ -62,7 +65,7 @@ export class ShelterViewComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.map.setView(new View({
         center: olProj.fromLonLat([this.shelter.longitude, this.shelter.latitude]),
-        zoom: 18
+        zoom: 19
       }))
     }, 1000);
 

@@ -1,5 +1,5 @@
 .shelter-view {
-  margin: 0px 100px;
+  margin: auto;
   padding: 50px;
   background-color: white;
   border-radius: 50px;
@@ -8,31 +8,66 @@
   gap: 20px;
   box-shadow: 1px 2px 8px var(--blue-dark-color);
   animation: fadeIn 1s;
+  max-height: 85vh;
+  width: max-content;
 
   &--header {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    margin: auto;
     .shelter-media {
-      img {
+      width: 65%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      .icon {
+        color: var(--blue-dark-color);
+        cursor: pointer;
       }
-    }
-    .shelter-details {
-      &--item {
-        .title {
-        }
+      img {
+        max-width: 360px;
+        max-height: 800px;
       }
     }
   }
   &--body {
     display: flex;
     flex-direction: row;
-    .shelter-maps {
+    justify-content: center;
+    .shelter-info {
+      padding: 10px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .shelter-details {
+        &--item {
+          display: flex;
+          flex-direction: row;
+          gap: 5px;
+          font-size: 20px;
+          line-height: 30px;
+          color: var(--grey-02-color);
+          .title {
+            font-weight: 600;
+            color: var(--blue-dark-color);
+          }
+        }
+      }
+      .shelter-description {
+        width: 300px;
+        color: var(--blue-medium-color);
+        text-align: justify;
+      }
     }
-    .shelter-description {
-    }
+
     #shelter-map {
-      width: 500px;
-      height: 400px;
+      width: 400px;
+      height: 350px;
     }
   }
 }

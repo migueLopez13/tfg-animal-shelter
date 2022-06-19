@@ -1,0 +1,16 @@
+<div class="carousel">
+  <div class="control prev-slide" (click)="prev(slide)">
+    <fa-icon [icon]="prevIcon"></fa-icon>
+  </div>
+  <div class="slides" #slide>
+    <img
+      *ngFor="let image of images"
+      src="{{ image }}"
+      alt="slide image"
+      class="slide"
+    />
+  </div>
+  <div class="control next-slide" (click)="next(slide)">
+    <fa-icon [icon]="nextIcon"></fa-icon>
+  </div>
+</div>

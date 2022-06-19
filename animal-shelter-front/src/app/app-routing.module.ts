@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminGuard } from './common/guards/admin.guard';
 import { LogoutGuard } from './common/guards/logout.guard';
 import { UserGuard } from './common/guards/user.guard';
-import { HomeComponent } from './modules/home/home.component';
+import { HomeViewComponent } from './modules/home/views/home-view/home-view.component';
 import { InConstructionComponent } from './shared/components/in-construction/in-construction.component';
 
 
@@ -86,7 +86,7 @@ const routes: Routes = [
       breadcrumb: 'logout',
     },
     canActivate: [LogoutGuard],
-    component: HomeComponent
+    component: HomeViewComponent
   },
   {
     path: '**',
