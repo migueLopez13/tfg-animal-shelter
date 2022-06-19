@@ -35,7 +35,8 @@ import { AdminModalAddressesComponent } from './components/modals/admin-modal-ad
 import { AdminModalMediaComponent } from './components/modals/admin-modal-media/admin-modal-media.component';
 import { BaseModalComponent } from './components/modals/base-modal/base-modal.component';
 import { ModalConfirmationComponent } from './components/modals/modal-confirmation/modal-confirmation.component';
-import { ModalSocialComponent } from './components/modals/modal-social/modal-social.component';
+import { ModalManageSocialComponent } from './components/modals/modal-manage-social/modal-manage-social.component';
+import { ModalManagePhoneComponent } from './components/modals/modal-manage-phone/modal-manage-phone.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { ModalSocialComponent } from './components/modals/modal-social/modal-soc
     AdminModalMediaComponent,
     BaseModalComponent,
     ModalConfirmationComponent,
-    ModalSocialComponent
+    ModalManageSocialComponent,
+    ModalManagePhoneComponent
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserSocial } from '../../domain/interfaces/user-social.interface';
+import { UserSocial } from '../../../../../shared/domain/interfaces/user-social.interface';
 
 @Component({
   selector: 'app-modal-social',

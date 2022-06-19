@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserPhone } from '../../domain/interfaces/user-phone.interface';
+import { UserPhone } from 'src/app/shared/domain/interfaces/user-phone.interface';
 
 @Component({
-  selector: 'app-modal-phone',
-  templateUrl: './modal-phone.component.html'
+  selector: 'app-manage-phone',
+  templateUrl: './modal-manage-phone.component.html'
 })
-export class ModalPhoneComponent implements OnInit {
+export class ModalManagePhoneComponent implements OnInit {
 
   @Input() element?: UserPhone | number
   @Output() edit = new EventEmitter()

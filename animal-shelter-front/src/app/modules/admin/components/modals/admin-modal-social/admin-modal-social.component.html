@@ -4,16 +4,16 @@
   (close)="closeConfirmation()"
   (true)="removeElement($event)"
 ></app-modal-confirmation>
-<app-modal-social
+<app-manage-social
   *ngIf="showSocial"
   [element]="element"
   (add)="addElement($event)"
   (edit)="editElement($event)"
   (close)="closeSocial()"
-></app-modal-social>
+></app-manage-social>
 <div class="base-modal base-modal--secondary">
   <div class="modal">
-    <div class="modal--header">admin-modal-social</div>
+    <div class="modal--header">aUser Social links</div>
     <div>
       <div *ngIf="!socialList.length; else socialLinks" class="modal--body">
         You have not any social media, add new

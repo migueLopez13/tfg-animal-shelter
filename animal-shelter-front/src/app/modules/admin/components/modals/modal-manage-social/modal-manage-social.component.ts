@@ -3,10 +3,10 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { UserSocial } from 'src/app/shared/domain/interfaces/user-social.interface';
 
 @Component({
-  selector: 'app-modal-social',
-  templateUrl: './modal-social.component.html'
+  selector: 'app-manage-social',
+  templateUrl: './modal-manage-social.html'
 })
-export class ModalSocialComponent implements OnInit {
+export class ModalManageSocialComponent implements OnInit {
 
   socials = ['instagram', 'facebook', 'twitter']
 

@@ -14,16 +14,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
-import { ModalPhoneComponent } from 'src/app/shared/components/modal-phone/modal-phone.component';
-import { ModalAddressComponent } from 'src/app/shared/components/modal-address/modal-address.component';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { MatSelectModule } from '@angular/material/select';
-import { ModalImageComponent } from './components/profile-image/components/modal-image/modal-image.component';
 import { MaterialFileInputModule } from 'ngx-material-file-input';
-import { ModalSocialComponent } from 'src/app/shared/components/modal-social/modal-social.component';
-import { ModalPasswordComponent } from 'src/app/shared/components/modal-password/modal-password.component';
-import { BaseModalComponent } from './components/base-modal/base-modal.component';
-import { ModalConfirmationComponent } from './components/modal-confirmation/modal-confirmation.component';
+import { BaseModalComponent } from './components/modals/base-modal/base-modal.component';
+import { ModalAddressComponent } from './components/modals/modal-address/modal-address.component';
+import { ModalConfirmationComponent } from './components/modals/modal-confirmation/modal-confirmation.component';
+import { ModalPasswordComponent } from './components/modals/modal-password/modal-password.component';
+import { ModalPhoneComponent } from './components/modals/modal-phone/modal-phone.component';
+import { ModalSocialComponent } from './components/modals/modal-social/modal-social.component';
+import { ModalImageComponent } from './components/profile-image/components/modal-image/modal-image.component';
+
 
 
 

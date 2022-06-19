@@ -1,9 +1,53 @@
-<app-base-modal>
-  <div title>admin-modal-phones</div>
-  <div body>admin-modal-phones works!</div>
-  <div buttons>
-    <button mat-raised-button (click)="closeModal()" class="back">
-      Cancel
-    </button>
+<div class="base-modal base-modal--secondary">
+  <div class="modal">
+    <div class="modal--header">User phones</div>
+    <div>admin-modal-shelters works!</div>
+    <div>
+      <div *ngIf="!phones.length; else phoneList" class="modal--body">
+        You have not any phone, add new
+      </div>
+      <ng-template #phoneList>
+        <div class="profile-section">
+          <div *ngFor="let phone of phones" class="profile-section--item">
+            <div class="column">
+              <div class="label">Label:</div>
+              {{ phone.label }}
+            </div>
+            <div class="column">
+              <div class="title">Country code:</div>
+              {{ phone.countryCode }}
+            </div>
+            <div class="column">
+              <div class="title">phone number:</div>
+              {{ phone.phone }}
+            </div>
+            <div class="buttons-wrapper">
+              <button
+                mat-raised-button
+                (click)="openEdit(phone)"
+                class="button-edit"
+              >
+                Edit
+              </button>
+              <button
+                mat-raised-button
+                (click)="openConfirmation(phone.id)"
+                class="button-remove"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <button mat-raised-button (click)="openAdd()" color="accent">
+        New phone
+      </button>
+    </div>
+    <div class="modal--buttons">
+      <button mat-raised-button (click)="closeModal()" class="back">
+        Cancel
+      </button>
+    </div>
   </div>
-</app-base-modal>
+</div>

@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { map, Observable, takeUntil } from 'rxjs';
-import { City } from '../../domain/interfaces/city.interface';
-import { UserAddress } from '../../domain/interfaces/user-address.interface';
-import { CitiesService } from '../../services/cities.service';
+import { City } from '../../../../../shared/domain/interfaces/city.interface';
+import { UserAddress } from '../../../../../shared/domain/interfaces/user-address.interface';
+import { CitiesService } from '../../../../../shared/services/cities.service';
 
 @Component({
   selector: 'app-modal-address',
