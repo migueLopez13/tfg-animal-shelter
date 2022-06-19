@@ -6,7 +6,7 @@
     </mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Search email" />
   </mat-form-field>
-  <button mat-raised-button (click)="openAddUser()" class="add" color="accent">
+  <button mat-raised-button (click)="emitAdd()" class="add" color="accent">
     <fa-icon [icon]="addIcon" class="show-more-icon"></fa-icon>
     New user
   </button>
@@ -47,6 +47,7 @@
           [icon]="showMoreIcon"
           class="show-more-icon"
           matTooltip="see More"
+          (click)="emitPhones(user)"
         ></fa-icon>
       </td>
     </ng-container>
@@ -58,6 +59,7 @@
           [icon]="showMoreIcon"
           class="show-more-icon"
           matTooltip="see More"
+          (click)="emitAddresses(user)"
         ></fa-icon>
       </td>
     </ng-container>
@@ -69,6 +71,7 @@
           [icon]="showMoreIcon"
           class="show-more-icon"
           matTooltip="see More"
+          (click)="emitSocial(user)"
         ></fa-icon>
       </td>
     </ng-container>
@@ -80,11 +83,13 @@
           [icon]="editIcon"
           class="edit-icon"
           matTooltip="Edit"
+          (click)="emitEdit(user)"
         ></fa-icon>
         <fa-icon
           [icon]="xIcon"
           class="delete-icon"
           matTooltip="Delete"
+          (click)="emitDelete(user)"
         ></fa-icon>
       </td>
     </ng-container>

@@ -7,7 +7,7 @@ export class UserAddress extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: string;
 
-  @ManyToOne(() => User, (user: User) => user.address)
+  @ManyToOne(() => User, (user: User) => user.address, { onDelete: "CASCADE", onUpdate: "CASCADE" })
   user: User;
 
   @Column()

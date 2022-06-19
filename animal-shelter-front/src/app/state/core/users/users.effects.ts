@@ -76,9 +76,9 @@ export class UsersEffects {
   updateUser$ = createEffect(() =>
     this.actions$.pipe(
       ofType('[User update] Request'),
-      switchMap(({ userEmail, User }) =>
-        this.usersService.update(userEmail, User).pipe(
-          map((user) => ({
+      switchMap(({ userEmail, user }) =>
+        this.usersService.update(userEmail, user).pipe(
+          map((_user) => ({
             type: '[User update] Success',
             user,
           })),
@@ -120,7 +120,7 @@ export class UsersEffects {
         this.usersService.remove(userEmail).pipe(
           map((user) => ({
             type: '[User remove] Success',
-            user,
+            userEmail,
           })),
           catchError((error) =>
             of({

@@ -99,7 +99,7 @@ export const UsersActions = {
 
   removeUserSuccess: createAction(
     '[User remove] Success',
-    props<{ user: User }>()
+    props<{ userEmail: string }>()
   ),
 
   removeUserFailure: createAction(

@@ -20,7 +20,7 @@ export class CarouselComponent implements OnInit {
       return this.element++
     }
     if (this.element < 4) {
-      element.style.marginLeft = `${(this.element * (-1000))}px`
+      element.style.marginLeft = `${(this.element * (-1300))}px`
       return this.element++
     } else {
       this.element = 0
@@ -33,7 +33,7 @@ export class CarouselComponent implements OnInit {
       this.element = 3
       this.next(element)
     } else {
-      element.style.marginLeft = `${parseInt(element.style.marginLeft) + 1000}px`
+      element.style.marginLeft = `${parseInt(element.style.marginLeft) + 1300}px`
       this.element--
     }
   }

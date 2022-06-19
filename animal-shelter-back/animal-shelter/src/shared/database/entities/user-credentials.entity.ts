@@ -7,7 +7,7 @@ export class UserCredential extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: string;
 
-  @ManyToOne(() => User, (user: User) => user.password)
+  @ManyToOne(() => User, (user: User) => user.password, { onDelete: "CASCADE", onUpdate: "CASCADE" })
   user: User;
 
   @Column({ unique: true })

@@ -1,1 +1,77 @@
-<p>admin-modal-users works!</p>
+<app-base-modal>
+  <div title>Add/Edit user</div>
+  <div body>
+    <mat-form-field
+      class="profile-user--name"
+      appearance="fill"
+      [formGroup]="userForm"
+    >
+      <mat-label>Name</mat-label>
+      <input
+        matInput
+        type="name"
+        formControlName="name"
+        placeholder="Juan"
+        autocomplete="off"
+      />
+      <mat-error
+        *ngIf="
+          userForm.get('name')?.hasError('min') &&
+          !userForm.get('name')?.hasError('required')
+        "
+      >
+        Please enter a valid name
+      </mat-error>
+      <mat-error *ngIf="userForm.get('name')?.hasError('required')">
+        Name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+      class="profile-user--surname"
+      appearance="fill"
+      [formGroup]="userForm"
+    >
+      <mat-label>Surname</mat-label>
+      <input
+        matInput
+        type="surname"
+        formControlName="surname"
+        placeholder="Ruedas"
+        autocomplete="off"
+      />
+      <mat-error
+        *ngIf="
+          userForm.get('surname')?.hasError('min') &&
+          !userForm.get('surname')?.hasError('required')
+        "
+      >
+        Please enter a valid surname
+      </mat-error>
+      <mat-error *ngIf="userForm.get('surname')?.hasError('required')">
+        Surname is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field
+      class="profile-user--email"
+      appearance="fill"
+      [formGroup]="userForm"
+    >
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        type="email"
+        formControlName="email"
+        placeholder="example@mail.com"
+        autocomplete="off"
+      />
+    </mat-form-field>
+  </div>
+  <div buttons>
+    <button mat-raised-button (click)="closeModal()" class="back">
+      Cancel
+    </button>
+    <button mat-raised-button (click)="confirm()" class="save">Save</button>
+  </div>
+</app-base-modal>

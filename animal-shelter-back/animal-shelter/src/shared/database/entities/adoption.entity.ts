@@ -17,6 +17,7 @@ export class Adoption extends BaseEntity {
   id: string;
 
   @ManyToOne(() => User, (user) => user.adoptions, {
+    onDelete: "CASCADE"
   })
   user: User;
 

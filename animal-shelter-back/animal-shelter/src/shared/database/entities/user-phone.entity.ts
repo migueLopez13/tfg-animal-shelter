@@ -6,7 +6,7 @@ export class UserPhone extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: string;
 
-  @ManyToOne(() => User, (user: User) => user.phone)
+  @ManyToOne(() => User, (user: User) => user.phone, { onDelete: "CASCADE", onUpdate: "CASCADE" })
   user: User;
 
   @Column()

@@ -29,6 +29,13 @@ import { AdminModalUsersComponent } from './components/modals/admin-modal-users/
 import { AdminModalAnimalsComponent } from './components/modals/admin-modal-animals/admin-modal-animals.component';
 import { AdminModalAdoptionsComponent } from './components/modals/admin-modal-adoptions/admin-modal-adoptions.component';
 import { AdminModalSheltersComponent } from './components/modals/admin-modal-shelters/admin-modal-shelters.component';
+import { AdminModalPhonesComponent } from './components/modals/admin-modal-phones/admin-modal-phones.component';
+import { AdminModalSocialComponent } from './components/modals/admin-modal-social/admin-modal-social.component';
+import { AdminModalAddressesComponent } from './components/modals/admin-modal-addresses/admin-modal-addresses.component';
+import { AdminModalMediaComponent } from './components/modals/admin-modal-media/admin-modal-media.component';
+import { BaseModalComponent } from './components/modals/base-modal/base-modal.component';
+import { ModalConfirmationComponent } from './components/modals/modal-confirmation/modal-confirmation.component';
+import { ModalSocialComponent } from './components/modals/modal-social/modal-social.component';
 
 
 @NgModule({
@@ -48,6 +55,13 @@ import { AdminModalSheltersComponent } from './components/modals/admin-modal-she
     AdminModalAdoptionsComponent,
     AdminModalSheltersComponent,
     AdminModalUsersComponent,
+    AdminModalSocialComponent,
+    AdminModalPhonesComponent,
+    AdminModalAddressesComponent,
+    AdminModalMediaComponent,
+    BaseModalComponent,
+    ModalConfirmationComponent,
+    ModalSocialComponent
   ],
   imports: [
     CommonModule,

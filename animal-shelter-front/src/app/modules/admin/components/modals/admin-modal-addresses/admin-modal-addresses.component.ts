@@ -2,10 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { User } from 'src/app/shared/domain/interfaces/user.interface';
 
 @Component({
-  selector: 'app-admin-modal-adoptions',
-  templateUrl: './admin-modal-adoptions.component.html'
+  selector: 'app-admin-modal-addresses',
+  templateUrl: './admin-modal-addresses.component.html'
 })
-export class AdminModalAdoptionsComponent implements OnInit {
+export class AdminModalAddressesComponent implements OnInit {
 
   @Input() element!: User
   @Output() close = new EventEmitter()

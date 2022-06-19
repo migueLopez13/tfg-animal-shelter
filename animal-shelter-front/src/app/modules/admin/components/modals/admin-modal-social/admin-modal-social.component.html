@@ -1,0 +1,66 @@
+<app-modal-confirmation
+  *ngIf="showConfirmation"
+  [element]="element"
+  (close)="closeConfirmation()"
+  (true)="removeElement($event)"
+></app-modal-confirmation>
+<app-modal-social
+  *ngIf="showSocial"
+  [element]="element"
+  (add)="addElement($event)"
+  (edit)="editElement($event)"
+  (close)="closeSocial()"
+></app-modal-social>
+<div class="base-modal base-modal--secondary">
+  <div class="modal">
+    <div class="modal--header">admin-modal-social</div>
+    <div>
+      <div *ngIf="!socialList.length; else socialLinks" class="modal--body">
+        You have not any social media, add new
+      </div>
+      <ng-template #socialLinks>
+        <div class="profile-section">
+          <div *ngFor="let social of socialList" class="profile-section--item">
+            <div class="column">
+              <div class="title">Label:</div>
+              {{ social.name }}
+            </div>
+            <div class="column">
+              <div class="title">Link:</div>
+              <a href="{{ social.url }}">
+                <img
+                  src="../../../../assets/{{ social.name }}.png"
+                  alt="{{ social.name }}"
+                />
+              </a>
+            </div>
+            <div class="buttons-wrapper">
+              <button
+                mat-raised-button
+                (click)="openEdit(social)"
+                class="button-edit"
+              >
+                Edit
+              </button>
+              <button
+                mat-raised-button
+                (click)="openConfirmation(social.id)"
+                class="button-remove"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <button mat-raised-button (click)="openAdd()" color="accent">
+        New Social link
+      </button>
+    </div>
+    <div class="modal--buttons">
+      <button mat-raised-button (click)="closeModal()" class="back">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>

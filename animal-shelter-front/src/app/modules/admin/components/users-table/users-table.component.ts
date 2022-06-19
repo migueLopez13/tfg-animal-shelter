@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -33,6 +33,13 @@ export class UsersTableComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  @Output() add = new EventEmitter()
+  @Output() edit = new EventEmitter()
+  @Output() delete = new EventEmitter()
+  @Output() social = new EventEmitter()
+  @Output() addresses = new EventEmitter()
+  @Output() phones = new EventEmitter()
+
   constructor(
     private readonly store: Store<AppState>
   ) { }
@@ -54,5 +61,22 @@ export class UsersTableComponent implements OnInit, AfterViewInit {
     this.usersData.filter = filterValue.trim().toLowerCase();
   }
 
-  openAddUser() { }
+  emitAdd() {
+    this.add.emit()
+  }
+  emitEdit(user: User) {
+    this.edit.emit(user)
+  }
+  emitDelete(user: User) {
+    this.delete.emit(user)
+  }
+  emitPhones(user: User) {
+    this.phones.emit(user)
+  }
+  emitAddresses(user: User) {
+    this.addresses.emit(user)
+  }
+  emitSocial(user: User) {
+    this.social.emit(user)
+  }
 }

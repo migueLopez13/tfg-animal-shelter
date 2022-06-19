@@ -36,7 +36,7 @@ export const UsersReducer = createReducer(
   on(UsersActions.addUserSuccess, (state, { user }) => ({
     ...state,
     loading: false,
-    Users: [...state.users, user]
+    users: [...state.users, user]
   })),
 
   on(UsersActions.addUserFailure, (state, { error }) => ({
@@ -53,7 +53,7 @@ export const UsersReducer = createReducer(
   on(UsersActions.updateUserSuccess, (state, { user }) => ({
     ...state,
     loading: false,
-    Users: [...state.users.map((_user) => {
+    users: [...state.users.map((_user) => {
       return _user.email === user.email ? user : _user
     })]
   })),
@@ -69,10 +69,10 @@ export const UsersReducer = createReducer(
     loading: true,
   })),
 
-  on(UsersActions.removeUserSuccess, (state, { user }) => ({
+  on(UsersActions.removeUserSuccess, (state, { userEmail }) => ({
     ...state,
     loading: false,
-    Users: [...state.users.filter(({ email }) => email !== user.email)]
+    users: [...state.users.filter(({ email }) => email !== userEmail)]
   })),
 
   on(UsersActions.removeUserFailure, (state, { error }) => ({
@@ -89,7 +89,7 @@ export const UsersReducer = createReducer(
   on(UsersActions.addUserAddressSuccess, (state, { address }) => ({
     ...state,
     loading: false,
-    Users: [...state.users.map((user) => {
+    users: [...state.users.map((user) => {
       if (user.email === address.userEmail) {
         user.address?.push(address)
       }
@@ -111,7 +111,7 @@ export const UsersReducer = createReducer(
   on(UsersActions.updateUserAddressSuccess, (state, { address }) => ({
     ...state,
     loading: false,
-    Users: [...state.users.map((user) => {
+    users: [...state.users.map((user) => {
       if (user.email === address.userEmail) {
         user.address?.map((_address) => _address.id === address.id ? address : _address)
       }
@@ -133,7 +133,7 @@ export const UsersReducer = createReducer(
   on(UsersActions.removeUserAddressSuccess, (state, { address }) => ({
     ...state,
     loading: false,
-    Users: [...state.users.map((user) => {
+    users: [...state.users.map((user) => {
       if (user.email === address.userEmail) {
         user.address?.filter(({ id }) => id !== address.id)
       }
@@ -155,7 +155,7 @@ export const UsersReducer = createReducer(
   on(UsersActions.addUserSocialSuccess, (state, { social }) => ({
     ...state,
     loading: false,
-    Users: [...state.users.map((user) => {
+    users: [...state.users.map((user) => {
       if (user.email === social.userEmail) {
         user.social?.push(social)
       }
@@ -177,7 +177,7 @@ export const UsersReducer = createReducer(
   on(UsersActions.updateUserSocialSuccess, (state, { social }) => ({
     ...state,
     loading: false,
-    Users: [...state.users.map((user) => {
+    users: [...state.users.map((user) => {
       if (user.email === social.userEmail) {
         user.social?.map((_social) => _social.id === social.id ? social : _social)
       }
@@ -199,7 +199,7 @@ export const UsersReducer = createReducer(
   on(UsersActions.removeUserSocialSuccess, (state, { social }) => ({
     ...state,
     loading: false,
-    Users: [...state.users.map((user) => {
+    users: [...state.users.map((user) => {
       if (user.email === social.userEmail) {
         user.social?.filter(({ id }) => id !== social.id)
       }
@@ -221,7 +221,7 @@ export const UsersReducer = createReducer(
   on(UsersActions.addUserPhoneSuccess, (state, { phone }) => ({
     ...state,
     loading: false,
-    Users: [...state.users.map((user) => {
+    users: [...state.users.map((user) => {
       if (user.email === phone.userEmail) {
         user.phone?.push(phone)
       }
@@ -243,7 +243,7 @@ export const UsersReducer = createReducer(
   on(UsersActions.updateUserPhoneSuccess, (state, { phone }) => ({
     ...state,
     loading: false,
-    Users: [...state.users.map((user) => {
+    users: [...state.users.map((user) => {
       if (user.email === phone.userEmail) {
         user.phone?.map((_phone) => _phone.id === phone.id ? phone : _phone)
       }
@@ -265,7 +265,7 @@ export const UsersReducer = createReducer(
   on(UsersActions.removeUserPhoneSuccess, (state, { phone }) => ({
     ...state,
     loading: false,
-    Users: [...state.users.map((user) => {
+    users: [...state.users.map((user) => {
       if (user.email === phone.userEmail) {
         user.phone?.filter(({ id }) => id !== phone.id)
       }
@@ -287,7 +287,7 @@ export const UsersReducer = createReducer(
   on(UsersActions.updateUserAvatarSuccess, (state, { user }) => ({
     ...state,
     loading: false,
-    Users: [...state.users.map(
+    users: [...state.users.map(
       (_user) => _user.email === user.email ? user : _user
     )]
   })),

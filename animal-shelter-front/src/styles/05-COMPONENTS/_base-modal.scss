@@ -10,6 +10,9 @@
   left: 0;
   z-index: 100;
 
+  &--secondary {
+    z-index: 10 !important;
+  }
   .modal {
     min-height: 200px;
     min-width: 500px;

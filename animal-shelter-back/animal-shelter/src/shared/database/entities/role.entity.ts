@@ -7,7 +7,7 @@ export class Role extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: string;
 
-  @ManyToMany(() => User, (user: User) => user.role)
+  @ManyToMany(() => User, (user: User) => user.role, { onUpdate: "CASCADE" })
   users: User[];
 
   @Column({ unique: true })

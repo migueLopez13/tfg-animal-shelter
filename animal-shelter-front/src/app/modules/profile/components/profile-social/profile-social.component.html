@@ -16,12 +16,6 @@
   You have not any social media, add new
 </div>
 <ng-template #socialList>
-  <app-modal-confirmation
-    *ngIf="showConfirmation"
-    [element]="element"
-    (close)="closeConfirmation()"
-    (true)="removeElement($event)"
-  ></app-modal-confirmation>
   <div class="profile-section">
     <div
       *ngFor="let social of socialNetworks | async; let i = index"

@@ -57,17 +57,17 @@ export class UsersController {
     return this.usersService.updateAvatar(email, avatar.image)
   }
 
-  @Put(':id')
+  @Put(':email')
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   private update(
-    @Body(ValidationPipe) user: UserDTO, @Auth() { email, role }: UserDTO
+    @Body(ValidationPipe) user: UserDTO, @Auth() { email, role }: UserDTO, @Param('email') params,
   ) {
     if (user.email === email || role.some((role) => role.name === 'admin'))
-      return this.usersService.update(user);
+      return this.usersService.update(params, user);
   }
 
-  @Delete(':id')
+  @Delete(':email')
   @ApiBearerAuth()
   @UseGuards(AuthGuard('jwt'))
   private delete(@Param('email') params, @Auth() { email, role }: UserDTO) {
