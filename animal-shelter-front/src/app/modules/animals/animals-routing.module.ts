@@ -31,7 +31,7 @@ const routes: Routes = [
   {
     path: ':id',
     data: {
-      breadcrumb: 'show/:id',
+      breadcrumb: '',
     },
     component: AnimalViewComponent
   },
