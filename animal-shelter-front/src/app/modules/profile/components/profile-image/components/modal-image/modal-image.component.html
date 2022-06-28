@@ -1,0 +1,19 @@
+<app-base-modal>
+  <div title>User avatar</div>
+  <div body class="modal-body--avatar">
+    <div class="avatar-image">
+      <img [src]="imageSrc" alt="user-avatar" />
+    </div>
+    <mat-form-field [formGroup]="avatarForm">
+      <mat-label>Choose your avatar</mat-label>
+      <ngx-mat-file-input
+        formControlName="file"
+        (change)="handleInputChange($event)"
+      ></ngx-mat-file-input>
+    </mat-form-field>
+  </div>
+  <div buttons>
+    <button mat-raised-button (click)="closeModal()" class="back">Back</button>
+    <button mat-raised-button (click)="saveElement()" class="save">Save</button>
+  </div>
+</app-base-modal>

@@ -1,0 +1,17 @@
+.dropdown {
+  position: fixed;
+  color: black;
+  text-shadow: none;
+  width: 100px;
+  font-size: 400;
+  background-color: var(--secondary-color);
+  z-index: 100;
+
+  &--item {
+    padding: 10px;
+    &:hover {
+      background-color: var(--gold-color);
+      color: white;
+    }
+  }
+}

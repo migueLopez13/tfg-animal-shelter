@@ -1,0 +1,65 @@
+<app-modal-confirmation
+  *ngIf="showConfirmation"
+  [element]="element"
+  (close)="closeConfirmation()"
+  (true)="removeElement($event)"
+></app-modal-confirmation>
+<app-manage-address
+  *ngIf="showAddress"
+  [element]="element"
+  (add)="addElement($event)"
+  (edit)="editElement($event)"
+  (close)="closeSocial()"
+></app-manage-address>
+<div class="base-modal base-modal--secondary">
+  <div class="modal">
+    <div class="modal--header">User addresss</div>
+    <div>
+      <div *ngIf="!addresses.length; else addressList" class="modal--body">
+        You have not any address, add new
+      </div>
+      <ng-template #addressList>
+        <div class="profile-section">
+          <div *ngFor="let address of addresses" class="profile-section--item">
+            <div class="column">
+              <div class="title">Label:</div>
+              {{ address.label }}
+            </div>
+            <div class="column">
+              <div class="title">Country code:</div>
+              {{ address.countryCode }}
+            </div>
+            <div class="column">
+              <div class="title">address number:</div>
+              {{ address.address }}
+            </div>
+            <div class="buttons-wrapper">
+              <button
+                mat-raised-button
+                (click)="openEdit(address)"
+                class="button-edit"
+              >
+                Edit
+              </button>
+              <button
+                mat-raised-button
+                (click)="openConfirmation(address.id)"
+                class="button-remove"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <button mat-raised-button (click)="openAdd()" color="accent">
+        New address
+      </button>
+    </div>
+    <div class="modal--buttons">
+      <button mat-raised-button (click)="closeModal()" class="back">
+        Cancel
+      </button>
+    </div>
+  </div>
+</div>

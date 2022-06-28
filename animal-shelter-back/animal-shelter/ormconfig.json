@@ -1,0 +1,13 @@
+{
+  "type": "postgres",
+  "host": "postgresql",
+  "port": 5432,
+  "username": "root",
+  "password": "root",
+  "database": "animal_shelter",
+  "entities": ["src/shared/database/**/*.entity{.ts,.js}"],
+  "synchronize": true,
+  "logging": false,
+  "seeds": ["src/shared/database/seeding/seeds/**/*{.ts,.js}"],
+  "factories": ["src/shared/database/seeding/factories/**/*{.ts,.js}"]
+}

@@ -1,0 +1,73 @@
+<div class="animal-wrapper">
+  <fa-icon
+    [icon]="leftArrow"
+    class="navigation-icon fa-xl"
+    (click)="lastAnimal()"
+  ></fa-icon>
+  <div class="animal-view">
+    <div class="animal-view--header">
+      <div class="animal-image">
+        <app-animal-media-slider
+          [images]="(animal | async)?.media"
+        ></app-animal-media-slider>
+      </div>
+      <div class="animal-attributes">
+        <div class="animal-attributes--item">
+          <div class="title">Name:</div>
+          {{ (animal | async)?.name }}
+        </div>
+        <div class="animal-attributes--item">
+          <div class="title">Kind:</div>
+          {{ (animal | async)?.kind }}
+        </div>
+        <div class="animal-attributes--item">
+          <div class="title">Breed:</div>
+          {{ (animal | async)?.breed }}
+        </div>
+        <div class="animal-attributes--item">
+          <div class="title">Gender:</div>
+          {{ (animal | async)?.gender }}
+        </div>
+        <div class="animal-attributes--item">
+          <div class="title">Birthdate:</div>
+          {{ (animal | async)?.birthdate?.slice(0, 16) }}
+        </div>
+        <div class="animal-attributes--item">
+          <div class="title">Size:</div>
+          {{ (animal | async)?.size }}
+        </div>
+        <div class="animal-attributes--item">
+          <div class="title">Dewormed:</div>
+          {{ (animal | async)?.dewormed }}
+        </div>
+        <div class="animal-attributes--item">
+          <div class="title">Shelter:</div>
+          {{ (animal | async)?.shelterEmail }}
+        </div>
+        <div class="animal-attributes--item">
+          <div class="title">Arrived:</div>
+          {{ (animal | async)?.arrivalDate?.slice(0, 16) }}
+        </div>
+        <div class="animal-attributes--item">
+          <div class="title">Vaccines:</div>
+          <div *ngIf="!(animal | async)?.vaccine?.length">
+            No vaccines found
+          </div>
+          <div *ngIf="(animal | async)?.vaccine?.length" class="vaccines">
+            <div *ngFor="let vaccine of (animal | async)?.vaccine">
+              {{ vaccine.name }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="animal-view--body">
+      {{ (animal | async)?.description }}
+    </div>
+  </div>
+  <fa-icon
+    [icon]="rightArrow"
+    class="navigation-icon fa-xl"
+    (click)="nextAnimal()"
+  ></fa-icon>
+</div>

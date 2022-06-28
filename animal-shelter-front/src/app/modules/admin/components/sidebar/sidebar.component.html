@@ -1,0 +1,16 @@
+<div class="sidebar" #sidebar>
+  <fa-icon
+    [icon]="sidebarIcon"
+    class="sidebar--icon fa-xl"
+    (click)="changeCollapse()"
+  ></fa-icon>
+  <div *ngIf="!collapsed" class="options">
+    <div
+      class="item"
+      *ngFor="let option of options"
+      [routerLink]="[option.route]"
+    >
+      {{ option.name }}
+    </div>
+  </div>
+</div>

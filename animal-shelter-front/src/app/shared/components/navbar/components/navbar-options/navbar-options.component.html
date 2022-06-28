@@ -1,0 +1,22 @@
+<div class="navbar--options">
+  <div
+    class="option"
+    *ngFor="let option of options; index as i"
+    (click)="moveToRoute(option)"
+  >
+    {{ option.name }}
+
+    <fa-icon
+      *ngIf="option.dropdownOptions"
+      [icon]="icon"
+      class="icon fa-fw"
+    ></fa-icon>
+
+    <app-dropdown
+      *ngIf="option.dropdownOptions"
+      class="option-dropdown"
+      [list]="option.dropdownOptions"
+    >
+    </app-dropdown>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<app-modal-image
+  [avatar]="user.avatar"
+  [userEmail]="user.email"
+  *ngIf="showModal"
+  (close)="closeModal()"
+></app-modal-image>
+<div class="profile-image">
+  <div class="image-wrapper">
+    <div class="img-wrapper">
+      <img src="{{ user.avatar }}" alt="user-image" />
+    </div>
+    <div class="edit-icon">
+      <fa-icon [icon]="editIcon" (click)="editImage()"></fa-icon>
+    </div>
+  </div>
+  <div class="user-resume">
+    <div>{{ user.name }} {{ user.surname }}</div>
+    <div>{{ user.email }}</div>
+  </div>
+</div>

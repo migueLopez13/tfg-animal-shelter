@@ -1,0 +1,44 @@
+@import "~animate.css/animate.min";
+@import "~ol/ol.css";
+
+//00-SETTINGS
+@import "./styles/00-SETTINGS/global";
+@import "./styles/00-SETTINGS/normalize";
+
+//01-TOOLS
+@import "./styles/01-TOOLS/mixins";
+
+//02-GENERIC
+
+//03-ELEMENTS
+@import "./styles/03-ELEMENTS/scrollbar";
+@import "./styles/03-ELEMENTS/modal";
+
+//04-OBJECTS
+
+//05-COMPONENTS
+@import "./styles/05-COMPONENTS/navbar";
+@import "./styles/05-COMPONENTS/in-construction";
+@import "./styles/05-COMPONENTS/user-avatar";
+@import "./styles/05-COMPONENTS/dropdown";
+@import "./styles/05-COMPONENTS/breadcrumb";
+@import "./styles/05-COMPONENTS/user-form";
+@import "./styles/05-COMPONENTS/login-view";
+@import "./styles/05-COMPONENTS/card";
+@import "./styles/05-COMPONENTS/footer";
+@import "./styles/05-COMPONENTS/pagination-filter";
+@import "./styles/05-COMPONENTS/profile-view";
+@import "./styles/05-COMPONENTS/profile-image";
+@import "./styles/05-COMPONENTS/profile-user-info";
+@import "./styles/05-COMPONENTS/profile-section";
+@import "./styles/05-COMPONENTS/base-modal";
+@import "./styles/05-COMPONENTS/animal-view";
+@import "./styles/05-COMPONENTS/animal-media-slider";
+@import "./styles/05-COMPONENTS/dashboard";
+@import "./styles/05-COMPONENTS/sidebar";
+@import "./styles/05-COMPONENTS/base-table";
+@import "./styles/05-COMPONENTS/shelter-view";
+@import "./styles/05-COMPONENTS/carousel";
+@import "./styles/05-COMPONENTS/home-view";
+
+//06-TRUMPS

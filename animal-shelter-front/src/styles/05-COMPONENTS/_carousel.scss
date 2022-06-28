@@ -1,0 +1,41 @@
+.carousel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  width: 1300px;
+  height: max-content;
+  overflow: hidden;
+  margin: auto;
+  user-select: none;
+
+  .slides {
+    display: flex;
+    flex-direction: row;
+    width: 400%;
+    height: 50vh;
+
+    .slide {
+      width: 1300px;
+      margin-left: 0px;
+    }
+  }
+  .control {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: var(--blue-dark-color);
+    border-radius: 30px;
+    color: var(--gold-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .prev-slide {
+    left: 10%;
+  }
+  .next-slide {
+    right: 10%;
+  }
+}

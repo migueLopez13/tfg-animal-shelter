@@ -1,0 +1,14 @@
+.dashboard {
+  height: 68vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .chart-wrapper {
+    width: 650px;
+    height: 650px;
+    color: white;
+    font-size: 25px;
+  }
+}

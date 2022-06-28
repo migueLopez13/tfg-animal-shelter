@@ -1,0 +1,44 @@
+.login-view {
+  width: 500px;
+  height: 69vh;
+  margin: 0px auto;
+  animation: fadeIn;
+  animation-duration: 1s;
+
+  .controls {
+    display: flex;
+    height: 50px;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--blue-dark-color);
+    border-radius: 20px 20px 0px 0px;
+
+    .label {
+      @include secondaryTitle;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: rgb(147, 148, 166);
+      cursor: pointer;
+      user-select: none;
+
+      &:hover {
+        background-color: var(--blue-light-color);
+        color: var(--blue-dark-color);
+        border-radius: 20px 20px 0px 0px;
+      }
+    }
+    .primary {
+      color: var(--gold-color);
+    }
+  }
+
+  &--forms {
+    background-color: var(--blue-light-color);
+    padding: 50px 30px 30px 30px;
+    border-radius: 0px 0px 20px 20px;
+  }
+}

@@ -1,0 +1,22 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 80vw;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  min-height: 68vh;
+  animation: fadeIn 1s;
+
+  .title {
+    font-family: Caveat;
+    font-size: 30px;
+    color: white;
+    font-weight: 600;
+  }
+  .text {
+    color: white;
+    font-style: italic;
+  }
+}

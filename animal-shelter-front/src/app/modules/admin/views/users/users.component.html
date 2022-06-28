@@ -1,0 +1,40 @@
+<app-admin-modal-users
+  [element]="element"
+  *ngIf="showUser"
+  (add)="addUser($event)"
+  (save)="editUser($event)"
+  (close)="closeModalUser()"
+></app-admin-modal-users>
+<app-modal-confirmation
+  *ngIf="showConfirmation"
+  [element]="element"
+  (close)="closeModalConfirmation()"
+  (true)="deleteUser($event)"
+></app-modal-confirmation>
+<app-admin-modal-phones
+  *ngIf="showPhonesUser"
+  [phones]="element"
+  (close)="closeModalPhones()"
+></app-admin-modal-phones>
+<app-admin-modal-social
+  *ngIf="showSocialUser"
+  [socialList]="element"
+  (close)="closeModalSocial()"
+></app-admin-modal-social>
+<app-admin-modal-addresses
+  *ngIf="showAddressesUser"
+  [addresses]="element"
+  (close)="closeModalAddresses()"
+></app-admin-modal-addresses>
+
+<app-sidebar></app-sidebar>
+<div class="dashboard">
+  <app-users-table
+    (add)="openNewUser()"
+    (edit)="openEditUser($event)"
+    (delete)="openDeleteUser($event)"
+    (social)="openSocialUser($event)"
+    (addresses)="openAddressesUser($event)"
+    (phones)="openPhonesUser($event)"
+  ></app-users-table>
+</div>

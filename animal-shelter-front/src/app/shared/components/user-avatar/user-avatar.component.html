@@ -1,0 +1,22 @@
+<div class="user-avatar">
+  <img
+    *ngIf="!userProfile.avatar; else userLogged"
+    class="avatar"
+    src="../../../../assets/default-user.png"
+    matTooltip="Login"
+    (click)="toRoute('login')"
+  />
+  <ng-template #userLogged>
+    <div class="user-email">
+      {{ userProfile.email }}
+    </div>
+    <div class="image-container">
+      <img
+        class="avatar"
+        src="{{ userProfile.avatar }}"
+        (click)="toRoute('profile')"
+      />
+      <app-dropdown [list]="userOptions"></app-dropdown>
+    </div>
+  </ng-template>
+</div>

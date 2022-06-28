@@ -1,0 +1,32 @@
+.footer {
+  background-color: var(--secondary-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 150px;
+  margin-top: 52px;
+  box-shadow: inset 1px 6px 7px -4px rgb(20, 20, 22);
+  font-family: Quicksand;
+  font-weight: bolder;
+  font-size: var(--text-xl);
+  user-select: none;
+  animation: fadeInUp;
+  animation-duration: 1s;
+
+  &--authors {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    a,
+    a:visited {
+      text-decoration: none;
+      color: black;
+    }
+    img {
+      width: 100px;
+    }
+  }
+}

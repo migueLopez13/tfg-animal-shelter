@@ -1,0 +1,53 @@
+.profile-section {
+  font-family: Quicksand;
+  &--item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--grey-05-color);
+    margin-bottom: 5px;
+    gap: 10px;
+    .column {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+      .title {
+        font-weight: 600;
+        color: var(--grey-02-color);
+      }
+      img {
+        max-width: 40px;
+      }
+    }
+
+    .buttons-wrapper {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      .button-remove {
+        color: white;
+        background-color: var(--error-color);
+        &:hover {
+          filter: brightness(1.2);
+        }
+      }
+      .button-edit {
+        color: white;
+        background-color: var(--gold-color);
+        &:hover {
+          filter: brightness(1.2);
+        }
+      }
+    }
+  }
+  .button-new {
+    color: white;
+    background-color: var(--blue-dark-color);
+    &:hover {
+      filter: brightness(1.2);
+    }
+  }
+}

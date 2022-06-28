@@ -1,0 +1,13 @@
+<div class="base-modal">
+  <div class="modal">
+    <div class="modal--header">
+      <ng-content select="[title]"></ng-content>
+    </div>
+    <div class="modal--body">
+      <ng-content select="[body]"></ng-content>
+    </div>
+    <div class="modal--buttons">
+      <ng-content select="[buttons]"> </ng-content>
+    </div>
+  </div>
+</div>

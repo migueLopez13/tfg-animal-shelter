@@ -1,0 +1,94 @@
+<app-modal-confirmation
+  *ngIf="showConfirmation"
+  [element]="user.email"
+  (close)="closeConfirmation()"
+  (true)="deleteUser($event)"
+></app-modal-confirmation>
+<app-modal-password
+  *ngIf="showChangePassword"
+  (close)="closePassword()"
+></app-modal-password>
+<div class="profile-user">
+  <mat-form-field
+    class="profile-user--name"
+    appearance="fill"
+    [formGroup]="profileForm"
+  >
+    <mat-label>Name</mat-label>
+    <input
+      matInput
+      type="name"
+      formControlName="name"
+      placeholder="Juan"
+      autocomplete="off"
+    />
+    <mat-error
+      *ngIf="
+        profileForm.get('name')?.hasError('min') &&
+        !profileForm.get('name')?.hasError('required')
+      "
+    >
+      Please enter a valid name
+    </mat-error>
+    <mat-error *ngIf="profileForm.get('name')?.hasError('required')">
+      Name is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field
+    class="profile-user--surname"
+    appearance="fill"
+    [formGroup]="profileForm"
+  >
+    <mat-label>Surname</mat-label>
+    <input
+      matInput
+      type="surname"
+      formControlName="surname"
+      placeholder="Ruedas"
+      autocomplete="off"
+    />
+    <mat-error
+      *ngIf="
+        profileForm.get('surname')?.hasError('min') &&
+        !profileForm.get('surname')?.hasError('required')
+      "
+    >
+      Please enter a valid surname
+    </mat-error>
+    <mat-error *ngIf="profileForm.get('surname')?.hasError('required')">
+      Surname is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field
+    class="profile-user--email"
+    appearance="fill"
+    [formGroup]="profileForm"
+  >
+    <mat-label>Email</mat-label>
+    <input matInput disabled value="{{ user.email }}" />
+  </mat-form-field>
+
+  <div class="change-password">
+    <button mat-raised-button (click)="showModalPassword()" class="button-pass">
+      Change password
+    </button>
+  </div>
+
+  <div class="save">
+    <button mat-raised-button (click)="saveProfile()" class="button-save">
+      Save
+    </button>
+  </div>
+
+  <div class="delete-account">
+    <button
+      mat-raised-button
+      (click)="openConfirmation()"
+      class="button-delete"
+    >
+      Delete account
+    </button>
+  </div>
+</div>

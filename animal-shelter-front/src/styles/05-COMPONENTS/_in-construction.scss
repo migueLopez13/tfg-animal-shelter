@@ -1,0 +1,21 @@
+.in-construction {
+  margin: auto;
+  width: 100vw;
+  height: 68vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 200px;
+  animation: fadeIn;
+  animation-duration: 1s;
+
+  img {
+    width: 300px;
+  }
+
+  &--message {
+    font-size: var(--text-2xl);
+    font-family: Caveat;
+  }
+}
